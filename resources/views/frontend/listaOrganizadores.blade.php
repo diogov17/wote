@@ -13,7 +13,7 @@
        <div class="container">
            <div class="row">
                <div class="col-md-6">
-                   <h4><strong>Showing 10</strong> of {{ count($artistas) }} results (fazer contas)</h4>
+                   <h4><strong>Showing 10</strong> of {{ count($organizadores) }} results (fazer contas)</h4>
                </div>
                <div class="col-md-6">
                     <div class="search_bar_list">
@@ -70,18 +70,18 @@
 			<div class="col-lg-8">
 				<div class="row">
 
-					@foreach($artistas as $artista)
+					@foreach($organizadores as $organizador)
 					<div class="col-md-6">
 						<div class="box_list wow fadeIn">
 							<a href="#0" class="wish_bt"></a>
 							<figure>
-								<a href="/artista/{{$artista->id}}"><img src="{{ $profilePics[$artista->id] }}" class="img-fluid" alt="">
+								<a href="/organizador/{{$organizador->id}}"><img src="{{ $profilePics[$organizador->id] }}" class="img-fluid" alt="">
 									<div class="preview"><span>Read more</span></div>
 								</a>
 							</figure>
 							<div class="wrapper">
-								<small>{{ trans('messages.Artista') }}</small>
-								<h3>{{ $artista->name }}</h3>
+								<small>{{ trans('messages.Organizador') }}</small>
+								<h3>{{ $organizador->name }}</h3>
 
 								<p>Not Available</p>
 								<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>

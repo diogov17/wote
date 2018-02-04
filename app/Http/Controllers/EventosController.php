@@ -40,115 +40,23 @@ class EventosController extends BaseController
             $autenticado = 0;
         }
 
-        //CAMPOS: pesquisaLivre, dataInicioDisponibilidade, dataFimDisponibilidade, idConcelho, idDistrito, idPais, precoInicio, precoFim, nrSeguidores, feedback, locaisAtuacao
-
         if(isset($request->pesquisaLivre))
             $pesquisaLivre = $request->pesquisaLivre;
         else 
             $pesquisaLivre = '';
 
-        $tipoPesquisa = 1;
-
-        if(isset($request->dataInicioDisponibilidade))
-            $dataInicioDisponibilidade = $request->dataInicioDisponibilidade;
-        else 
-            $dataInicioDisponibilidade = '';
-
-        if(isset($request->dataFimDisponibilidade))
-            $dataFimDisponibilidade = $request->dataFimDisponibilidade;
-        else 
-            $dataFimDisponibilidade = '';
-
-        if(isset($request->idConcelho))
-            $idConcelho = $request->idConcelho;
-        else 
-            $idConcelho = 0;
-
-        if(isset($request->idPais))
-            $idPais = $request->idPais;
-        else 
-            $idPais = 0;
-
-        if(isset($request->idDistrito))
-            $idDistrito = $request->idDistrito;
-        else 
-            $idDistrito = 0;
-
-        if(isset($request->precoInicio))
-            $precoInicio = $request->precoInicio;
-        else 
-            $precoInicio = 0;
-
-        if(isset($request->precoFim))
-            $precoFim = $request->precoFim;
-        else 
-            $precoFim = 0;
+        $tipoPesquisa = 2;
 
 
-
-        if(isset($request->nrSeguidoresLow))
-            $nrSeguidoresLow = $request->nrSeguidoresLow;
-        else 
-            $nrSeguidoresLow = 0;
-
-        if(isset($request->nrSeguidoresHigh))
-            $nrSeguidoresHigh = $request->nrSeguidoresHigh;
-        else 
-            $nrSeguidoresHigh = 0;
-
-
-
-        if(isset($request->feedbackLow))
-            $feedbackLow = $request->feedbackLow;
-        else 
-            $feedbackLow = 0;
-
-        if(isset($request->feedbackHigh))
-            $feedbackHigh = $request->feedbackHigh;
-        else 
-            $feedbackHigh = 0;
-
-
-        if(isset($request->pagina))
-            $pagina = $request->pagina;
-        else 
-            $pagina = 1;
-
-
-        if(isset($request->localAtuacao))
-            $localAtuacao = $request->localAtuacao;
-        else 
-            $localAtuacao = 0;
-
-        /*
-        campos: filtro -> populares/fimdesemana, 
-                                                    precoEntradaLimite = 0;
-                                                    by = asc/desc
-        */
-
-        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
-
+        $eventos = Evento::getAllEventos($request['pesquisaLivre']);
 
         return view('frontend.searchArtista')
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
-                    ->with('artistas',$resultado)
                     ->with('pesquisaLivre',$pesquisaLivre)
-                    ->with('dataInicioDisponibilidade',$dataInicioDisponibilidade)
-                    ->with('dataFimDisponibilidade',$dataFimDisponibilidade)
-                    ->with('idConcelho',$idConcelho)
-                    ->with('idDistrito',$idDistrito)
-                    ->with('idPais',$idPais)
-                    ->with('precoInicio',$precoInicio)
-                    ->with('precoFim',$precoFim)
-                    ->with('nrSeguidoresLow',$nrSeguidoresLow)
-                    ->with('nrSeguidoresHigh',$nrSeguidoresHigh)
-                    ->with('feedbackLow',$feedbackLow)
-                    ->with('feedbackHigh',$feedbackHigh)
-                    ->with('localAtuacao',$localAtuacao)
-                    ->with('pagina',$pagina)
-                    ->with('tipoPesquisa', $request['tipoPesquisa']);
+                    ->with('tipoPesquisa', $request['tipoPesquisa'])
+                    ->with('eventos', $eventos);
     }
 
   

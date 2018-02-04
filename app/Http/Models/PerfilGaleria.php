@@ -23,4 +23,13 @@ class PerfilGaleria extends Model {
     protected $primaryKey = 'idGaleria';
 
     public $timestamps = false;
+
+    public static function getProfilePic($id)
+    {
+        $perfilGaleria = DB::table('perfilGaleria')
+                                        ->where('perfilGaleria.idUtilizador','=',$id)
+                                        ->get();
+                                        
+        return $perfilGaleria[0]->urlGaleria;
+    }
 }

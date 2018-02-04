@@ -74,8 +74,6 @@ class HomeController extends BaseController
 
         
         $artistasHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
-       
-        
         
         $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
 

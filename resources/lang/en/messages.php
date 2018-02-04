@@ -7,6 +7,7 @@ return [
     'Artista' => 'Artist',
     'Eventos' => 'Events',
     'Organizadores' => 'Managers',
+    'Organizador' => 'Manager',
     'Negócios' => 'Businesses',
     'MeuEspaçoMusical' => 'My Music Space',
     'Header' => 'Wote | All Together For Music',

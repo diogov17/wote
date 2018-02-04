@@ -40,110 +40,30 @@ class OrganizadoresController extends BaseController
             $autenticado = 0;
         }
 
-        //CAMPOS: pesquisaLivre, dataInicioDisponibilidade, dataFimDisponibilidade, idConcelho, idDistrito, idPais, precoInicio, precoFim, nrSeguidores, feedback, locaisAtuacao
-
         if(isset($request->pesquisaLivre))
             $pesquisaLivre = $request->pesquisaLivre;
         else 
             $pesquisaLivre = '';
 
-        $tipoPesquisa = 1;
-
-        if(isset($request->dataInicioDisponibilidade))
-            $dataInicioDisponibilidade = $request->dataInicioDisponibilidade;
-        else 
-            $dataInicioDisponibilidade = '';
-
-        if(isset($request->dataFimDisponibilidade))
-            $dataFimDisponibilidade = $request->dataFimDisponibilidade;
-        else 
-            $dataFimDisponibilidade = '';
-
-        if(isset($request->idConcelho))
-            $idConcelho = $request->idConcelho;
-        else 
-            $idConcelho = 0;
-
-        if(isset($request->idPais))
-            $idPais = $request->idPais;
-        else 
-            $idPais = 0;
-
-        if(isset($request->idDistrito))
-            $idDistrito = $request->idDistrito;
-        else 
-            $idDistrito = 0;
-
-        if(isset($request->precoInicio))
-            $precoInicio = $request->precoInicio;
-        else 
-            $precoInicio = 0;
-
-        if(isset($request->precoFim))
-            $precoFim = $request->precoFim;
-        else 
-            $precoFim = 0;
+        $tipoPesquisa = 3;
 
 
+        $organizadores = Utilizador::getAllOrganizadores($request['pesquisaLivre']);
 
-        if(isset($request->nrSeguidoresLow))
-            $nrSeguidoresLow = $request->nrSeguidoresLow;
-        else 
-            $nrSeguidoresLow = 0;
+        $profilePics = array();
 
-        if(isset($request->nrSeguidoresHigh))
-            $nrSeguidoresHigh = $request->nrSeguidoresHigh;
-        else 
-            $nrSeguidoresHigh = 0;
+        foreach ($organizadores as $organizador)
+            $profilePics[$organizador->id] = PerfilGaleria::getProfilePic($organizador->id);
 
 
-
-        if(isset($request->feedbackLow))
-            $feedbackLow = $request->feedbackLow;
-        else 
-            $feedbackLow = 0;
-
-        if(isset($request->feedbackHigh))
-            $feedbackHigh = $request->feedbackHigh;
-        else 
-            $feedbackHigh = 0;
-
-
-        if(isset($request->pagina))
-            $pagina = $request->pagina;
-        else 
-            $pagina = 1;
-
-
-        if(isset($request->localAtuacao))
-            $localAtuacao = $request->localAtuacao;
-        else 
-            $localAtuacao = 0;
-
-
-        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
-
-
-        return view('frontend.searchArtista')
+        return view('frontend.listaOrganizadores')
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
-                    ->with('artistas',$resultado)
                     ->with('pesquisaLivre',$pesquisaLivre)
-                    ->with('dataInicioDisponibilidade',$dataInicioDisponibilidade)
-                    ->with('dataFimDisponibilidade',$dataFimDisponibilidade)
-                    ->with('idConcelho',$idConcelho)
-                    ->with('idDistrito',$idDistrito)
-                    ->with('idPais',$idPais)
-                    ->with('precoInicio',$precoInicio)
-                    ->with('precoFim',$precoFim)
-                    ->with('nrSeguidoresLow',$nrSeguidoresLow)
-                    ->with('nrSeguidoresHigh',$nrSeguidoresHigh)
-                    ->with('feedbackLow',$feedbackLow)
-                    ->with('feedbackHigh',$feedbackHigh)
-                    ->with('localAtuacao',$localAtuacao)
-                    ->with('pagina',$pagina)
-                    ->with('tipoPesquisa', $request['tipoPesquisa']);
+                    ->with('tipoPesquisa', $request['tipoPesquisa'])
+                    ->with('organizadores', $organizadores)
+                    ->with('profilePics', $profilePics);
     }
 
   
@@ -174,31 +94,30 @@ class OrganizadoresController extends BaseController
 
     }
 
-    /*
     public function pagina($id)
     {
+        $user = Utilizador::isOrganizador($id);
 
-        $user = User::where('id', '=', $id)
-                                ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
-                                ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
-                                ->get();
-        $perfil = Perfil::where('idUtilizador', '=', $id)
-                                ->get();
+        if(count($user) == 1)
+        {
+            $perfil = Perfil::where('idUtilizador', '=', $id)
+                                    ->get();
 
-        $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
-                                ->get();
+            $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
+                                    ->get();
 
-        $calendario = [];
-
-        if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
-            return view('frontend.displayArtista')
-                        ->with('user', $user[0])
-                        ->with('perfil', $perfil[0])
-                        ->with('galeria', $galeria[0])
-                        ->with('calendario', $calendario)
-                        ->with('radio_search', 'organizadores');
-        else Echo (count($user)); //return view('frontend.errorPerfil');
+            $calendario = [];
+            
+            if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
+                return view('frontend.displayPerfilOrganizador')
+                            ->with('user', $user[0])
+                            ->with('perfil', $perfil[0])
+                            ->with('galeria', $galeria[0])
+                            ->with('calendario', $calendario)
+                            ->with('tipoPesquisa', 3);
+            else return view('frontend.errorPerfil');
+        }
+        else return view('frontend.errorPerfil');
     }
-    */
 
 }

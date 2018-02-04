@@ -42,4 +42,12 @@ class Evento extends Model {
     protected $primaryKey = 'idEvento';
 
     public $timestamps = false;
+
+
+    public static function getAllEventos($input)
+    {
+        return DB::table('evento')
+                            ->where('tituloEvento', 'like', '%' . $input . '%')
+                            ->get();
+    }
 }

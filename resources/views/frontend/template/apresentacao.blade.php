@@ -48,7 +48,7 @@
 						<ul>
 
 							<li>
-								<span><a href="/">{{ trans('messages.Home') }}</a></span>
+								<span><a href="/home">{{ trans('messages.Home') }}</a></span>
 							</li>
 							<li>
 								<span><a href="#">{{ trans('messages.Artistas') }}</a></span>

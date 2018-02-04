@@ -100,23 +100,40 @@ class Utilizador extends Model
                             ->get();
     }
 
-    /*
-    public static function searchOrganizadores($input)
+    public static function getAllOrganizadores($input)
     {
         return DB::table('users')
                             ->join('UtilizadoresTiposConta','users.id','=','UtilizadoresTiposConta.idUser')
                             ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
                             ->where('usersTipologia.idTipoConta', '=', '2')
-                            ->where('nome', 'like', '%' . $input . '%')
+                            ->where('name', 'like', '%' . $input . '%')
                             ->get();
     }
 
-    public static function searchEventos($input)
+    public static function isArtista($id)
     {
-        return DB::table('evento')
-                            ->where('tituloEvento', 'like', '%' . $input . '%')
+        $artista = DB::table('users')
+                            ->join('UtilizadoresTiposConta','users.id','=','UtilizadoresTiposConta.idUser')
+                            ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
+                            ->where('usersTipologia.idTipoConta', '=', '1')
+                            ->where('id', '=', $id)
+                            ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
+                            ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
                             ->get();
+        return $artista;
     }
-    */
+
+    public static function isOrganizador($id)
+    {
+        $organizador = DB::table('users')
+                            ->join('UtilizadoresTiposConta','users.id','=','UtilizadoresTiposConta.idUser')
+                            ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
+                            ->where('usersTipologia.idTipoConta', '=', '2')
+                            ->where('id', '=', $id)
+                            ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
+                            ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
+                            ->get();
+        return $organizador;
+    }
 
 }

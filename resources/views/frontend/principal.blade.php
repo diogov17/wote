@@ -20,140 +20,37 @@
 				<p>Encontra o artista ideal para o teu espetáculo.</p>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
 
-							<a href="detail-page.html"><img src="artistas/1.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+				<?php
+				for ($i = 1; $i <= 6; $i++) { ?>
+
+    				<div class="col-lg-4 col-md-6">
+						<div class="box_list home">
+							<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
+							<figure>
+
+								<a href="detail-page.html"><img src="artistas/1.jpg" class="img-fluid" alt=""></a>
+								<div class="preview"><span>Ver mais</span></div>
+							</figure>
+							<div class="wrapper">
+								<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
+								<h3>Art and Art</h3>
+								<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
+								<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
+								<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+							</div>
+							<ul>
+								<li><i class="icon-eye-7"></i> 854 Visualizações</li>
+								<li><a href="#">Ver Página</a></li>
+							</ul>
 						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
 					</div>
-				</div>
 
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
+		  <?php } ?>
 
-							<a href="detail-page.html"><img src="artistas/2.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
-
-							<a href="detail-page.html"><img src="artistas/3.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
-
-							<a href="detail-page.html"><img src="artistas/4.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
-
-							<a href="detail-page.html"><img src="artistas/5.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="box_list home">
-						<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-						<figure>
-
-							<a href="detail-page.html"><img src="artistas/6.jpg" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Ver mais</span></div>
-						</figure>
-						<div class="wrapper">
-							<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-							<h3>Art and Art</h3>
-							<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-							<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
 			<!-- /row -->
-			<p class="text-center add_top_30"><a href="list.html" class="btn_1 medium">Todos Artistas</a></p>
 		</div>
+		<p class="text-left add_top_30"><a href="list.html" class="btn_1 medium">Todos Artistas</a></p>
 		<!-- /container -->
 	</div>
 

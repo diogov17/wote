@@ -125,12 +125,17 @@ class ArtistasController extends BaseController
 
         $artistas = Utilizador::getAllArtistas($request['pesquisaLivre']);
 
+        $profilePics = array();
+
+        foreach ($artistas as $artista)
+            $profilePics[$artista->id] = PerfilGaleria::getProfilePic($artista->id);
+
 
         return view('frontend.listaArtistas')
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
-                    ->with('artistas',$resultado)
+                    ->with('filteredArtistas',$resultado)
                     ->with('pesquisaLivre',$pesquisaLivre)
                     ->with('dataInicioDisponibilidade',$dataInicioDisponibilidade)
                     ->with('dataFimDisponibilidade',$dataFimDisponibilidade)
@@ -146,7 +151,8 @@ class ArtistasController extends BaseController
                     ->with('localAtuacao',$localAtuacao)
                     ->with('pagina',$pagina)
                     ->with('artistas', $artistas)
-                    ->with('tipoPesquisa', $request['tipoPesquisa']);
+                    ->with('tipoPesquisa', $request['tipoPesquisa'])
+                    ->with('profilePics', $profilePics);
     }
 
   
@@ -179,27 +185,27 @@ class ArtistasController extends BaseController
 
     public function pagina($id)
     {
+        $user = Utilizador::isArtista($id);
 
-        $user = Utilizador::where('id', '=', $id)
-                                ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
-                                ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
-                                ->get();
-        $perfil = Perfil::where('idUtilizador', '=', $id)
-                                ->get();
+        if(count($user) == 1)
+        {
+            $perfil = Perfil::where('idUtilizador', '=', $id)
+                                    ->get();
 
-        $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
-                                ->get();
+            $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
+                                    ->get();
 
-        $calendario = [];
-        
+            $calendario = [];
 
-        if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
-            return view('frontend.displayPerfilArtista')
-                        ->with('user', $user[0])
-                        ->with('perfil', $perfil[0])
-                        ->with('galeria', $galeria[0])
-                        ->with('calendario', $calendario)
-                        ->with('tipoPesquisa', 1);
+            if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
+                return view('frontend.displayPerfilArtista')
+                            ->with('user', $user[0])
+                            ->with('perfil', $perfil[0])
+                            ->with('galeria', $galeria[0])
+                            ->with('calendario', $calendario)
+                            ->with('tipoPesquisa', 1);
+            else return view('frontend.errorPerfil');
+        }
         else return view('frontend.errorPerfil');
     }
 
