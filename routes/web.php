@@ -10,17 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-
-Route::get('search', 'SearchController@search');
-
-Route::get('evento/{id}', 'EventoController@pagina')->where('id', '([0-9]+)');
-*/
 
 Route::get('/', 'HomeController@index');
 
 Route::get('artista/{id}', 'ArtistasController@pagina')->where('id', '([0-9]+)');
 Route::get('organizador/{id}', 'OrganizadoresController@pagina')->where('id', '([0-9]+)');
+Route::get('evento/{id}', 'EventosController@pagina')->where('id', '([0-9]+)');
 
 Route::resource('artista', 'ArtistasController');
 Route::resource('organizador', 'OrganizadoresController');

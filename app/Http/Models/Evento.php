@@ -50,4 +50,11 @@ class Evento extends Model {
                             ->where('tituloEvento', 'like', '%' . $input . '%')
                             ->get();
     }
+
+    public static function isEvento($id)
+    {
+        return DB::table('evento')
+                            ->where('evento.idEvento', '=', $id)
+                            ->get();
+    }
 }

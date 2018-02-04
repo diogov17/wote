@@ -12,6 +12,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Models\Utilizador;
+use App\Http\Models\Evento;
 use App\Http\Models\Anuncios;
 use App\Http\Models\Perfil;
 use App\Http\Models\PerfilGaleria;
@@ -50,7 +51,7 @@ class EventosController extends BaseController
 
         $eventos = Evento::getAllEventos($request['pesquisaLivre']);
 
-        return view('frontend.searchArtista')
+        return view('frontend.listaEventos')
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
@@ -87,31 +88,18 @@ class EventosController extends BaseController
 
     }
 
-    /*
     public function pagina($id)
     {
+        $evento = Evento::isEvento($id);
 
-        $user = User::where('id', '=', $id)
-                                ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
-                                ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
-                                ->get();
-        $perfil = Perfil::where('idUtilizador', '=', $id)
-                                ->get();
-
-        $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
-                                ->get();
-
-        $calendario = [];
-
-        if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
-            return view('frontend.displayArtista')
-                        ->with('user', $user[0])
-                        ->with('perfil', $perfil[0])
-                        ->with('galeria', $galeria[0])
-                        ->with('calendario', $calendario)
-                        ->with('radio_search', 'eventos');
-        else Echo (count($user)); //return view('frontend.errorPerfil');
+        if(count($evento) == 1)
+        {
+            
+            return view('frontend.displayPerfilEvento')
+                            ->with('evento', $evento[0])
+                            ->with('tipoPesquisa', 2);
+        }
+        else return view('frontend.errorPerfil');
     }
-    */
 
 }

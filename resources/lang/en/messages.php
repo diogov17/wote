@@ -6,6 +6,7 @@ return [
     'Artistas' => 'Artists',
     'Artista' => 'Artist',
     'Eventos' => 'Events',
+    'Evento' => 'Event',
     'Organizadores' => 'Managers',
     'Organizador' => 'Manager',
     'Negócios' => 'Businesses',
