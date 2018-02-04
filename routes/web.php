@@ -11,29 +11,20 @@
 |
 */
 /*
-Route::get('/', function () {
-    return view('frontend.principal')->with('radio_search','all');
-});
-
-Route::redirect('/index.html', '/', 301);
-
-
-Route::get('registo', function () {
-    return view('frontend.registerArtista');
-});
 
 Route::get('search', 'SearchController@search');
 
-Route::get('artista/{id}', 'ArtistaController@pagina')->where('id', '([0-9]+)');
 Route::get('organizador/{id}', 'OrganizadorController@pagina')->where('id', '([0-9]+)');
 Route::get('evento/{id}', 'EventoController@pagina')->where('id', '([0-9]+)');
 */
 
 Route::get('/', 'HomeController@index');
 
+Route::get('artista/{id}', 'ArtistasController@pagina')->where('id', '([0-9]+)');
+
 Route::resource('artista', 'ArtistasController');
 Route::resource('organizador', 'OrganizadoresController');
-Route::resource('eventos', 'EventosController');
+Route::resource('evento', 'EventosController');
 Route::resource('search', 'SearchController');
 Route::resource('registo', 'RegisterController');
 

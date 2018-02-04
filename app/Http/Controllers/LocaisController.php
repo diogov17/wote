@@ -123,7 +123,7 @@ campos: filtro -> populares/fimdesemana,
 
 
 */
-        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh $feedbackLow, $feedbackHigh $localAtuacao, $pagina, 10);
+        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
 
 
         return view('frontend.searchArtistas')
@@ -145,6 +145,7 @@ campos: filtro -> populares/fimdesemana,
                     ->with('feedbackHigh',$feedbackHigh)
                     ->with('localAtuacao',$localAtuacao)
                     ->with('pagina',$pagina);
+                    ->with('tipoPesquisa', 0)
     }
 
   

@@ -45,7 +45,64 @@ class SearchController extends BaseController
 
         if($tipoPesquisa == 0){
             //Redirecciona para filtros;
-            return redirect()->action('SearchController@search')->with('searchRequest',$dataAux);
+            //return redirect()->action('SearchController@search')->with('searchRequest',$dataAux);
+
+            $request = session('searchRequest');
+
+            if(isset($request->dataInicioEvento))
+                $dataInicioEvento = $request->dataInicioEvento;
+            else 
+                $dataInicioEvento = '';
+
+            if(isset($request->dataFimEvento))
+                $dataFimEvento = $request->dataFimEvento;
+            else 
+                $dataFimEvento = '';
+
+            if(isset($request->idConcelho))
+                $idConcelho = $request->idConcelho;
+            else 
+                $idConcelho = 0;
+
+            if(isset($request->idPais))
+                $idPais = $request->idPais;
+            else 
+                $idPais = 0;
+
+            if(isset($request->idDistrito))
+                $idDistrito = $request->idDistrito;
+            else 
+                $idDistrito = 0;
+
+            if(isset($request->precoInicio))
+                $precoInicio = $request->precoInicio;
+            else 
+                $precoInicio = 0;
+
+            if(isset($request->precoFim))
+                $precoFim = $request->precoFim;
+            else 
+                $precoFim = 0;
+
+            if(isset($request->nrSeguidores))
+                $nrSeguidores = $request->nrSeguidores;
+            else 
+                $nrSeguidores = 0;
+
+            if(isset($request->feedback))
+                $feedback = $request->feedback;
+            else 
+                $feedback = 0;
+
+            if(isset($request->pagina))
+                $pagina = $request->pagina;
+            else 
+                $pagina = 1;
+
+
+            return view('frontend.listaArtistas')
+                    ->with('tipoPesquisa', $request['tipoPesquisa']);
+
         }
         else if($tipoPesquisa == 1){
             //Redirecciona para página de artistas;
@@ -58,7 +115,6 @@ class SearchController extends BaseController
         else if($tipoPesquisa == 3){
             //Redirecciona para página de organizadores:
             return redirect()->action('OrganizadoresController@index')->with('searchRequest',$dataAux);   
-
         }
         else {
             return redirect()->action('HomeController@index')->with('searchRequest',$dataAux);
@@ -91,66 +147,6 @@ class SearchController extends BaseController
     public function edit($id)
     {
        
-
-    }
-
-    public function search()
-    {
-
-        $request = session('searchRequest');
-
-        if(isset($request->dataInicioEvento))
-            $dataInicioEvento = $request->dataInicioEvento;
-        else 
-            $dataInicioEvento = '';
-
-        if(isset($request->dataFimEvento))
-            $dataFimEvento = $request->dataFimEvento;
-        else 
-            $dataFimEvento = '';
-
-        if(isset($request->idConcelho))
-            $idConcelho = $request->idConcelho;
-        else 
-            $idConcelho = 0;
-
-        if(isset($request->idPais))
-            $idPais = $request->idPais;
-        else 
-            $idPais = 0;
-
-        if(isset($request->idDistrito))
-            $idDistrito = $request->idDistrito;
-        else 
-            $idDistrito = 0;
-
-        if(isset($request->precoInicio))
-            $precoInicio = $request->precoInicio;
-        else 
-            $precoInicio = 0;
-
-        if(isset($request->precoFim))
-            $precoFim = $request->precoFim;
-        else 
-            $precoFim = 0;
-
-        if(isset($request->nrSeguidores))
-            $nrSeguidores = $request->nrSeguidores;
-        else 
-            $nrSeguidores = 0;
-
-        if(isset($request->feedback))
-            $feedback = $request->feedback;
-        else 
-            $feedback = 0;
-
-        if(isset($request->pagina))
-            $pagina = $request->pagina;
-        else 
-            $pagina = 1;
-
-
-        return view('frontend.listaArtistas');
 
     }
     

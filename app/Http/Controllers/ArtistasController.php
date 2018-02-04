@@ -123,6 +123,8 @@ class ArtistasController extends BaseController
 
         $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
 
+        $artistas = Utilizador::getAllArtistas($request['pesquisaLivre']);
+
 
         return view('frontend.listaArtistas')
                     ->with('idUser',$idUser)
@@ -142,7 +144,9 @@ class ArtistasController extends BaseController
                     ->with('feedbackLow',$feedbackLow)
                     ->with('feedbackHigh',$feedbackHigh)
                     ->with('localAtuacao',$localAtuacao)
-                    ->with('pagina',$pagina);
+                    ->with('pagina',$pagina)
+                    ->with('artistas', $artistas)
+                    ->with('tipoPesquisa', $request['tipoPesquisa']);
     }
 
   
@@ -173,11 +177,10 @@ class ArtistasController extends BaseController
 
     }
 
-    /*
     public function pagina($id)
     {
 
-        $user = User::where('id', '=', $id)
+        $user = Utilizador::where('id', '=', $id)
                                 ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
                                 ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
                                 ->get();
@@ -188,16 +191,16 @@ class ArtistasController extends BaseController
                                 ->get();
 
         $calendario = [];
+        
 
         if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
-            return view('frontend.displayArtista')
+            return view('frontend.displayPerfilArtista')
                         ->with('user', $user[0])
                         ->with('perfil', $perfil[0])
                         ->with('galeria', $galeria[0])
                         ->with('calendario', $calendario)
-                        ->with('radio_search', 'artistas');
-        else Echo (count($user)); //return view('frontend.errorPerfil');
+                        ->with('tipoPesquisa', 1);
+        else return view('frontend.errorPerfil');
     }
-    */
 
 }

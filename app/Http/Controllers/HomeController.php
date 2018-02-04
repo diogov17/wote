@@ -55,7 +55,8 @@ class HomeController extends BaseController
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
                     ->with('artistasHome',$artistasHome)
-                    ->with('ultimosEspetaculos',$ultimosEspetaculos);
+                    ->with('ultimosEspetaculos',$ultimosEspetaculos)
+                    ->with('tipoPesquisa',0);
     }
 
     public function login(){
@@ -82,7 +83,8 @@ class HomeController extends BaseController
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
                     ->with('artistasHome',$artistasHome)
-                    ->with('ultimosEspetaculos',$ultimosEspetaculos);   
+                    ->with('ultimosEspetaculos',$ultimosEspetaculos)
+                    ->with('tipoPesquisa',0);   
     }
 
   
@@ -132,7 +134,8 @@ class HomeController extends BaseController
 
         return view('frontend.faq')
                     ->with('idUser',$idUser)
-                    ->with('autenticado',$autenticado);
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
    }
 
    public function duvidaUtilizacao(){
@@ -166,7 +169,8 @@ class HomeController extends BaseController
                     ->with('tipoForm',$tipoForm)
                     ->with('questaoSeguranca',$questaoSeguranca)
                     ->with('erros',$erros)
-                    ->with('autenticado',$autenticado);
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
 
    }
 
@@ -187,7 +191,8 @@ class HomeController extends BaseController
 
         return view('frontend.termosCondicoes')
                     ->with('idUser',$idUser)
-                    ->with('autenticado',$autenticado);
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
 
    }
 
@@ -236,7 +241,8 @@ class HomeController extends BaseController
                     ->with('erros',$erros)
                     ->with('tipoForm',$tipoForm)
                     ->with('questaoSeguranca',$questaoSeguranca)
-                    ->with('autenticado',$autenticado);
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
 
    }
 
@@ -258,7 +264,8 @@ class HomeController extends BaseController
 
         return view('frontend.tabelaPrecos')
                     ->with('idUser',$idUser)
-                    ->with('autenticado',$autenticado);
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
 
    }
 
@@ -361,7 +368,8 @@ class HomeController extends BaseController
                     ->with('erros',$erros)
                     ->with('tipoForm',$tipoForm)
                     ->with('valores',$valores)
-                    ->with('questaoSeguranca',$questao);    
+                    ->with('questaoSeguranca',$questao)
+                    ->with('tipoPesquisa',0);    
    }
 
 
@@ -382,13 +390,9 @@ class HomeController extends BaseController
 
         return view('frontend.faq')
                     ->with('idUser',$idUser)
-                    ->with('autenticado',$autenticado);
-
-
+                    ->with('autenticado',$autenticado)
+                    ->with('tipoPesquisa',0);
    }
-
-
-
 
 
 }

@@ -57,7 +57,8 @@ class BilheteiraController extends BaseController
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
                     ->with('artistasHome',$artistasHome)
-                    ->with('ultimosEspetaculos',$ultimosEspetaculos);
+                    ->with('ultimosEspetaculos',$ultimosEspetaculos)
+                    ->with('tipoPesquisa', 0);
     }
 
   

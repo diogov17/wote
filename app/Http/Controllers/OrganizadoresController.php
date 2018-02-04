@@ -121,10 +121,10 @@ class OrganizadoresController extends BaseController
             $localAtuacao = 0;
 
 
-        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh $feedbackLow, $feedbackHigh $localAtuacao, $pagina, 10);
+        $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
 
 
-        return view('frontend.searchArtistas')
+        return view('frontend.searchArtista')
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
@@ -142,7 +142,8 @@ class OrganizadoresController extends BaseController
                     ->with('feedbackLow',$feedbackLow)
                     ->with('feedbackHigh',$feedbackHigh)
                     ->with('localAtuacao',$localAtuacao)
-                    ->with('pagina',$pagina);
+                    ->with('pagina',$pagina)
+                    ->with('tipoPesquisa', $request['tipoPesquisa']);
     }
 
   

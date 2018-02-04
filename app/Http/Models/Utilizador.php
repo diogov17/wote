@@ -90,17 +90,17 @@ class Utilizador extends Model
         return 1;
     }
 
-    /*
-    public static function searchArtistas($input)
+    public static function getAllArtistas($input)
     {
         return DB::table('users')
                             ->join('UtilizadoresTiposConta','users.id','=','UtilizadoresTiposConta.idUser')
                             ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
                             ->where('usersTipologia.idTipoConta', '=', '1')
-                            ->where('nome', 'like', '%' . $input . '%')
+                            ->where('name', 'like', '%' . $input . '%')
                             ->get();
     }
 
+    /*
     public static function searchOrganizadores($input)
     {
         return DB::table('users')

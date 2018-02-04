@@ -353,9 +353,8 @@ class RegisterController extends BaseController
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
                             ->with('valores',$valores)
-                            ->with('erros',$erros);
-
-
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
     }
 
 
@@ -652,9 +651,8 @@ class RegisterController extends BaseController
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
                             ->with('valores',$valores)
-                            ->with('erros',$erros);
-
-
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
     }
 
     public function registoFa(Request $request){
@@ -967,9 +965,8 @@ class RegisterController extends BaseController
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
                             ->with('valores',$valores)
-                            ->with('erros',$erros);
-
-
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
     }
 
     public function index(Request $request){
@@ -1028,7 +1025,8 @@ class RegisterController extends BaseController
                             ->with('tipoContaPremium',$tipoContaPremium)
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
-                            ->with('erros',$erros);
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
         }
         else if ($id == 'organizador'){
             return view('frontend.registerOrganizador')
@@ -1037,7 +1035,8 @@ class RegisterController extends BaseController
                             ->with('tipoContaPremium',$tipoContaPremium)
                             ->with('tiposConta',$tiposConta)
                             ->with('questaoSeguranca',$questaoSeguranca)
-                            ->with('erros',$erros);
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
 
         }
         else if ($id == 'fa'){
@@ -1048,7 +1047,8 @@ class RegisterController extends BaseController
                             ->with('tiposEventos',$tiposEventos)
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
-                            ->with('erros',$erros);
+                            ->with('erros',$erros)
+                            ->with('tipoPesquisa', 0);
         }
     }
 
@@ -1123,12 +1123,14 @@ class RegisterController extends BaseController
                     ->with('autenticado',$autenticado)
                     ->with('artistasHome',$artistasHome)
                     ->with('ultimosEspetaculos',$ultimosEspetaculos)
-                    ->with('alertaAtivacaoConta',$atualizou);
+                    ->with('alertaAtivacaoConta',$atualizou)
+                    ->with('tipoPesquisa', 0);
 
     }
 
     public function recuperarPassword(){
-        return view('auth.recuperarPassword');
+        return view('auth.recuperarPassword')
+                    ->with('tipoPesquisa', 0);
     }
 
 }

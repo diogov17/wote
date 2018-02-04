@@ -50,10 +50,9 @@ INSERT INTO `perfil` (`idPerfil`, `idUtilizador`, `tipoUtilizador`, `descricao`,
 (2, 2, 1, '', '', '', 0, 0, 'migrod', ''),
 (3, 3, 1, '', '', '', 0, 0, 'abc', ''),
 (4, 4, 2, '', '', '', 0, 0, '', 'Empresa XPTO 4 You'),
-(5, 4, 2, '', '', '', 0, 0, '', 'Empresa XPTO 4 You'),
-(6, 5, 1, '', '', '', 0, 0, 'testeteste', ''),
-(7, 6, 3, '', '', '', 0, 0, '', ''),
-(8, 7, 3, '', '', '', 0, 0, '', '');
+(5, 5, 1, '', '', '', 0, 0, 'testeteste', ''),
+(6, 6, 3, '', '', '', 0, 0, '', ''),
+(7, 7, 3, '', '', '', 0, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -520,9 +519,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `morada`, `urlLogotipo`, `codigoPost
 (1, 'Hugo', 'correiohugomiguel@hotmail.com', '', '', '', '', '', 56, 4, '', '918804120', '918804120', '$2y$10$vaOXMUnoKjYvDah8zucRAOqCRkcH2xDeucBQFgSk4rISfE4O5tMTC', 0, '0.00', '0.00', '0.00', '0.00', '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, 'c', 0),
 (2, 'Hugo Miguel', 'hugorodrigues@telepecas.com', '', '', '', '', '', 125, 4, '', '964895105', '964895105', '$2y$10$KOsBmRkdwFeP4R6kf8nmReJgN9mTsm0qO./YOr5Y50yvIfeFDadSC', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 20:21:44', '2018-02-01 20:21:44', '2018-02-01 20:21:44', '2018-02-01 20:21:44', NULL, '882f420c176f446f6e2aedb0630add70', 0),
 (3, 'Miguel', 'hugorodriguesdeveloper@hotmail.com', '', '', '', '', '', 79, 4, '', '910123123', '910123123', '$2y$10$la8qAy62PRCJKNczvkwxhuaKSSHqORqReaJPsDE3BsYnVVmGsr.6y', 0, '0.00', '0.00', '0.00', '0.00', '2018-03-01 20:27:35', '2018-02-01 20:27:36', '2018-02-01 20:27:36', '2018-02-01 20:27:36', NULL, 'b92fbcacf0ebc7eb9f363c1f5ad15974', 0),
-(4, 'Organizador 1', 'correiohugomiguel@gmail.com', '', '', '', '', '', 79, 4, '', '961123123', '961123123', '$2y$10$EaOBzrx6r0FBpm7PRyxxzuaQKxp3dXW5n.7bdem0uPzy70G5hkuFi', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', NULL, 'acb1e5839e96aa4b2fe94b7466d4448c', 0),
-(5, 'Teste', 'correiohugomiguel1@hotmail.com', '', '', '', '', '', 127, 4, '', '918123123', '918123123', '$2y$10$U3R5Xzxr58tOuJaA0x47EOKiM0kzY.SJy2gvZlMEhlta34jRUEFF.', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', NULL, '2ee148316694c32d1080ed03352a08be', 0),
-(6, 'Hugo Fa', 'correiohugomiguel2@hotmail.com', '', '', '', '', '', 82, 1, '', '253090909', '253090909', '$2y$10$TdU7O.TFt2TFi08FbIpMyeiKzubOKTKBUR8dfuwZTUilGRrl2UBZa', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:37:21', '2018-02-01 22:37:22', '2018-02-01 22:37:22', '2018-02-01 23:26:14', NULL, '8ad53da7c3286c9bd3827efb9b2ad7f8', 0),
+(4, 'Zé', 'correiohugomiguel@gmail.com', '', '', '', '', '', 79, 4, '', '961123123', '961123123', '$2y$10$EaOBzrx6r0FBpm7PRyxxzuaQKxp3dXW5n.7bdem0uPzy70G5hkuFi', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', NULL, 'acb1e5839e96aa4b2fe94b7466d4448c', 0),
+(5, 'Maria', 'correiohugomiguel1@hotmail.com', '', '', '', '', '', 127, 4, '', '918123123', '918123123', '$2y$10$U3R5Xzxr58tOuJaA0x47EOKiM0kzY.SJy2gvZlMEhlta34jRUEFF.', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', NULL, '2ee148316694c32d1080ed03352a08be', 0),
+(6, 'Xavier', 'correiohugomiguel2@hotmail.com', '', '', '', '', '', 82, 1, '', '253090909', '253090909', '$2y$10$TdU7O.TFt2TFi08FbIpMyeiKzubOKTKBUR8dfuwZTUilGRrl2UBZa', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:37:21', '2018-02-01 22:37:22', '2018-02-01 22:37:22', '2018-02-01 23:26:14', NULL, '8ad53da7c3286c9bd3827efb9b2ad7f8', 0),
 (7, 'António José', 'teste@teste.com', '', '', '', '', '', 124, 1, '', '919897345', '919897345', '$2y$10$8blAhlPIphJERJSGHHG/c.zR6hmuZM03SaA2cr4Nb8suSxv2JplDW', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:39:37', '2018-02-01 22:39:37', '2018-02-01 22:39:37', '2018-02-01 23:12:43', NULL, '96047294d5fcadff9555ff1545697539', 0);
 
 -- --------------------------------------------------------
@@ -688,6 +687,58 @@ CREATE TABLE IF NOT EXISTS `estadoUtilizadoresEvento` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `freguesias`
+--
+
+CREATE TABLE IF NOT EXISTS `freguesias` (
+  `idFreguesia` int(11) NOT NULL,
+  `descricaoFreguesia` varchar(200) NOT NULL,
+  `idConcelho` int(11) NOT NULL,
+  PRIMARY KEY (`idFreguesia`),
+  KEY `fk_freguesias_concelhos1_idx` (`idConcelho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `freguesias`
+--
+
+INSERT INTO `freguesias` (`idFreguesia`, `descricaoFreguesia`, `idConcelho`) VALUES
+(1, 'S.Paio De Arcos', 56),
+(2, 'Figueiredo', 56);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `localEventos`
+--
+
+CREATE TABLE IF NOT EXISTS `localEventos` (
+  `idLocal` int(11) NOT NULL AUTO_INCREMENT,
+  `descricaoLocal` varchar(100) NOT NULL,
+  `moradaLocal` varchar(300) DEFAULT NULL,
+  `codigoPostal1` varchar(20) DEFAULT NULL,
+  `codigoPostal2` varchar(20) DEFAULT NULL,
+  `idFreguesia` int(11) NOT NULL,
+  `coordenadaX` varchar(100) DEFAULT NULL,
+  `coordenadaY` varchar(100) DEFAULT NULL,
+  `localidade` varchar(100) DEFAULT NULL,
+  `lotacaoMax` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idLocal`),
+  KEY `fk_localEventos_freguesias1_idx` (`idFreguesia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+--
+-- Extraindo dados da tabela `localEventos`
+--
+
+INSERT INTO `localEventos` (`idLocal`, `descricaoLocal`, `idFreguesia`) VALUES
+(1, 'Largo Festas da Ribeira', 1),
+(2, 'Praça do Convívio', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `evento`
 --
 
@@ -712,6 +763,19 @@ CREATE TABLE IF NOT EXISTS `evento` (
   KEY `fk_evento_users1_idx` (`idUtilizador`),
   KEY `fk_evento_localEventos1_idx` (`idLocal`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `evento`
+--
+
+INSERT INTO `evento` (`tituloEvento`, `idUtilizador`, `idLocal`, `urlImagemEvento`) VALUES
+('Festa da Nossa Senhora da Agonia', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('Festa da Salxixeira', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('Queima das Fitas', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('Enterro do Cão', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('Pingo Doce Festival', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('JazzCuzi', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+('Whose Blues Blue', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg');
 
 -- --------------------------------------------------------
 
@@ -780,20 +844,6 @@ CREATE TABLE IF NOT EXISTS `EventosTipos` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `freguesias`
---
-
-CREATE TABLE IF NOT EXISTS `freguesias` (
-  `idFreguesia` int(11) NOT NULL,
-  `descricaoFreguesia` varchar(200) NOT NULL,
-  `idConcelho` int(11) NOT NULL,
-  PRIMARY KEY (`idFreguesia`),
-  KEY `fk_freguesias_concelhos1_idx` (`idConcelho`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `funcaoEventoUtilizadores`
 --
 
@@ -814,27 +864,6 @@ CREATE TABLE IF NOT EXISTS `gostosPerfilCalendario` (
   `idMarcacao` int(11) NOT NULL,
   `idClienteMeteuGosto` int(11) NOT NULL,
   PRIMARY KEY (`idGostoCalendario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `localEventos`
---
-
-CREATE TABLE IF NOT EXISTS `localEventos` (
-  `idLocal` int(11) NOT NULL AUTO_INCREMENT,
-  `descricaoLocal` varchar(100) NOT NULL,
-  `moradaLocal` varchar(300) DEFAULT NULL,
-  `codigoPostal1` varchar(20) DEFAULT NULL,
-  `codigoPostal2` varchar(20) DEFAULT NULL,
-  `idFreguesia` int(11) NOT NULL,
-  `coordenadaX` varchar(100) DEFAULT NULL,
-  `coordenadaY` varchar(100) DEFAULT NULL,
-  `localidade` varchar(100) DEFAULT NULL,
-  `lotacaoMax` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idLocal`),
-  KEY `fk_localEventos_freguesias1_idx` (`idFreguesia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -965,6 +994,19 @@ CREATE TABLE IF NOT EXISTS `perfilGaleria` (
   `valido` int(11) DEFAULT '1',
   PRIMARY KEY (`idGaleria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `perfilGaleria`
+--
+
+INSERT INTO `perfilGaleria` (`idGaleria`, `idUtilizador`, `urlGaleria`) VALUES
+(1, 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(2, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(3, 3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(4, 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(5, 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(6, 6, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
+(7, 7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png');
 
 -- --------------------------------------------------------
 
@@ -1104,13 +1146,13 @@ INSERT INTO `perfilTiposEspetaculos` (`idTipoEspetaculo`, `idPerfil`, `idUser`, 
 (2, 3, 3, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 1),
 (2, 6, 5, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (3, 7, 6, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
-(3, 8, 7, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
+(3, 1, 7, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (4, 6, 5, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (9, 7, 6, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (11, 7, 6, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (13, 2, 2, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 1),
 (13, 7, 6, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
-(13, 8, 7, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
+(13, 6, 7, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 0),
 (30, 1, 1, 0, '0.00', 0, '0', '', 1, '0.00', '0.00', 1);
 
 -- --------------------------------------------------------

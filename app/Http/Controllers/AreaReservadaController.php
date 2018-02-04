@@ -47,7 +47,7 @@ class AreaReservadaController extends BaseController
         return view('frontend.principal')
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
-                   ;
+                    ->with('tipoPesquisa', 0);
     }
 
    
