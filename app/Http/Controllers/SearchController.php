@@ -10,6 +10,9 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Models\Utilizador;
+use App\Http\Models\PerfilGaleria;
+use App\Http\Models\Evento;
 use Carbon\Carbon;
 use Response;
 
@@ -47,61 +50,88 @@ class SearchController extends BaseController
             //Redirecciona para filtros;
             //return redirect()->action('SearchController@search')->with('searchRequest',$dataAux);
 
-            $request = session('searchRequest');
+            //$request = session('searchRequest');
 
-            if(isset($request->dataInicioEvento))
-                $dataInicioEvento = $request->dataInicioEvento;
-            else 
-                $dataInicioEvento = '';
+            $utilizadorAtual = Auth::user();
+            if($utilizadorAtual){
+                $idUser = $utilizadorAtual->id;
+                $tipoConta = $utilizadorAtual->tipoConta;
+                $autenticado = 1;
+            }
+            else {
+                $idUser = 0;
+                $tipoConta = 0;
+                $autenticado = 0;
+            }
 
-            if(isset($request->dataFimEvento))
-                $dataFimEvento = $request->dataFimEvento;
-            else 
-                $dataFimEvento = '';
+            $tipoPesquisa = 0;
 
-            if(isset($request->idConcelho))
-                $idConcelho = $request->idConcelho;
-            else 
-                $idConcelho = 0;
+            // Artistas
+            $temp_artistas = Utilizador::getAllArtistas($request['pesquisaLivre']);
 
-            if(isset($request->idPais))
-                $idPais = $request->idPais;
-            else 
-                $idPais = 0;
+            $artistas = array();
+            $artistasProfilePics = array();
 
-            if(isset($request->idDistrito))
-                $idDistrito = $request->idDistrito;
-            else 
-                $idDistrito = 0;
+            foreach ($temp_artistas as $artista)
+            {
+                $artistas[$artista->id] = $artista;
+                $artistasProfilePics[$artista->id] = PerfilGaleria::getProfilePic($artista->id);
+            }
 
-            if(isset($request->precoInicio))
-                $precoInicio = $request->precoInicio;
-            else 
-                $precoInicio = 0;
+            
+            // Organizadores
+            $temp_organizadores = Utilizador::getAllOrganizadores($request['pesquisaLivre']);
 
-            if(isset($request->precoFim))
-                $precoFim = $request->precoFim;
-            else 
-                $precoFim = 0;
+            $organizadores = array();
+            $organizadoresProfilePics = array();
 
-            if(isset($request->nrSeguidores))
-                $nrSeguidores = $request->nrSeguidores;
-            else 
-                $nrSeguidores = 0;
-
-            if(isset($request->feedback))
-                $feedback = $request->feedback;
-            else 
-                $feedback = 0;
-
-            if(isset($request->pagina))
-                $pagina = $request->pagina;
-            else 
-                $pagina = 1;
+            foreach ($temp_organizadores as $organizador)
+            {
+                $organizadores[$organizador->id] = $organizador;
+                $organizadoresProfilePics[$organizador->id] = PerfilGaleria::getProfilePic($organizador->id);
+            }
 
 
-            return view('frontend.listaArtistas')
-                    ->with('tipoPesquisa', $request['tipoPesquisa']);
+            // Eventos
+            $temp_eventos = Evento::getAllEventos($request['pesquisaLivre']);
+
+            $eventos = array();
+
+            foreach ($temp_eventos as $evento)
+                $eventos[$evento->idEvento] = $evento;
+
+
+            // All
+            $all = array();
+            $artistasIds = array();
+            $organizadoresIds = array();
+
+            foreach ($temp_artistas as $artista)
+            {
+                array_push($all, $artista->id);
+                array_push($artistasIds, $artista->id);
+            }
+            foreach ($temp_organizadores as $organizador)
+            {
+                array_push($all, $organizador->id);
+                array_push($organizadoresIds, $organizador->id);
+            }
+            foreach ($temp_eventos as $evento)
+                array_push($all, -$evento->idEvento);
+            
+            shuffle($all);
+
+
+            return view('frontend.listaTodos')
+                    ->with('tipoPesquisa', $request['tipoPesquisa'])
+                    ->with('artistas', $artistas)
+                    ->with('artistasIds', $artistasIds)
+                    ->with('artistasProfilePics', $artistasProfilePics)
+                    ->with('organizadores', $organizadores)
+                    ->with('organizadoresIds', $organizadoresIds)
+                    ->with('organizadoresProfilePics', $organizadoresProfilePics)
+                    ->with('eventos', $eventos)
+                    ->with('all', $all);
 
         }
         else if($tipoPesquisa == 1){
