@@ -8,8 +8,8 @@
 -- versão do PHP: 7.1.13-1+ubuntu14.04.1+deb.sury.org+1
 
 USE woteDB;
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
+SET time_zone = '+00:00';
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -46,13 +46,23 @@ CREATE TABLE IF NOT EXISTS `perfil` (
 --
 
 INSERT INTO `perfil` (`idPerfil`, `idUtilizador`, `tipoUtilizador`, `descricao`, `observacoes`, `estiloPrincipal`, `feedbackGeral`, `nrSeguidoresTotal`, `nomeArtistico`, `nomeEmpresaOrganiza`) VALUES
-(1, 1, 1, '', '', '', 0, 0, 'hugomrod', ''),
-(2, 2, 1, '', '', '', 0, 0, 'migrod', ''),
-(3, 3, 1, '', '', '', 0, 0, 'abc', ''),
-(4, 4, 2, '', '', '', 0, 0, '', 'Empresa XPTO 4 You'),
-(5, 5, 1, '', '', '', 0, 0, 'testeteste', ''),
-(6, 6, 3, '', '', '', 0, 0, '', ''),
-(7, 7, 3, '', '', '', 0, 0, '', '');
+(1, 1, 1, 'Inspirado na música romântica, popular e principalmente na música country é notório o amadurecimento do artista em todas as suas letras e músicas e a influência de todos os seus espectáculos em Portugal ou pelas comunidades portuguesas em torno do mundo, trazendo para as suas canções a alegria e o carinho de todos com quem se cruzou. O primeiro single tirado do álbum também se intitula, Obrigado Fãs, e tal como o nome indica é uma sentida homenagem de Zé Amaro a todos aqueles que o acompanharam neste já longo percurso.', '', 'Country', 4.2, 200, 'Zé Amaro', ''),
+(2, 2, 1, 'Rosinha, na maioria dos espectáculos faz-se acompanhar pela sua banda composta por 4 músicos e pelas suas 2 bailarinas (a quem gosta de chamar carinhosamente de Bailarocas) canta e toca sempre ao vivo e segundo as suas palavras, ... não podia ser de outra maneira pois o melhor dos espectáculos é a interacção constante com o público...', '', 'Popular', 4.6, 366, 'Rosinha', ''),
+(3, 3, 1, 'D.A.M.A. é uma banda portuguesa de pop/rap, oriunda de Lisboa, formada oficialmente em 2006. A banda atualmente é constituída por Francisco Maria Pereira (Kasha), Miguel Coimbra e Miguel Cristovinho.', '', 'Pop/Rap', 4.1, 685, 'D.A.M.A.', ''),
+(4, 4, 1, 'A Tuna Universitária do Minho é uma tuna ligada à Universidade do Minho, no Norte de Portugal. Foi fundada em 1990, por estudantes dessa universidade. Sendo a primeira tuna sedeada na Universidade do Minho, é considerada a sua embaixatriz cultural. A T.U.M., como é também conhecida, pertence à ARCUM (Associação Recreativa e Cultural da Universidade do Minho), da qual também fazem parte grupos estudantis como os Bomboémia e o Grupo de Música Popular da Universidade do Minho. Tendo já um álbum editado, em 2000, e reeditado em 2009, a Tuna do Minho realiza anualmente o Festival Internacional de Tunas Universitárias, apelidado de Bracara Avgvsta.', '', 'Tradicional', 4.7, 34, 'Tuna Universitária do Minho', ''),
+(5, 5, 1, 'O Coro Académico da Universidade do Minho (CAUM) é uma associação cultural sem fins lucrativos. Este grupo cultural da Universidade do Minho é um dos mais antigos, tendo iniciado as suas atividades em janeiro de 1989 e, desde então, tem desenvolvido um trabalho de prática e divulgação da música de todas as épocas, em especial da música portuguesa.', '', 'Tradicional/Pop/Clássico', 0, 0, 'Coro Académico da Universidade do Minho', ''),
+(6, 6, 1, 'UHF é uma banda portuguesa de rock formada na Costa de Caparica, em Almada, em 1978. São os fundadores do movimento de renovação musical denominado rock português e os responsáveis pelo surgimento do boom do rock em Portugal em 1980. São uma das bandas nacionais mais prestigiadas e a mais antiga em atividade. A formação inicial era composta por António Manuel Ribeiro (vocal e guitarra), Renato Gomes (guitarra), Carlos Peres (baixo) e Américo Manuel (bateria). Atualmente são formados por António Manuel Ribeiro (vocal e guitarra), António Côrte-Real (guitarra), Luís Cebola Simões (baixo), Fernando Rodrigues (teclas e guitarra) e Ivan Cristiano (bateria e percussão).', '', 'Rock', 3.9, 610, 'UHF', ''),
+(7, 7, 1, 'Marisa dos Reis Nunes Ferreira tem sido presença regular em palcos como o Carnegie Hall, em Nova Iorque, o Walt Disney Concert Hall, em Los Angeles, o Lobero Theater, em Santa Bárbara, a Salle Pleyel, em Paris, a Ópera de Sydney ou o Royal Albert Hall. O jornal britânico The Guardian considerou-a uma diva da música do mundo. Ao longo de sua carreira vendeu um milhão de discos no mundo todo, sendo uma das recordistas de vendas de discos em Portugal.', '', 'Fado', 4.8, 92, 'Mariza', ''),
+(8, 8, 1, 'O Grupo POPados é um projeto que iniciou em Novembro 2016, atualmente foca-se na interpretação de covers de bandas Nacionais e Internacionais. Sendo o seu slogan, O Baile noutra dimensão, têm como principal objetivo ser arrojado no mercado das bandas de baile através de alguns arranjos originais bem como na sua particular interpretação. Com a sua boa disposição, pela sua qualidade instrumental e vocal promete proporcionar espetáculos até 3h com muito humor, boa música e muita emoção. Uma escolha perfeita para o seu evento!', '', 'Popular', 2.9, 14, 'POPados', ''),
+(9, 9, 2, 'TOCA - Trabalho de uma Oficina Cultural e Associativa. Projeto criado pelo SYnergia, associação juvenil sediada em Braga, apresenta-se como um espaço sem fins lucrativos com o objetivo de prestar apoio e dinamizar várias atividades a nível associativo, juvenil, artístico, inovador, entre outros. Este espaço está a ser desenvolvido nas antigas salas de cinema do Centro Comercial Avenida, em Braga.', '', '', 3.3, 54, '', 'TOCA'),
+(10, 10, 2, 'Situado no centro histórico da cidade perto da Sé, o SETRA URBAN and COCKTAIL é um bar com um conceito diferente onde pode usufruir de um serão muito agradável ao som de uma boa música.', '', 'Jazz', 4.0, 213, '', 'SETRA'),
+(11, 11, 2, 'O Theatro Circo é hoje uma referência no meio artístico, não apenas por possuir uma das mais carismáticas salas de espetáculos do país, mas porque a escolha da sua programação obedece a critérios de qualidade e ecletismo, refletindo os objetivos estratégicos que foram propostos pelo acionista maioritário para este magnífico espaço.', '', '', 4.7, 640, '', 'Theatro Circo'),
+(12, 12, 2, 'O Parque de Exposições de Braga conhecido por PEB é um Centro de convenções, localizado na cidade de Braga, Portugal. É uma estrutura vocacionada para a realização de feiras, exposições, congressos e outros eventos de carácter sócio-cultural, científico, recreativo e desportivo.', '', '', 2.4, 52, '', 'Parque de Exposições de Braga'),
+(13, 13, 2, 'A dimensão do edifício da autoria do Arquitecto Rodrigues Lima, o jardim e a situação no centro da cidade, tornaram possível a disponibilização de espaços para actividades culturais complementares ao Museu.', '', '', 3.4, 124, '', 'Museu Nogueira da Silva'),
+(14, 14, 2, 'Um espaço público destinado a ti que és jovem, que disponibiliza informações, serviços, programas e outros do teu interesse. Vem visitar-nos, estamos à tua espera!', '', '', 2.3, 67, '', 'IPDJ - Braga'),
+(15, 15, 3, '', '', 'Rock', 0, 0, '', ''),
+(16, 16, 3, '', '', 'Popular', 0, 0, '', ''),
+(17, 17, 3, '', '', 'Pop', 0, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -515,14 +525,24 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `morada`, `urlLogotipo`, `codigoPostal1`, `codigoPostal2`, `codigoPostalDesignacao`, `idConcelho`, `estado`, `contribuinte`, `telefone`, `telemovel`, `password`, `nrCreditos`, `precoHora`, `precoDia`, `precoDeslocacao`, `precoMinimoAtuacao`, `dataExpiracaoConta`, `dataRegisto`, `created_at`, `updated_at`, `remember_token`, `ultimaHashVerificacao`, `pedidoRecuperacaoPass`) VALUES
-(1, 'Hugo', 'correiohugomiguel@hotmail.com', '', '', '', '', '', 56, 4, '', '918804120', '918804120', '$2y$10$vaOXMUnoKjYvDah8zucRAOqCRkcH2xDeucBQFgSk4rISfE4O5tMTC', 0, '0.00', '0.00', '0.00', '0.00', '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, 'c', 0),
-(2, 'Hugo Miguel', 'hugorodrigues@telepecas.com', '', '', '', '', '', 125, 4, '', '964895105', '964895105', '$2y$10$KOsBmRkdwFeP4R6kf8nmReJgN9mTsm0qO./YOr5Y50yvIfeFDadSC', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 20:21:44', '2018-02-01 20:21:44', '2018-02-01 20:21:44', '2018-02-01 20:21:44', NULL, '882f420c176f446f6e2aedb0630add70', 0),
-(3, 'Miguel', 'hugorodriguesdeveloper@hotmail.com', '', '', '', '', '', 79, 4, '', '910123123', '910123123', '$2y$10$la8qAy62PRCJKNczvkwxhuaKSSHqORqReaJPsDE3BsYnVVmGsr.6y', 0, '0.00', '0.00', '0.00', '0.00', '2018-03-01 20:27:35', '2018-02-01 20:27:36', '2018-02-01 20:27:36', '2018-02-01 20:27:36', NULL, 'b92fbcacf0ebc7eb9f363c1f5ad15974', 0),
-(4, 'Zé', 'correiohugomiguel@gmail.com', '', '', '', '', '', 79, 4, '', '961123123', '961123123', '$2y$10$EaOBzrx6r0FBpm7PRyxxzuaQKxp3dXW5n.7bdem0uPzy70G5hkuFi', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', '2018-02-01 22:07:29', NULL, 'acb1e5839e96aa4b2fe94b7466d4448c', 0),
-(5, 'Maria', 'correiohugomiguel1@hotmail.com', '', '', '', '', '', 127, 4, '', '918123123', '918123123', '$2y$10$U3R5Xzxr58tOuJaA0x47EOKiM0kzY.SJy2gvZlMEhlta34jRUEFF.', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', '2018-02-01 22:13:29', NULL, '2ee148316694c32d1080ed03352a08be', 0),
-(6, 'Xavier', 'correiohugomiguel2@hotmail.com', '', '', '', '', '', 82, 1, '', '253090909', '253090909', '$2y$10$TdU7O.TFt2TFi08FbIpMyeiKzubOKTKBUR8dfuwZTUilGRrl2UBZa', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:37:21', '2018-02-01 22:37:22', '2018-02-01 22:37:22', '2018-02-01 23:26:14', NULL, '8ad53da7c3286c9bd3827efb9b2ad7f8', 0),
-(7, 'António José', 'teste@teste.com', '', '', '', '', '', 124, 1, '', '919897345', '919897345', '$2y$10$8blAhlPIphJERJSGHHG/c.zR6hmuZM03SaA2cr4Nb8suSxv2JplDW', 0, '0.00', '0.00', '0.00', '0.00', '2028-02-01 22:39:37', '2018-02-01 22:39:37', '2018-02-01 22:39:37', '2018-02-01 23:12:43', NULL, '96047294d5fcadff9555ff1545697539', 0);
+INSERT INTO `users` (`id`, `name`				, `email`							, `morada`																		, `urlLogotipo`																																			, `codigoPostal1`, `codigoPostal2`, `codigoPostalDesignacao`, `idConcelho`, `estado`, `contribuinte`, `telefone`, `telemovel`, `password`, `nrCreditos`, `precoHora`, `precoDia`, `precoDeslocacao`, `precoMinimoAtuacao`, `dataExpiracaoConta`, `dataRegisto`, `created_at`, `updated_at`, `remember_token`, `ultimaHashVerificacao`, `pedidoRecuperacaoPass`) VALUES
+(1, 'José Amaro'								, 'geral@zeamaro.com'				, 'Travessa dos Chouriços, Curral dos Porcos'									, 'http://www.zeamaro.com/images/logo.png'																												, '2870', '324', 'Alcácer do Sal'							, 15	, 1, '129420439', '253601275', '925800362', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(2, 'Rosa Maria'								, 'rosinha@rosinha.net'				, 'Av. 5 de Outubro 26, Sarilhos Grandes'										, 'http://www.rosinha.net/img/logo.png'																													, '2870', '515', 'Montijo'									, 149	, 1, '908432687', '210992877', '935043931', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(3, 'Joaquim Fonseca'							, 'joaquimfonseca@glam.com.pt'		, 'Rua Francisco Ribeiro, Riba Acima'											, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/23380414_1638037429575122_4611484161764329108_n.jpg?oh=a086da5208d495027f97b78c9f519aac&oe=5B1821C6'	, '4322', '434', 'Lisboa'									, 125	, 1, '908321098', '210992877', '934236685', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(4, 'Tuna Universitária do Minho'				, 'tum@arcum.pt'					, 'R. Dom Pedro V 88'															, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/26112085_10155955397676322_2732530873385670875_n.jpg?oh=9435c18d38b3b530939eb8bdeeca1719&oe=5AE49C20', '4710', '374', 'Braga'									, 56	, 1, '129420439', '253601275', '933585056', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(5, 'Coro Académico da Universidade do Minho'	, 'mail@caum.pt'					, 'Sala 220, Complexo Pedagógico 2, Campus de Gualtar, Universidade do Minho'	, 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Caumlogo.png'																					, '4710', '057', 'Braga'									, 56	, 1, '502619082', '253601275', '938446702', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(6, 'UHF'										, 'booking@uhfrock.com'				, 'Apartado 518'																, 'http://uhfrock.com/wp-content/uploads/2015/11/uhf_logo_baranco.png'																					, '2821', '901', 'Charneca da Caparica'						, 68	, 1, '908432687', '210992877', '925800362', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(7, 'Marisa dos Reis Nunes Ferreira'			, 'ruibraga@ruelamusic.com'			, 'Lugar do Desassossego, Facas Afiadas' 										, 'https://meanycenter.org/sites/default/files/Images/Mariza-kampagnenfoto_dsc_5707final_0.jpg'															, '2870', '765', 'Amares'									, 3		, 1, '502619082', '219249249', '966781126', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(8, 'POPados'									, 'bandapopados@gmail.com'			, 'Rua Guilhermina Josepha, Portugal dos Pequeninos'							, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/16427365_1450166488350891_1201065681281707396_n.png?oh=737b329f6fe90c5e05c9fc9644e7e9e4&oe=5AE3546A'	, '4321', '284', 'Braga'									, 56	, 2, '908432687', '253601275', '969149456', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(9, 'TOCA'										, 'toca.braga@gmail.com'			, 'Avenida Central 33, Bragashopping, 2º piso'									, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384'				, '4710', '228', 'Braga'									, 56	, 1, '502619082', '253299230', '966781126', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(10, 'SETRA'									, 'setrabarbraga@gmail.com'			, 'Rua de São João, 15, 1 andar'												, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/26166661_791197511081445_7384628648437398021_n.jpg?oh=33a1282e807a0611b37d6fcbdfbd5c3a&oe=5B1B6360'	, '4700', '424', 'Braga'									, 56	, 1, '129420439', '210992877', '911128423', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(11, 'Theatro Circo'							, 'theatrocirco@theatrocirco.com'	, 'Avenida da Liberdade, 697'													, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/395226_10151164963079781_1821446440_n.jpg?oh=4add102832df396e8d4522c6a6779e3f&oe=5B2126A2'			, '4710', '251', 'Braga'									, 56	, 1, '908432687', '253203800', '966781126', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(12, 'PEB'										, 'geral@investbraga.com'			, 'Av. Dr. Francisco Pires Gonçalves, Apartado 60'								, 'http://www.investbraga.com/peb/resources/images/branding/logo2x.png'																					, '4711', '909', 'Braga'									, 56	, 1, '502619082', '253208230', '925800362', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(13, 'MNS'										, 'sec@mns.uminho.pt'				, 'Av. Central 61'																, 'http://www.mns.uminho.pt/logo_mns3.png'																												, '4710', '228', 'Braga'									, 56	, 1, '129420439', '253601275', '966781126', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(14, 'IPDJ Braga'								, 'mailbraga@ipdj.pt'				, 'Rua de Santa Margarida 6'													, 'https://www.ipdj.pt/docs/Logo_IPDJ.jpg'																												, '4710', '306', 'Braga'									, 56	, 1, '908321098', '253204250', '925800362', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(15, 'Armando Queirós'							, 'armandomtq@hotmail.com'			, 'Rua da Paz 4, Lomar'															, 'http://www.knowledgelost.org/art/guernica-picassos-masterpiece/'																						, '4705', '218', 'Braga'									, 56	, 1, '502619082', '210992877', '915382192', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(16, 'Hugo Miguel'								, 'hugorodrigues@telepecas.com'		, 'Praça do Chocolate Quente, OMundoÉLindo'										, 'https://www.cat-world.com.au/wp-content/uploads/2009/07/chocolate-toxicity-in-cat111.jpg'															, '2870', '547', 'Alcácer do Sal'							, 15	, 1, '129420439', '253601275', '964895105', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0),
+(17, 'André'									, 'andreoflight@gmail.com'			, 'Rua PSD é vida, Coração do Povo'												, 'https://cdn2.iconfinder.com/data/icons/Qetto___icons_by_ampeross-d4njobq/256/psd.png'																, '4800', '133', 'Guimarães'								, 156	, 3, '502619082', '210992877', '962281900', 'password', 0, 0.0, 0.0, 0.0, 0.0, '2018-03-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', '2018-02-01 19:52:30', NULL, '', 0);
 
 -- --------------------------------------------------------
 
@@ -551,10 +571,9 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
 --
 
 INSERT INTO `anuncios` (`idAnuncio`, `idUtilizador`, `idPerfil`, `dataCriacaoAnuncio`, `estadoAnuncio`, `dataExpiracaoAnuncio`, `textoAnuncio`, `urlImagemAnuncio`, `patrocinado`, `nrVisualizacoes`) VALUES
-(1, 1, 1, '2018-02-01 19:52:30', 2, '2018-03-01 19:52:30', '', '', 1, 0),
-(2, 2, 2, '2018-02-01 20:21:44', 2, '2028-02-01 20:21:44', '', '', 0, 0),
-(3, 3, 3, '2018-02-01 20:27:36', 2, '2018-03-01 20:27:35', '', '', 1, 0),
-(4, 5, 6, '2018-02-01 22:13:29', 2, '2028-02-01 22:13:29', '', '', 0, 0);
+(1, 1, 1, '2018-02-01 19:52:30', 1, '2018-03-01 19:52:30', 'Inspirado na música romântica, popular e principalmente na música country é notório o amadurecimento do artista em todas as suas letras e músicas e a influência de todos os seus espectáculos em Portugal ou pelas comunidades portuguesas em torno do mundo.', 'http://www.zeamaro.com/images/logo.png', 1, 0),
+(2, 9, 9, '2018-02-01 20:21:44', 1, '2028-02-01 20:21:44', 'Este espaço está a ser desenvolvido nas antigas salas de cinema do Centro Comercial Avenida, em Braga.', 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384', 0, 0),
+(3, 5, 5, '2018-02-01 20:27:36', 1, '2018-03-01 20:27:35', 'Este grupo cultural da Universidade do Minho é um dos mais antigos, tendo iniciado as suas atividades em janeiro de 1989 e, desde então, tem desenvolvido um trabalho de prática e divulgação da música de todas as épocas, em especial da música portuguesa.', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Caumlogo.png', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -619,7 +638,245 @@ CREATE TABLE IF NOT EXISTS `duvidasContactos` (
 --
 
 INSERT INTO `duvidasContactos` (`idDuvida`, `nome`, `telefone`, `email`, `mensagem`, `estado`, `tipoForm`, `dataHoraRegisto`, `dataHoraTratada`) VALUES
-(1, 'Hugo Rodrigues Teste', '918804120', 'correiohugomiguel@gmail.com', 'ABC Teste', 1, 2, '2018-02-02 16:45:50', NULL);
+(1, 'Hugo Rodrigues Teste', '918804120', 'correiohugomiguel@gmail.com', 'Que site bacana!', 1, 2, '2018-02-02 16:45:50', NULL);
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `freguesias`
+--
+
+CREATE TABLE IF NOT EXISTS `freguesias` (
+  `idFreguesia` int(11) NOT NULL,
+  `descricaoFreguesia` varchar(200) NOT NULL,
+  `idConcelho` int(11) NOT NULL,
+  PRIMARY KEY (`idFreguesia`),
+  KEY `fk_freguesias_concelhos1_idx` (`idConcelho`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `freguesias`
+--
+
+INSERT INTO `freguesias` (`idFreguesia`, `descricaoFreguesia`, `idConcelho`) VALUES
+(1, 'Abrantes (São Vicente e São João) e Alferrarede', 14),
+(2, 'Aldeia do Mato e Souto', 14),
+(3, 'Alvega e Concavada', 14),
+(4, 'Bemposta', 14),
+(5, 'Carvalhal', 14),
+(6, 'Fontes', 14),
+(7, 'Martinchel', 14),
+(8, 'Mouriscas', 14),
+(9, 'Pego', 14),
+(10, 'Rio de Moinhos', 14),
+(11, 'São Facundo e Vale das Mós', 14),
+(12, 'São Miguel do Rio Torto e Rossio ao Sul do Tejo', 14),
+(13, 'Tramagal', 14),
+(14, 'Aguada de Cima', 1),
+(15, 'Águeda e Borralha', 1),
+(16, 'Barrô e Aguada de Baixo', 1),
+(17, 'Belazaima do Chão, Castanheira do Vouga e Agadão', 1),
+(18, 'Fermentelos', 1),
+(19, 'Macinhata do Vouga', 1),
+(20, 'Préstimo e Macieira de Alcoba', 1),
+(21, 'Recardães e Espinhel', 1),
+(22, 'Travassô e Óis da Ribeira', 1),
+(23, 'Trofa, Segadães e Lamas do Vouga', 1),
+(24, 'Valongo do Vouga', 1),
+(25, 'Aguiar da Beira e Coruche', 9),
+(26, 'Carapito', 9),
+(27, 'Cortiçada', 9),
+(28, 'Dornelas', 9),
+(29, 'Eirado', 9),
+(30, 'Forninhos', 9),
+(31, 'Pena Verde', 9),
+(32, 'Pinheiro', 9),
+(33, 'Sequeiros e Gradiz', 9),
+(34, 'Souto de Aguiar da Beira e Valverde', 9),
+(35, 'Alandroal (Nossa Senhora da Conceição), São Brás dos Matos (Mina do Bugalho) e Juromenha (Nossa Senhora do Loreto)', 7),
+(36, 'Capelins (Santo António)', 7),
+(37, 'Santiago Maior', 7),
+(38, 'Terena (São Pedro)', 7),
+(40, 'Albergaria-a-Velha e Valmaior', 30),
+(41, 'Alquerubim', 30),
+(42, 'Angeja', 30),
+(43, 'Branca', 30),
+(44, 'Ribeira de Fráguas', 30),
+(45, 'São João de Loure e Frossos', 30),
+(46, 'Albufeira e Olhos de Água', 8),
+(47, 'Ferreiras', 8),
+(48, 'Guia', 8),
+(49, 'Paderne', 8),
+(50, 'Alcácer do Sal (Santa Maria do Castelo e Santiago) e Santa Susana', 15),
+(51, 'Comporta', 15),
+(52, 'São Martinho', 15),
+(53, 'Torrão', 15),
+(54, 'Alcanena e Vila Moreira', 43),
+(55, 'Bugalhos', 43),
+(56, 'Malhou, Louriceira e Espinheiro', 43),
+(57, 'Minde', 43),
+(58, 'Moitas Venda', 43),
+(59, 'Monsanto', 43),
+(60, 'Serra de Santo António', 43),
+(61, 'Alcobaça e Vestiaria', 10),
+(62, 'Alfeizerão', 10),
+(63, 'Aljubarrota', 10),
+(64, 'Bárrio', 10),
+(65, 'Benedita', 10),
+(66, 'Cela', 10),
+(67, 'Coz, Alpedriz e Montes', 10),
+(68, 'Évora de Alcobaça', 10),
+(69, 'Maiorga', 10),
+(70, 'Pataias e Martingança', 10),
+(71, 'São Martinho do Porto', 10),
+(72, 'Turquel', 10),
+(73, 'Vimeiro', 10),
+(74, 'Adaúfe', 56),
+(75, 'Arentim e Cunha', 56),
+(76, 'Braga (Maximinos, Sé e Cividade)', 56),
+(77, 'Braga (São José de São Lázaro e São João do Souto)', 56),
+(78, 'Braga (São Vicente)', 56),
+(79, 'Braga (São Vítor)', 56),
+(80, 'Cabreiros e Passos (São Julião)', 56),
+(81, 'Celeirós, Aveleda e Vimieiro', 56),
+(82, 'Crespos e Pousada', 56),
+(83, 'Escudeiros e Penso (Santo Estêvão e São Vicente)', 56),
+(84, 'Espinho', 56),
+(85, 'Esporões', 56),
+(86, 'Este (São Pedro e São Mamede)', 56),
+(87, 'Ferreiros e Gondizalves', 56),
+(88, 'Figueiredo', 56),
+(89, 'Gualtar', 56),
+(90, 'Guisande e Oliveira (São Pedro)', 56),
+(91, 'Lamas', 56),
+(92, 'Lomar e Arcos', 56),
+(93, 'Merelim (São Paio), Panoias e Parada de Tibães', 56),
+(94, 'Merelim (São Pedro) e Frossos', 56),
+(95, 'Mire de Tibães', 56),
+(96, 'Morreira e Trandeiras', 56),
+(97, 'Nogueira, Fraião e Lamaçães', 56),
+(98, 'Nogueiró e Tenões', 56),
+(99, 'Padim da Graça', 56),
+(100, 'Palmeira', 56),
+(101, 'Pedralva', 56),
+(102, 'Priscos', 56),
+(103, 'Real, Dume e Semelhe', 56),
+(104, 'Ruilhe', 56),
+(105, 'Santa Lucrécia de Algeriz e Navarra', 56),
+(106, 'Sequeira', 56),
+(107, 'Sobreposta', 56),
+(108, 'Tadim', 56),
+(109, 'Tebosa', 56),
+(110, 'Vilaça e Fradelos', 56);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `localEventos`
+--
+
+CREATE TABLE IF NOT EXISTS `localEventos` (
+  `idLocal` int(11) NOT NULL AUTO_INCREMENT,
+  `descricaoLocal` varchar(100) NOT NULL,
+  `moradaLocal` varchar(300) DEFAULT NULL,
+  `codigoPostal1` varchar(20) DEFAULT NULL,
+  `codigoPostal2` varchar(20) DEFAULT NULL,
+  `idFreguesia` int(11) NOT NULL,
+  `coordenadaX` varchar(100) DEFAULT NULL,
+  `coordenadaY` varchar(100) DEFAULT NULL,
+  `localidade` varchar(100) DEFAULT NULL,
+  `lotacaoMax` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idLocal`),
+  KEY `fk_localEventos_freguesias1_idx` (`idFreguesia`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+--
+-- Extraindo dados da tabela `localEventos`
+--
+
+INSERT INTO `localEventos` (`idLocal`, `descricaoLocal`, `moradaLocal`, `codigoPostal1`, `codigoPostal2`, `idFreguesia`) VALUES
+(1, 'Largo Festas da Ribeira', 'Largo Festas da Ribeira', '4739', '324', 93),
+(2, 'Praça do Convívio', 'Praça do Convívio', '4636', '643', 88),
+(3, 'TOCA', 'Avenida Central 33, Bragashopping, 2º piso', '4710', '228', 77),
+(4, 'SETRA', 'Rua de São João, nº 15 - 1ºandar', '4700', '424', 56),
+(5, 'Theatro Circo', 'Avenida da Liberdade, n.º 697', '4710', '251', 77);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `evento`
+--
+
+CREATE TABLE IF NOT EXISTS `evento` (
+  `idEvento` int(11) NOT NULL AUTO_INCREMENT,
+  `tituloEvento` varchar(200) NOT NULL,
+  `idUtilizador` int(11) NOT NULL,
+  `descricaoEvento` varchar(250) DEFAULT NULL,
+  `dataInicioEvento` datetime DEFAULT NULL,
+  `dataFimEvento` datetime DEFAULT NULL,
+  `dataCriacaoEvento` datetime DEFAULT NULL,
+  `dataLimiteInscricao` datetime DEFAULT NULL,
+  `nrMaxParticipantes` int(11) NOT NULL DEFAULT '0',
+  `nrPessoasInscritas` int(11) NOT NULL DEFAULT '0',
+  `idLocal` int(11) NOT NULL,
+  `urlImagemEvento` varchar(300) NOT NULL,
+  `patrocinado` tinyint(4) NOT NULL DEFAULT '0',
+  `dataExpiracaoPatrocinio` datetime DEFAULT NULL,
+  `estadoEvento` int(11) DEFAULT NULL,
+  `nrGostos` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`idEvento`),
+  KEY `fk_evento_users1_idx` (`idUtilizador`),
+  KEY `fk_evento_localEventos1_idx` (`idLocal`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `evento`
+--
+
+INSERT INTO `evento` (`idEvento`, `tituloEvento`, `idUtilizador`, `idLocal`, `urlImagemEvento`) VALUES
+(1, 'Festa da Nossa Senhora da Agonia', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(2, 'Festa da Salxixeira', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(3, 'Queima das Fitas', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(4, 'Enterro do Cão', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(5, 'Pingo Doce Festival', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(6, 'JazzCuzi', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(7, 'Whose Blues Blue', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(8, 'Aniversário TOCA', 9, 3, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384');
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidosOrcamentos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidosOrcamentos` (
+  `idOrcamento` int(11) NOT NULL AUTO_INCREMENT,
+  `precoTotal` decimal(12,2) DEFAULT NULL,
+  `precoDeslocacao` decimal(12,2) DEFAULT NULL,
+  `descricaoOrcamento` text,
+  `ivaIncluido` int(11) DEFAULT NULL,
+  `adjudicado` int(11) DEFAULT NULL,
+  `idArtista` int(11) NOT NULL,
+  `idOrganizador` int(11) NOT NULL,
+  `idEvento` int(11) NOT NULL,
+  PRIMARY KEY (`idOrcamento`),
+  KEY `fk_pedidosOrcamentos_users1_idx` (`idArtista`),
+  KEY `fk_pedidosOrcamentos_users2_idx` (`idOrganizador`),
+  KEY `fk_pedidosOrcamentos_evento1_idx` (`idEvento`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+--
+-- Extraindo dados da tabela `pedidosOrcamentos`
+--
+
+INSERT INTO `pedidosOrcamentos` (`idOrcamento`, `precoTotal`, `precoDeslocacao`, `descricaoOrcamento`, `ivaIncluido`, `adjudicado`, `idArtista`, `idOrganizador`, `idEvento`) VALUES
+(1, 1000.00, 50.00, 'A TOCA quer o Zé Amaro no Dia de São Nunca, à noite. Vai ser cabeça de cartaz do nosso aniversário.', 1, 1, 1, 9, 8);
+
 
 -- --------------------------------------------------------
 
@@ -640,6 +897,14 @@ CREATE TABLE IF NOT EXISTS `emails` (
   PRIMARY KEY (`idEmail`),
   KEY `fk_emails_pedidosOrcamentos1_idx` (`idPedidoOrcamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Extraindo dados da tabela `emails`
+--
+
+INSERT INTO `emails` (`idEmail`, `idRemetente`, `idDestinatario`, `idPasta`, `dataHoraCriacao`, `visto`, `mensagem`, `idPedidoOrcamento`, `idEmailResposta`) VALUES
+(1, 9, 1, 0, '2018-02-02 16:45:50', 1, 'Mano Zé! Comé? Podes vir aqui dar música ao pessoal?', 1, 2),
+(2, 1, 9, 0, '2018-02-03 16:45:50', 1, 'Claro! Pagas bem?', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -683,99 +948,6 @@ CREATE TABLE IF NOT EXISTS `estadoUtilizadoresEvento` (
   `descricaoEstado` varchar(100) NOT NULL,
   PRIMARY KEY (`idEstado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `freguesias`
---
-
-CREATE TABLE IF NOT EXISTS `freguesias` (
-  `idFreguesia` int(11) NOT NULL,
-  `descricaoFreguesia` varchar(200) NOT NULL,
-  `idConcelho` int(11) NOT NULL,
-  PRIMARY KEY (`idFreguesia`),
-  KEY `fk_freguesias_concelhos1_idx` (`idConcelho`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `freguesias`
---
-
-INSERT INTO `freguesias` (`idFreguesia`, `descricaoFreguesia`, `idConcelho`) VALUES
-(1, 'S.Paio De Arcos', 56),
-(2, 'Figueiredo', 56);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `localEventos`
---
-
-CREATE TABLE IF NOT EXISTS `localEventos` (
-  `idLocal` int(11) NOT NULL AUTO_INCREMENT,
-  `descricaoLocal` varchar(100) NOT NULL,
-  `moradaLocal` varchar(300) DEFAULT NULL,
-  `codigoPostal1` varchar(20) DEFAULT NULL,
-  `codigoPostal2` varchar(20) DEFAULT NULL,
-  `idFreguesia` int(11) NOT NULL,
-  `coordenadaX` varchar(100) DEFAULT NULL,
-  `coordenadaY` varchar(100) DEFAULT NULL,
-  `localidade` varchar(100) DEFAULT NULL,
-  `lotacaoMax` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idLocal`),
-  KEY `fk_localEventos_freguesias1_idx` (`idFreguesia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
---
--- Extraindo dados da tabela `localEventos`
---
-
-INSERT INTO `localEventos` (`idLocal`, `descricaoLocal`, `idFreguesia`) VALUES
-(1, 'Largo Festas da Ribeira', 1),
-(2, 'Praça do Convívio', 2);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `evento`
---
-
-CREATE TABLE IF NOT EXISTS `evento` (
-  `idEvento` int(11) NOT NULL AUTO_INCREMENT,
-  `tituloEvento` varchar(200) NOT NULL,
-  `idUtilizador` int(11) NOT NULL,
-  `descricaoEvento` varchar(250) DEFAULT NULL,
-  `dataInicioEvento` datetime DEFAULT NULL,
-  `dataFimEvento` datetime DEFAULT NULL,
-  `dataCriacaoEvento` datetime DEFAULT NULL,
-  `dataLimiteInscricao` datetime DEFAULT NULL,
-  `nrMaxParticipantes` int(11) NOT NULL DEFAULT '0',
-  `nrPessoasInscritas` int(11) NOT NULL DEFAULT '0',
-  `idLocal` int(11) NOT NULL,
-  `urlImagemEvento` varchar(300) NOT NULL,
-  `patrocinado` tinyint(4) NOT NULL DEFAULT '0',
-  `dataExpiracaoPatrocinio` datetime DEFAULT NULL,
-  `estadoEvento` int(11) DEFAULT NULL,
-  `nrGostos` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idEvento`),
-  KEY `fk_evento_users1_idx` (`idUtilizador`),
-  KEY `fk_evento_localEventos1_idx` (`idLocal`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Extraindo dados da tabela `evento`
---
-
-INSERT INTO `evento` (`tituloEvento`, `idUtilizador`, `idLocal`, `urlImagemEvento`) VALUES
-('Festa da Nossa Senhora da Agonia', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('Festa da Salxixeira', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('Queima das Fitas', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('Enterro do Cão', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('Pingo Doce Festival', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('JazzCuzi', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-('Whose Blues Blue', 4, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg');
 
 -- --------------------------------------------------------
 
@@ -826,6 +998,16 @@ CREATE TABLE IF NOT EXISTS `EventosArtistasContratados` (
   `valido` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idEvento`,`idArtista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+--
+-- Extraindo dados da tabela `EventpsArtistasContratados`
+--
+
+INSERT INTO `EventosArtistasContratados` (`idEvento`, `idArtista`) VALUES
+(1, 1),
+(2, 2),
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -897,28 +1079,6 @@ CREATE TABLE IF NOT EXISTS `pagamentos` (
   `dataExpiracaoApos` datetime DEFAULT NULL,
   PRIMARY KEY (`idPagamento`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `pedidosOrcamentos`
---
-
-CREATE TABLE IF NOT EXISTS `pedidosOrcamentos` (
-  `idOrcamento` int(11) NOT NULL AUTO_INCREMENT,
-  `precoTotal` decimal(12,2) DEFAULT NULL,
-  `precoDeslocacao` decimal(12,2) DEFAULT NULL,
-  `descricaoOrcamento` text,
-  `ivaIncluido` int(11) DEFAULT NULL,
-  `adjudicado` int(11) DEFAULT NULL,
-  `idArtista` int(11) NOT NULL,
-  `idOrganizador` int(11) NOT NULL,
-  `idEvento` int(11) NOT NULL,
-  PRIMARY KEY (`idOrcamento`),
-  KEY `fk_pedidosOrcamentos_users1_idx` (`idArtista`),
-  KEY `fk_pedidosOrcamentos_users2_idx` (`idOrganizador`),
-  KEY `fk_pedidosOrcamentos_evento1_idx` (`idEvento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

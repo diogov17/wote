@@ -994,7 +994,7 @@ class RegisterController extends BaseController
         $tiposEspetaculos = TipoEspetaculos::getTiposEspetaculos();
         $tiposConta = UsersSubTipologia::getSubTipologias();
         $tiposEventos = TipoEventos::getEventosTipos();
-        $tipoContaPremium = $request->tipoContaPremium;
+        $tipoContaPremium = 1;
 
         $erros = array();
         $erros['nomeUser'] = '';

@@ -3,7 +3,6 @@
 namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Notifications\Notifiable;
 use App\Models\PerfilTiposEspetaculos;
 use App\Models\PerfilComentarios;

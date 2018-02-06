@@ -1,4 +1,4 @@
-@extends('frontend.template.template')
+@extends('frontend.template.templateSemSlider')
 
 
 
