@@ -21,6 +21,7 @@ use App\Http\Models\UtilizadoresTiposConta;
 use App\Http\Models\Utilizador;
 use App\Http\Models\PerfilTiposEspetaculos;
 use App\Http\Models\Perfil;
+use App\Http\Models\PerfilGaleria;
 use App\Http\Models\Anuncios;
 use App\Http\Models\TipoEventos;
 use App\Http\Models\PerfilTiposEventos;
@@ -279,6 +280,13 @@ class RegisterController extends BaseController
                         $novaAssociacaoTipoEspetaculo->save();
                     }
 
+                    // PerfilGaleria
+                    $novoPerfilGaleria = new PerfilGaleria();
+                    $novoPerfilGaleria->idGaleria = $idUtilizador;
+                    $novoPerfilGaleria->idUtilizador = $idUtilizador;
+                    $novoPerfilGaleria->urlGaleria = "https://i0.wp.com/www.extremelinellc.com/wp-content/uploads/2017/05/2.png?fit=720%2C720";
+                    $novoPerfilGaleria->valido = 1;
+                    $novoPerfilGaleria->save();
 
                     //Enviar email:
 
@@ -582,7 +590,13 @@ class RegisterController extends BaseController
                         $novaAssociacaoTipoEvento->save();
                     }
 
-                
+                    // PerfilGaleria
+                    $novoPerfilGaleria = new PerfilGaleria();
+                    $novoPerfilGaleria->idGaleria = $idUtilizador;
+                    $novoPerfilGaleria->idUtilizador = $idUtilizador;
+                    $novoPerfilGaleria->urlGaleria = "https://i0.wp.com/www.extremelinellc.com/wp-content/uploads/2017/05/2.png?fit=720%2C720";
+                    $novoPerfilGaleria->valido = 1;
+                    $novoPerfilGaleria->save();
 
                     //Enviar email:
 
@@ -868,6 +882,13 @@ class RegisterController extends BaseController
 
                     $idPerfil = $novoPerfil->idPerfil;
 
+                    // PerfilGaleria
+                    $novoPerfilGaleria = new PerfilGaleria();
+                    $novoPerfilGaleria->idGaleria = $idUtilizador;
+                    $novoPerfilGaleria->idUtilizador = $idUtilizador;
+                    $novoPerfilGaleria->urlGaleria = "https://i0.wp.com/www.extremelinellc.com/wp-content/uploads/2017/05/2.png?fit=720%2C720";
+                    $novoPerfilGaleria->valido = 1;
+                    $novoPerfilGaleria->save();
 
                     foreach ($tipoEvento as $tEvento) {
                          //Novo Tipo Espetaculo associado ao utilizador - principal;
@@ -942,7 +963,7 @@ class RegisterController extends BaseController
                     Mail::send('emails.send', ['title' => $title, 'content' => $content], function ($message) use ($emailUser)
                     {
 
-                        $message->from('hugorodriguesofficial@gmail.com', 'WOTE - Juntos pela Música!');
+                        $message->from('wote_uminho@outlook.com', 'WOTE - Juntos pela Música!');
                         $message->subject('Ativação de Conta - Plataforma WOTE');
                         $message->to($emailUser);
 
@@ -1128,7 +1149,7 @@ class RegisterController extends BaseController
 
         foreach ($tmp as $artista)
             $artistasAnuncios[$artista->id] = $artista;
-        
+
         $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
 
 

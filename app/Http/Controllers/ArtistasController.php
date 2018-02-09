@@ -124,7 +124,7 @@ class ArtistasController extends BaseController
         $resultado = Anuncios::getArtistasPesquisa($pesquisaLivre, $dataInicioDisponibilidade, $dataFimDisponibilidade, $idConcelho, $idDistrito, $idPais, $precoInicio, $precoFim, $nrSeguidoresLow, $nrSeguidoresHigh, $feedbackLow, $feedbackHigh, $localAtuacao, $pagina, 10);
 
         $artistas = Utilizador::getAllArtistas($request['pesquisaLivre']);
-
+        
         $profilePics = array();
 
         foreach ($artistas as $artista)
