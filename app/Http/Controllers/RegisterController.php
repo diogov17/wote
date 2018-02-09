@@ -437,6 +437,12 @@ class RegisterController extends BaseController
         }
 
         $paises = Paises::getPaises();
+
+        $distritos = array();
+        foreach ($paises as $pais) {
+            $distritos[$pais->idPais] = Distritos::getDistritos($pais->idPais);
+        }
+
         $questaoSeguranca = QuestoesSeguranca::getQuestaoSeguranca();
         $tipoEventos = TipoEventos::getEventosTipos();
         $tiposConta = UsersSubTipologia::getSubTipologias();
@@ -647,6 +653,7 @@ class RegisterController extends BaseController
 
         return view('frontend.registerOrganizador')
                             ->with('paises',$paises)
+                            ->with('distritos',$distritos)
                             ->with('tiposEventos',$tipoEventos)
                             ->with('questaoSeguranca',$questaoSeguranca)
                             ->with('tiposConta',$tiposConta)
@@ -1114,14 +1121,22 @@ class RegisterController extends BaseController
             $idUser = 0;
             $autenticado = 0;
         }
-        $artistasHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+        $anunciosHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+
+        $tmp = Anuncios::getArtistasDestaques();
+        $artistasAnuncios = array();
+
+        foreach ($tmp as $artista)
+            $artistasAnuncios[$artista->id] = $artista;
+        
         $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
 
 
         return view('frontend.principal')
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
-                    ->with('artistasHome',$artistasHome)
+                    ->with('anunciosHome',$anunciosHome)
+                    ->with('artistasAnuncios',$artistasAnuncios)
                     ->with('ultimosEspetaculos',$ultimosEspetaculos)
                     ->with('alertaAtivacaoConta',$atualizou)
                     ->with('tipoPesquisa', 0);

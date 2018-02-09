@@ -21,33 +21,30 @@
 			</div>
 			<div class="row">
 
-				<?php
-				for ($i = 1; $i <= 6; $i++) { ?>
+				@foreach($anunciosHome as $anuncio)
+				<div class="col-md-5">
+					<div class="box_list wow fadeIn">
+						<a href="#0" class="wish_bt"></a>
+						<figure>
+							<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
+								<div class="preview"><span>Read more</span></div>
+							</a>
+						</figure>
+						<div class="wrapper">
+							<small>{{ trans('messages.Artista') }}</small>
+							<h3>{{ $artistasAnuncios[$anuncio->idUtilizador]->name }}</h3>
 
-    				<div class="col-lg-4 col-md-6">
-						<div class="box_list home">
-							<a href="#0" data-toggle="tooltip" data-placement="top" title="Adicionar à WishList" class="wish_bt"></a>
-							<figure>
-
-								<a href="detail-page.html"><img src="artistas/1.jpg" class="img-fluid" alt=""></a>
-								<div class="preview"><span>Ver mais</span></div>
-							</figure>
-							<div class="wrapper">
-								<small>Pop</small> <small>Fado</small> <small>Braga</small> <small>Lisboa</small>
-								<h3>Art and Art</h3>
-								<p>Esta é uma descrição qualquer inventada por mim, ok? Deiem bom feedback por favor!!!</p>
-								<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> <small>(23)</small></span>
-								<a href="#0" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-							</div>
-							<ul>
-								<li><i class="icon-eye-7"></i> 854 Visualizações</li>
-								<li><a href="#">Ver Página</a></li>
-							</ul>
+							<p>{{ $anuncio->textoAnuncio }}</p>
+							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+							<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
 						</div>
+						<ul>
+							<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
+							<li><a href="#">Ver Página</a></li>
+						</ul>
 					</div>
-
-		  <?php } ?>
-
+				</div>
+				@endforeach
 			<!-- /row -->
 		</div>
 		<p class="text-left add_top_30"><a href="list.html" class="btn_1 medium">Todos Artistas</a></p>

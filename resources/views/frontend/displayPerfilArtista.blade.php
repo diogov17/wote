@@ -20,7 +20,7 @@
                 <div class="rela-block profile-card">
                     <div class="profile-pic" id="profile_pic"></div>
                     <div class="rela-block profile-name-container">
-                        <div class="rela-block user-name" id="user_name">{{$user->name}}</div>
+                        <div class="rela-block user-name" id="user_name">{{$artista->name}}</div>
                         <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
                     </div>
                     <div class="rela-block profile-card-stats">
@@ -103,7 +103,7 @@
                   width: 180px;
                   border: 10px solid #fff;
                   border-radius: 100%;
-                  background: url("https://pbs.twimg.com/media/CdbiubzVIAANj8J.jpg") center no-repeat;
+                  background: url("<?php echo $profilePic ?>") center no-repeat;
                   background-size: cover;
                 }
                 .profile-name-container {
@@ -154,17 +154,17 @@
                         <p allign="left">Obs:            {{$perfil->observacoes}}</p>
                         <p>Estilo Musical: {{$perfil->estiloPrincipal}}</p>
 
-                        <p>Preço Hora:       {{$user->precoHora}}</p>
-                        <p>Preço Dia:        {{$user->precoDia}}</p>
-                        <p>Preço Deslocaçao: {{$user->precoDeslocacao}}</p>
-                        <p>Preco Sugerido:   {{$user->precoMinimoAtuacao}}</p>
-                        <p>Data Registo:     {{$user->dataRegisto}}</p>
+                        <p>Preço Hora:       {{$artista->precoHora}}</p>
+                        <p>Preço Dia:        {{$artista->precoDia}}</p>
+                        <p>Preço Deslocaçao: {{$artista->precoDeslocacao}}</p>
+                        <p>Preco Sugerido:   {{$artista->precoMinimoAtuacao}}</p>
+                        <p>Data Registo:     {{$artista->dataRegisto}}</p>
 
-                        <p>Morada:        {{$user->morada}}</p>
-                        <p>Codigo Postal: {{$user->codigoPostal1}}</p>
-                        <p>Codigo Postal: {{$user->codigoPostal2}}</p>
-                        <p>Codigo Postal: {{$user->codigoPostalDesignacao}}</p>
-                        <p>Cidade:        {{$user->descricaoConcelho}}, {{$user->descricaoDistrito}}</p>
+                        <p>Morada:        {{$artista->morada}}</p>
+                        <p>Codigo Postal: {{$artista->codigoPostal1}}</p>
+                        <p>Codigo Postal: {{$artista->codigoPostal2}}</p>
+                        <p>Codigo Postal: {{$artista->codigoPostalDesignacao}}</p>
+                        <p>Cidade:        {{$artista->descricaoConcelho}}, {{$artista->descricaoDistrito}}</p>
                 </div>
             </div>
         </div>

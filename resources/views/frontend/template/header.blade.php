@@ -1,5 +1,3 @@
-
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -50,6 +48,11 @@
 
 <!-- Se quiserem mudar CSS por favor colocar neste ficheiro para ser importado por toda a plataforma -->
 <link href="{{ asset('libs/css/custom.css') }}" rel="stylesheet">
+
+<script src="{{ asset('libs/js/jquery-2.2.4.min.js') }}"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 <style>
 .content{

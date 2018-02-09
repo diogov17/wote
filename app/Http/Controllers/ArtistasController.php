@@ -185,23 +185,22 @@ class ArtistasController extends BaseController
 
     public function pagina($id)
     {
-        $user = Utilizador::isArtista($id);
+        $artista = Utilizador::isArtista($id);
 
-        if(count($user) == 1)
+        if(count($artista) == 1)
         {
             $perfil = Perfil::where('idUtilizador', '=', $id)
                                     ->get();
 
-            $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
-                                    ->get();
-
+            $profilePic = PerfilGaleria::getProfilePic($id);
+            
             $calendario = [];
 
-            if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
+            if (count($artista) > 0 && count($perfil) > 0) 
                 return view('frontend.displayPerfilArtista')
-                            ->with('user', $user[0])
+                            ->with('artista', $artista[0])
                             ->with('perfil', $perfil[0])
-                            ->with('galeria', $galeria[0])
+                            ->with('profilePic', $profilePic)
                             ->with('calendario', $calendario)
                             ->with('tipoPesquisa', 1);
             else return view('frontend.errorPerfil');

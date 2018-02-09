@@ -37,7 +37,7 @@ class PerfilTiposEspetaculos extends Model {
     public $timestamps = false;
 
 
-    public function getTiposEspetaculosPerfil($idPerfil){
+    public static function getTiposEspetaculosPerfil($idPerfil){
     	$tiposEspetaculos = DB::table('perfilTiposEspetaculos')
     								->select('perfilTiposEspetaculos.*','tipoEspetaculos.descricaoTipoEspetaculo')
                                     ->join('tipoEspetaculos','tipoEspetaculos.idTipoEspetaculo','=','perfilTiposEspetaculos.idTipoEspetaculo')

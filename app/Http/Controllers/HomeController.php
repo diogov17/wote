@@ -47,14 +47,21 @@ class HomeController extends BaseController
         }
 
         
-        $artistasHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
-       
+        $anunciosHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+        
+        $tmp = Anuncios::getArtistasDestaques();
+        $artistasAnuncios = array();
+
+        foreach ($tmp as $artista)
+            $artistasAnuncios[$artista->id] = $artista;
+        
         $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
 
         return view('frontend.principal')
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
-                    ->with('artistasHome',$artistasHome)
+                    ->with('anunciosHome',$anunciosHome)
+                    ->with('artistasAnuncios', $artistasAnuncios)
                     ->with('ultimosEspetaculos',$ultimosEspetaculos)
                     ->with('tipoPesquisa',0);
     }
@@ -73,14 +80,17 @@ class HomeController extends BaseController
         }
 
         
-        $artistasHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+        $anunciosHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+
+        $artistasAnuncios = Anuncios::getArtistasDestaques();
         
         $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
 
         return view('frontend.principal')
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
-                    ->with('artistasHome',$artistasHome)
+                    ->with('anunciosHome',$anunciosHome)
+                    ->with('artistasAnuncios', $artistasAnuncios)
                     ->with('ultimosEspetaculos',$ultimosEspetaculos)
                     ->with('tipoPesquisa',0);   
     }

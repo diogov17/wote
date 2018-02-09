@@ -17,7 +17,7 @@ class PerfilComentarios extends Model {
     							'idPerfil',
     							'comentario',
     							'valido',
-    							'idUtilizadorComentou'
+    							'idUtilizadorComentou',
     							'dataHoraRegisto'
     					];
 
@@ -32,7 +32,7 @@ class PerfilComentarios extends Model {
 
 
     
-    public function getComentariosAnuncio($idPerfil){
+    public static function getComentariosAnuncio($idPerfil){
     	$comentarios = DB::table('perfilComentarios')
     						->select('perfilComentarios.*')
     						->where('idPerfil','=',$idPerfil)
@@ -44,7 +44,7 @@ class PerfilComentarios extends Model {
     	return $comentarios;
     }
 
-    public function getMoreComentarios($idPerfil, $limiteInferior, $quantos){
+    public static function getMoreComentarios($idPerfil, $limiteInferior, $quantos){
 
     	$comentarios = DB::table('perfilComentarios')
     						->select('perfilComentarios.*')
@@ -58,7 +58,7 @@ class PerfilComentarios extends Model {
     	return $comentarios;
     }
 
-    public function quantosComentariosAnuncio($idPerfil){
+    public static function quantosComentariosAnuncio($idPerfil){
     	$quantosComentarios = DB::table('perfilComentarios')
     						->where('idPerfil','=',$idPerfil)
     						->count();

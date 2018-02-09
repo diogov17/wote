@@ -3,11 +3,15 @@
 namespace App\Http\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User;
+//use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticable;
+use Illuminate\Auth\Authenticable as AuthenticableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Utilizador extends Model
+//class Utilizador extends Model
+class Utilizador extends User
 {
 
     protected $table = 'users';
@@ -97,6 +101,7 @@ class Utilizador extends Model
                             ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
                             ->where('usersTipologia.idTipoConta', '=', '1')
                             ->where('name', 'like', '%' . $input . '%')
+                            ->join('perfil','users.id','=','perfil.idUtilizador')
                             ->get();
     }
 
@@ -107,6 +112,7 @@ class Utilizador extends Model
                             ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
                             ->where('usersTipologia.idTipoConta', '=', '2')
                             ->where('name', 'like', '%' . $input . '%')
+                            ->join('perfil','users.id','=','perfil.idUtilizador')
                             ->get();
     }
 

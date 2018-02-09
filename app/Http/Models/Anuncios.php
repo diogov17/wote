@@ -4,9 +4,9 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
-use App\Models\PerfilTiposEspetaculos;
-use App\Models\PerfilComentarios;
-use App\Models\PerfilZonasAtuacao;
+use App\Http\Models\PerfilTiposEspetaculos;
+use App\Http\Models\PerfilComentarios;
+use App\Http\Models\PerfilZonasAtuacao;
 
 class Anuncios extends Model {
     
@@ -175,6 +175,13 @@ class Anuncios extends Model {
                                 ->paginate($quantosPorPagina);
             
             return $anuncios;
+    }
+
+    public static function getArtistasDestaques()
+    {
+        return DB::table('users')
+                            ->join('anuncios','users.id','=','anuncios.idUtilizador')
+                            ->get();
     }
 
 

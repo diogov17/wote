@@ -43,11 +43,24 @@ class AreaReservadaController extends BaseController
             $autenticado = 0;
         }
 
+        $anunciosHome = Anuncios::getAnunciosHomeDestaques($idUser, $autenticado);
+        
+        $tmp = Anuncios::getArtistasDestaques();
+        $artistasAnuncios = array();
+
+        foreach ($tmp as $artista)
+            $artistasAnuncios[$artista->id] = $artista;
+
+        $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
+
         
         return view('frontend.principal')
                     ->with('idUser',$idUser)
                     ->with('autenticado',$autenticado)
-                    ->with('tipoPesquisa', 0);
+                    ->with('tipoPesquisa', 0)
+                    ->with('anunciosHome',$anunciosHome)
+                    ->with('artistasAnuncios', $artistasAnuncios)
+                    ->with('ultimosEspetaculos',$ultimosEspetaculos);
     }
 
    

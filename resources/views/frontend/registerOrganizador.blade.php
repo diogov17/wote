@@ -131,26 +131,23 @@
 								</div>
 
 								<div class="row">
-									<div class="col-lg-12">
-									<?php if($erros['password'] != '') { ?>
-				                        <span class="help-block">
-				                            <strong><?php echo $erros['password'];?></strong>
-				                        </span>
-						            <?php } ?>
-
-									<?php if($erros['password_confirmation'] != '') { ?>
-				                        <span class="help-block">
-				                            <strong><?php echo $erros['password_confirmation'];?></strong>
-				                        </span>
-						            <?php } ?>
-						        	</div>
 									<div class="col-md-6 ">
 										<div class="form-group">
+                                            <?php if($erros['password'] != '') { ?>
+                                                <span class="help-block">
+                                                    <strong><?php echo $erros['password'];?></strong>
+                                                </span>
+                                            <?php } ?>
 											<input type="password" class="form-control" placeholder="Password" name="password" id="password">
 										</div>
 									</div>
-									<div class="col-mg-6">
+									<div class="col-md-6">
 										<div class="form-group">
+                                            <?php if($erros['password_confirmation'] != '') { ?>
+                                                <span class="help-block">
+                                                    <strong><?php echo $erros['password_confirmation'];?></strong>
+                                                </span>
+                                            <?php } ?>
 											<input type="password" class="form-control" placeholder="Repetir Password" name="password_confirmation" id="password_confirmation">
 										</div>
 									</div>

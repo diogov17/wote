@@ -27,6 +27,7 @@ Route::resource('registo', 'RegisterController');
 Route::post('/registo/getConcelhos','RegisterController@getConcelhos');
 Route::post('/registo/getDistritos','RegisterController@getDistritos');
 
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('registo/artista','RegisterController@registoArtista');
 Route::post('registo/organizador','RegisterController@registoOrganizador');

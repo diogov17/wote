@@ -83,7 +83,7 @@
 								<small>{{ trans('messages.Organizador') }}</small>
 								<h3>{{ $organizador->name }}</h3>
 
-								<p>Not Available</p>
+								<p>{{ $organizador->descricao }}</p>
 								<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
 								<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
 							</div>

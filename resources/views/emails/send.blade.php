@@ -17,7 +17,7 @@
 ?>
 
 <br>
-<a href="localhost:8080/ativacaoConta/<?php echo $content['ativacao']; ?>">Ativação Conta WOTE</a>
+<a href="http://wote.test/ativacaoConta/<?php echo $content['ativacao']; ?>">Ativação Conta WOTE</a>
 <br>
 
 

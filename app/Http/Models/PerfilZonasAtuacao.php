@@ -26,7 +26,7 @@ class PerfilZonasAtuacao extends Model {
     public $timestamps = false;
 
 
-    public function getZonasAtuacaoPerfil($idPerfil){
+    public static function getZonasAtuacaoPerfil($idPerfil){
         
         $zonas = DB::table('perfilZonasAtuacao')
                         ->select('perfilZonasAtuacao.*','concelhos.descricaoConcelho')

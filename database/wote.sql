@@ -571,9 +571,11 @@ CREATE TABLE IF NOT EXISTS `anuncios` (
 --
 
 INSERT INTO `anuncios` (`idAnuncio`, `idUtilizador`, `idPerfil`, `dataCriacaoAnuncio`, `estadoAnuncio`, `dataExpiracaoAnuncio`, `textoAnuncio`, `urlImagemAnuncio`, `patrocinado`, `nrVisualizacoes`) VALUES
-(1, 1, 1, '2018-02-01 19:52:30', 1, '2018-03-01 19:52:30', 'Inspirado na música romântica, popular e principalmente na música country é notório o amadurecimento do artista em todas as suas letras e músicas e a influência de todos os seus espectáculos em Portugal ou pelas comunidades portuguesas em torno do mundo.', 'http://www.zeamaro.com/images/logo.png', 1, 0),
-(2, 9, 9, '2018-02-01 20:21:44', 1, '2028-02-01 20:21:44', 'Este espaço está a ser desenvolvido nas antigas salas de cinema do Centro Comercial Avenida, em Braga.', 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384', 0, 0),
-(3, 5, 5, '2018-02-01 20:27:36', 1, '2018-03-01 20:27:35', 'Este grupo cultural da Universidade do Minho é um dos mais antigos, tendo iniciado as suas atividades em janeiro de 1989 e, desde então, tem desenvolvido um trabalho de prática e divulgação da música de todas as épocas, em especial da música portuguesa.', 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Caumlogo.png', 1, 0);
+(1, 1, 1, '2018-02-01 19:52:30', 1, '2018-03-01 19:52:30', 'Inspirado na música romântica, popular e principalmente na música country é notório o amadurecimento do artista em todas as suas letras e músicas e a influência de todos os seus espectáculos em Portugal ou pelas comunidades portuguesas em torno do mundo.', 'https://ominho.pt/wp-content/uploads/2017/01/Ze-Amaro.jpg', 1, 0),
+(2, 15, 9, '2018-02-01 20:21:44', 1, '2028-02-01 20:21:44', 'Este espaço está a ser desenvolvido nas antigas salas de cinema do Centro Comercial Avenida, em Braga.', 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384', 0, 0),
+(3, 2, 5, '2018-02-01 20:27:36', 1, '2018-03-03 20:27:35', 'Rosinha, na maioria dos espectáculos faz-se acompanhar pela sua banda composta por 4 músicos e pelas suas 2 bailarinas (a quem gosta de chamar carinhosamente de Bailarocas) canta e toca sempre ao vivo e segundo as suas palavras, ... não podia ser de outra maneira pois o melhor dos espectáculos é a interacção constante com o público...', 'http://demo.accesspressthemes.com/revolve-pro/wp-content/uploads/2016/06/staff_02.jpg', 1, 0),
+(4, 16, 5, '2018-02-01 13:27:36', 1, '2018-03-02 20:27:35', 'A programmer, developer, dev, coder, or software engineer is a person who creates computer software. The term computer programmer can refer to a specialist in one area of computer or to a generalist who writes code for many kinds of software.', 'http://programmermap.com/img/code.jpg', 1, 0),
+(5, 17, 5, '2018-02-01 06:27:36', 1, '2018-03-02 20:27:35', 'The Social Democratic Party is a liberal-conservative and liberal political party in Portugal. It is commonly known by its colloquial initials, PSD', 'http://static2.evz.ro/image-original-605-388/cache/2017-10/psddd-465x390.jpg', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -837,13 +839,13 @@ CREATE TABLE IF NOT EXISTS `evento` (
 --
 
 INSERT INTO `evento` (`idEvento`, `tituloEvento`, `idUtilizador`, `idLocal`, `urlImagemEvento`) VALUES
-(1, 'Festa da Nossa Senhora da Agonia', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(2, 'Festa da Salxixeira', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(3, 'Queima das Fitas', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(4, 'Enterro do Cão', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(5, 'Pingo Doce Festival', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(6, 'JazzCuzi', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
-(7, 'Whose Blues Blue', 14, 1, 'https://www.eventbriz.com/wp-content/uploads/2017/09/NOWLIVE.jpg'),
+(1, 'Festa da Nossa Senhora da Agonia', 14, 1, 'http://www.nsagonia.com.br/wp-content/gallery/conheca-o-santuario/n_s_agonia.jpg'),
+(2, 'Festa da Salxixeira', 14, 1, 'http://www.exatomaquinas.com.br/imagens/produtos//Equipamentos/Buffets/SalsicheiraBM.jpg'),
+(3, 'Queima das Fitas', 14, 1, 'http://www.porto.pt/assets/misc/q13.jpg'),
+(4, 'Enterro do Cão', 14, 1, 'http://diariogaucho.rbsdirect.com.br/imagesrc/23318229.jpg?w=620'),
+(5, 'Pingo Doce Festival', 14, 1, 'https://www.dinheirovivo.pt/wp-content/uploads/2015/12/Pingo-doce-final-de-ano.jpg'),
+(6, 'JazzCuzi', 14, 1, 'https://i.ytimg.com/vi/PJKA6qcfQ7Q/maxresdefault.jpg'),
+(7, 'Whose Blues Blue', 14, 1, 'http://poconosecrets.com/wp-content/uploads/2016/01/Blues-Hughes.jpg'),
 (8, 'Aniversário TOCA', 9, 3, 'https://scontent.fopo2-2.fna.fbcdn.net/v/t1.0-9/1459867_842593505770307_289709564_n.jpg?oh=994c44b445e6eec0681335620f110a83&oe=5B19D384');
 
 
@@ -1160,13 +1162,23 @@ CREATE TABLE IF NOT EXISTS `perfilGaleria` (
 --
 
 INSERT INTO `perfilGaleria` (`idGaleria`, `idUtilizador`, `urlGaleria`) VALUES
-(1, 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(2, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(3, 3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(4, 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(5, 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(6, 6, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png'),
-(7, 7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png');
+(1, 1, 'https://ominho.pt/wp-content/uploads/2017/01/Ze-Amaro.jpg'),
+(2, 2, 'http://demo.accesspressthemes.com/revolve-pro/wp-content/uploads/2016/06/staff_02.jpg'),
+(3, 3, 'http://demo.accesspressthemes.com/revolve-pro/wp-content/uploads/2016/06/staff_05.jpg'),
+(4, 4, 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Tuna_U.M._2010.jpg'),
+(5, 5, 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Logo_caum_lowres.gif'),
+(6, 6, 'https://upload.wikimedia.org/wikipedia/commons/7/76/UHF_Loures_25_JULHO-09.jpg'),
+(7, 7, 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Mariza_in_2004.jpg'),
+(8, 8, 'https://yt3.ggpht.com/a-/AK162_5XNQ_mXDQaK8acjN3zsHklfCcFaOAeewN69A=s900-mo-c-c0xffffffff-rj-k-no'),
+(9, 9, 'https://www.shoplenovo.co.za/assets/user/profile_user.jpg'),
+(10, 10, 'https://www.ishopbraga.com/media/wysiwyg/6.jpg'),
+(11, 11, 'http://culturbe.aescoladanoite.pt/CultUrbe/TC_files/TheatroCirco03.jpg'),
+(12, 12, 'https://www.viget.com/cpresources/userphotos/msteinruck/400/msteinruck.jpg/?x=elbahuiMK'),
+(13, 13, 'https://img.purch.com/w/400/aHR0cDovL21lZGlhLmJlc3RvZm1pY3JvLmNvbS9LL0gvNDE1NDU3L29yaWdpbmFsL2ljb24ucG5n'),
+(14, 14, 'http://lisboa.convida.pt/images/POIs/CinemaCityCO-ConVida2015-0100.jpg'),
+(15, 15, 'http://memoriaglobo.globo.com/data/files/45/57/75/D0/9B55041028B80504494B07A8/globo__Mem_rias%20de%20Amor-Luiz%20Armando%20Queiroz%20I0001648-%20Nelson%20Di%20Rago__gallefull.jpg'),
+(16, 16, 'http://www.climbhealthy.com/wp-content/uploads/fatigue.jpg'),
+(17, 17, 'https://upload.wikimedia.org/wikipedia/commons/4/49/Logo_PSD_cor.PNG');
 
 -- --------------------------------------------------------
 
@@ -1532,13 +1544,23 @@ CREATE TABLE IF NOT EXISTS `UtilizadoresTiposConta` (
 --
 
 INSERT INTO `UtilizadoresTiposConta` (`idUser`, `idTipologia`, `idSubTipologia`) VALUES
-(2, 1, 1),
-(4, 2, 1),
-(5, 1, 1),
-(6, 3, 1),
-(7, 3, 1),
 (1, 1, 2),
-(3, 1, 2);
+(2, 1, 1),
+(3, 1, 2),
+(4, 2, 1),
+(5, 2, 1),
+(6, 3, 1),
+(7, 1, 1),
+(8, 2, 1),
+(9, 2, 1),
+(10, 2, 1),
+(11, 2, 1),
+(12, 2, 1),
+(13, 2, 1),
+(14, 2, 1),
+(15, 1, 1),
+(16, 1, 1),
+(17, 1, 1);
 
 -- --------------------------------------------------------
 
