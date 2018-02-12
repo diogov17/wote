@@ -19,34 +19,66 @@
 				<h2>Destaques</h2>
 				<p>Encontra o artista ideal para o teu espetáculo.</p>
 			</div>
-			<div class="row">
 
-				@foreach($anunciosHome as $anuncio)
-				<div class="col-md-5">
-					<div class="box_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
-						<figure>
-							<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
-								<div class="preview"><span>Read more</span></div>
-							</a>
-						</figure>
-						<div class="wrapper">
-							<small>{{ trans('messages.Artista') }}</small>
-							<h3>{{ $artistasAnuncios[$anuncio->idUtilizador]->name }}</h3>
+				<div class="row">
 
-							<p>{{ $anuncio->textoAnuncio }}</p>
-							<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-							<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+					<div style="float: left;" class="col-lg-6">
+						  <?php 
+						  		$middle = ceil(count($anunciosHome)/2);
+
+						  		for($i = 0; $i < $middle; $i++) 
+								{ 
+									$anuncio = $anunciosHome[$i] ?>
+									
+									<div class="box_list wow fadeIn">
+										<a href="#0" class="wish_bt"></a>
+										<figure>
+											<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
+												<div class="preview"><span>Read more</span></div>
+											</a>
+										</figure>
+										<div class="wrapper">
+											<small>{{ trans('messages.Artista') }}</small>
+											<h3>{{ $artistasAnuncios[$anuncio->idUtilizador]->name }}</h3>
+											<p>{{ $anuncio->textoAnuncio }}</p>
+											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+											<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+										</div>
+										<ul>
+											<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
+											<li><a href="#">Ver Página</a></li>
+										</ul>
+									</div>
+						  <?php } ?>
 						</div>
-						<ul>
-							<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
-							<li><a href="#">Ver Página</a></li>
-						</ul>
-					</div>
-				</div>
-				@endforeach
-			<!-- /row -->
-		</div>
+						<div style="float: right;" class="col-lg-6">
+						  <?php for(; $i < count($anunciosHome); $i++) 
+								{ 
+									$anuncio = $anunciosHome[$i] ?>
+									<div class="box_list wow fadeIn">
+										<a href="#0" class="wish_bt"></a>
+										<figure>
+											<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
+												<div class="preview"><span>Read more</span></div>
+											</a>
+										</figure>
+										<div class="wrapper">
+											<small>{{ trans('messages.Artista') }}</small>
+											<h3>{{ $artistasAnuncios[$anuncio->idUtilizador]->name }}</h3>
+											<p>{{ $anuncio->textoAnuncio }}</p>
+											<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+											<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+										</div>
+										<ul>
+											<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
+											<li><a href="#">Ver Página</a></li>
+										</ul>
+									</div>
+						  <?php } ?>
+						</div>
+						<!-- /box_list -->
+			</div>
+		<!-- /row -->
 		<p class="text-left add_top_30"><a href="list.html" class="btn_1 medium">Todos Artistas</a></p>
 		<!-- /container -->
 	</div>

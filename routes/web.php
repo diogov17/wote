@@ -16,6 +16,8 @@ Route::get('/', 'HomeController@index');
 Route::get('artista/{id}', 'ArtistasController@pagina')->where('id', '([0-9]+)');
 Route::get('organizador/{id}', 'OrganizadoresController@pagina')->where('id', '([0-9]+)');
 Route::get('evento/{id}', 'EventosController@pagina')->where('id', '([0-9]+)');
+Route::get('artistachat/{id1}%{id2}', 'ChatController@pagina')->where('id1', '([0-9]+)')
+                                                              ->where('id2', '([0-9]+)');
 
 Route::resource('artista', 'ArtistasController');
 Route::resource('organizador', 'OrganizadoresController');
@@ -23,17 +25,17 @@ Route::resource('evento', 'EventosController');
 Route::resource('search', 'SearchController');
 Route::resource('registo', 'RegisterController');
 
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/registo/getConcelhos','RegisterController@getConcelhos');
 Route::post('/registo/getDistritos','RegisterController@getDistritos');
-
-Route::get('/logout', 'Auth\LoginController@logout');
-
 Route::post('registo/artista','RegisterController@registoArtista');
 Route::post('registo/organizador','RegisterController@registoOrganizador');
 Route::post('registo/fa','RegisterController@registoFa');
 
 Route::get('/ativacaoConta/{codigo}', 'RegisterController@ativacaoConta');
+
+Route::post('upload', 'UploadController@upload');
 
 Route::resource('/bilheteira', 'BilheteiraController');
 
@@ -43,13 +45,8 @@ Route::get('/politicaPrivacidade', 'HomeController@politicaPrivacidade');
 Route::resource('/areaReservada', 'AreaReservadaController');
 Route::resource('/locais', 'LocaisController');
 
-
-
 Route::get('/formContacto', 'HomeController@formContacto');
-
 Route::post('/formContacto', 'HomeController@saveFormContacto');
-
-
 
 Route::get('/duvidaUtilizacao', 'HomeController@duvidaUtilizacao');
 Route::get('/termosCondicoes', 'HomeController@termosCondicoes');

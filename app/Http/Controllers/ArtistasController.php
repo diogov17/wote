@@ -202,7 +202,8 @@ class ArtistasController extends BaseController
                             ->with('perfil', $perfil[0])
                             ->with('profilePic', $profilePic)
                             ->with('calendario', $calendario)
-                            ->with('tipoPesquisa', 1);
+                            ->with('tipoPesquisa', 1)
+                            ->with('pageId', $id);
             else return view('frontend.errorPerfil');
         }
         else return view('frontend.errorPerfil');

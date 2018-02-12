@@ -54,7 +54,19 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
+<link href="{{ asset('libs/css/fullcalendar.min.css') }}" rel='stylesheet'/>
+<link rel='stylesheet' href="{{ asset('libs/css/fullcalendar.print.min.css') }}" rel='stylesheet' media='print' />
+<script src="{{ asset('libs/js/moment.min.js') }}"></script>
+<script src="{{ asset('libs/js/jquery.min.js') }}"></script>
+<script src="{{ asset('libs/js/fullcalendar.min.js') }}"></script>
+
 <style>
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .content{
 	background-image: url(<?php echo asset('libs/img/backgroundWote.jpg') ?>);
 	background-attachment:fixed; 

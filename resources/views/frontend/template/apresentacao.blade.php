@@ -10,47 +10,21 @@
 		<!-- /btn_mobile-->
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-6">
+				<div class="col-lg-2">
 					<div id="logo_home">
 						<h1><a href="{{ URL::action('HomeController@index') }}" title="Wote">Wote</a></h1>
 					</div>
 				</div>
-				<div class="col-lg-9 col-6">
+				<div class="col-lg-10">
 					<!-- Login/Registo -> icons (usar pe) -->
-					<ul id="top_access">
-						<?php if(Auth::user()){?>
-
-						<li id="user">
-							<a href="{{ URL::action('AreaReservadaController@index')}}">
-								<figure><img src="<?php 
-														if(empty(Auth::user()->urlLogotipo)){
-															echo url('libs/img/noLogo.png');
-														} else echo url(Auth::user()->urlLogotipo);
-												?>" alt=""></figure>
-								<?php echo Auth::user()->name;?>
-							</a>
-							<br>
-							<a style="padding-right: 12px; font-size: 12px;"><span id="tipoContaText" style="margin-right: 10px;">
-								<?php $i=0; 
-
-									foreach ($tiposContaAutenticado as $tConta ) {
-										if($i>0){
-											echo " | ";
-										}
-										echo $tConta->descricaoTipoConta;
-									} ?></span></a>
-						</li>
-							<?php } else { ?>
-						<li><a href="{{ route('login') }}"><i class="pe-7s-user" style="padding-top: 15px;"></i></a></li>
-							<?php } ?>
-					</ul>
+					
 					<nav id="menu" class="main-menu">
 						<ul>
 
-							<li>
+							<li style="vertical-align: bottom;">
 								<span><a href="/home">{{ trans('messages.Home') }}</a></span>
 							</li>
-							<li>
+							<li style="vertical-align: bottom;">
 								<span><a href="#">{{ trans('messages.Artistas') }}</a></span>
 								<ul>
 									<li><a href="{{ URL::action('ArtistasController@index') }}">Procurar Artista</a></li>
@@ -59,7 +33,7 @@
 							</li>
 
 							
-							<li>
+							<li style="vertical-align: bottom;">
 								<span><a href="#0">{{ trans('messages.Eventos') }}</a></span>
 								<ul>
 									<li><a href="{{ URL::action('EventosController@index') }}">Procurar Eventos</a></li>
@@ -71,7 +45,7 @@
 							</li>
 
 
-							<li>
+							<li style="vertical-align: bottom;">
 								<span><a href="#0">{{ trans('messages.Organizadores') }}</a></span>
 								<ul>
 									<li><a href="{{ URL::action('OrganizadoresController@index') }}">Pesquisar Organizadores</a></li>
@@ -88,7 +62,7 @@
 
 								if($mostraCaixaCorreio == 1){ ?>
 
-							<li>
+							<li style="vertical-align: bottom;">
 								<span><a href="#0">{{ trans('messages.Negócios') }}</a></span>
 								<ul>
 									<li><a href="#">Caixa de Correio</a></li>
@@ -103,7 +77,7 @@
                             <!--<li><span><a href="#">Gerir Minha Página</a></span></li>-->
                             
                             <?php if( Auth::user() ) { ?>
-                            <li>
+                            <li style="vertical-align: bottom;">
 								<span><a href="#0">{{ trans('messages.MeuEspaçoMusical') }}</a></span>
 								<ul>
 									<?php  if($mostraCaixaCorreio == 1){ ?>
@@ -117,21 +91,10 @@
 									<li><a href="#">Eventos Participei</a></li>
 
 									<li><a href="#">Amigos</a></li>
-									<li>
-										<a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-									</li>
 								</ul>
 							</li>
 							<?php } ?>
-							<li>
+							<li style="vertical-align: bottom;">
 								<?php if (LanguageSwitcher::getCurrentLanguage() == 'pt') { ?>
 									<span><a href="#"><img src="/img/flags/pt.png" width="30" height="15"/> Português</a></span>
 								<?php } else { ?>
@@ -144,14 +107,65 @@
 								</ul>
 							</li>
 
-							<li>
-								<a href="{{ route('login') }}"><i class="pe-7s-add-user" style="font-size: 2.125rem;"></i></a>
-								<ul>
-									<li><a href="{{ URL::action('RegisterController@show', ['artista'] ) }}">Artista</a></li>
-									<li><a href="{{ URL::action('RegisterController@show', ['organizador'] ) }}">Organizador</a></li>
-									<li><a href="{{ URL::action('RegisterController@show', ['fa'] ) }}">Fã</a></li>
-								</ul>
-							</li>
+							<?php if(Auth::user() ) { ?>
+								
+								<li style="vertical-align: bottom;">
+									<span>
+										<a href="#">
+												<img src="<?php if(empty(Auth::user()->urlLogotipo)) 
+																	echo url('img/noLogo.png'); 
+																else echo url(Auth::user()->urlLogotipo); ?>" alt="" border="0" 
+											style="height: 40px; padding-left: 5px; padding-bottom: -100px;"/>
+										</a>
+										<!-- a href="{{ route('login') }}"><i class="pe-7s-user" style="font-size: 2.125rem;"></i></a -->
+									</span>
+									<ul>
+										<li>
+											<a href="/{{ strtolower($tiposContaAutenticado[0]->descricaoTipoConta) }}/{{ Auth::user()->id }}">Meu Perfil - Artista</a>
+										</li>
+										<li>
+											<a href="{{ url('/logout') }}"
+	                                            onclick="event.preventDefault();
+	                                                     document.getElementById('logout-form').submit();">
+	                                            Logout
+	                                        </a>
+
+	                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+	                                            {{ csrf_field() }}
+	                                        </form>
+										</li>
+									</ul>
+								</li>
+
+								<li style="vertical-align: center;">
+									<span>
+										<a href="#">
+											{{ Auth::user()->name }}
+											<br>
+											<?php $i=0; 
+
+												foreach ($tiposContaAutenticado as $tConta ) {
+													if($i>0){
+														echo " | ";
+													} ?>
+													{{ $tConta->descricaoTipoConta }}
+											<?php } ?>
+										</a>
+									</span>
+								</li>
+							<?php } 
+								  else { ?>
+								  	<li>
+										<a href="{{ route('login') }}"><i class="pe-7s-add-user" style="font-size: 2.125rem;"></i></a>
+										<ul>
+											<li><a href="{{ URL::action('RegisterController@show', ['artista'] ) }}">Artista</a></li>
+											<li><a href="{{ URL::action('RegisterController@show', ['organizador'] ) }}">Organizador</a></li>
+											<li><a href="{{ URL::action('RegisterController@show', ['fa'] ) }}">Fã</a></li>
+										</ul>
+									</li>
+
+									<li><a href="{{ route('login') }}"><i class="pe-7s-user" style="font-size: 2.125rem;"></i></a></li>
+							<?php } ?>
 
 						</ul>
 

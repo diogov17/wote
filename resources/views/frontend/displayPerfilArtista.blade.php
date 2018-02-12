@@ -18,7 +18,45 @@
             
             <div class="rela-block mycontainer mybody">
                 <div class="rela-block profile-card">
-                    <div class="profile-pic" id="profile_pic"></div>
+
+                    <?php if(Auth::user() && $pageId == Auth::user()->id){?>
+
+                    <div class="profile-pic" style="cursor: pointer;" id="profile-pic"></div>
+                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data" name="profile-pic-form" id="profile-pic-form">
+                        <input type="hidden" value="default" name="picture" id="picture">
+                        <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                    </form>
+                    <script>
+                      var fileSelector = $('<input type="file" name="file" id="file" accept="image/*">');
+                      
+                      $("#profile-pic").click(function() {
+                          fileSelector.click();
+                          return false;
+                      });
+
+                      fileSelector.on('change', function () {
+                          var fileReader = new FileReader();
+                          fileReader.onload = function () {
+                            //document.write("xD");
+                            var data = fileReader.result;  // file data in Base64 format
+                            $('input#picture').val(data);
+                            $('form#profile-pic-form').submit();
+                          };
+                          var file = fileSelector.val();
+                          //document.write(fileSelector[0].files[0]);
+                          fileReader.readAsDataURL(fileSelector[0].files[0]);
+                          return false;
+                      });
+                    </script>
+
+              <?php } else { ?>
+                    
+                    <div class="profile-pic" id="profile-pic"></div>
+
+              <?php } ?>
+
+                    
+
                     <div class="rela-block profile-name-container">
                         <div class="rela-block user-name" id="user_name">{{$artista->name}}</div>
                         <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
@@ -173,45 +211,87 @@
 
 </head>
   <body>
-    <div class="container">
+    <div class="container margin_120_95">
       <!-- Responsive calendar - START -->
-      <div class="responsive-calendar">
-        <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
-            <h4><span data-head-year></span> <span data-head-month></span></h4>
-            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
-        </div><hr/>
-        <div class="day-headers">
-          <div class="day header">Mon</div>
-          <div class="day header">Tue</div>
-          <div class="day header">Wed</div>
-          <div class="day header">Thu</div>
-          <div class="day header">Fri</div>
-          <div class="day header">Sat</div>
-          <div class="day header">Sun</div>
-        </div>
-        <div class="days" data-group="days">
-          
-        </div>
-      </div>
-      <!-- Responsive calendar - END -->
-    </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/responsive-calendar.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".responsive-calendar").responsiveCalendar({
-          time: '2013-05',
-          events: {
-            "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
-            "2013-04-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2013-05-03":{"number": 1}, 
-            "2013-06-12": {}}
-        });
-      });
+      <script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'Evento 1',
+          url: '\evento\1',
+          start: '2018-02-01',
+        },
+        {
+          title: 'Evento 2 longo',
+          url: '\evento\1',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          title: 'evento3',
+          start: '2018-02-11',
+          url: '\evento\1',
+          end: '2018-02-13'
+        },
+        {
+          title: 'evento4',
+          start: '2018-02-12T10:30:00',
+          url: '\evento\1',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'evento5',
+          url: '\evento\1',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'evento6',
+          url: '\evento\1',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'evento7',
+          url: '\evento\1',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'evento8',
+          url: '\evento\1',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'evento9',
+          url: '\evento\1',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'evento10',
+          url: '\evento\1',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
+
     </script>
-    
+
+    <div id='calendar'></div>
+    <!-- Responsive calendar - END -->
+
+</body>
 
 @stop
 

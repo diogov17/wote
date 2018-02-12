@@ -58,6 +58,33 @@ class Anuncios extends Model {
                             ->orderByRaw('RAND()')
                             ->take(6)
                             ->get();
+
+            $size = count($anuncios);
+
+            if($size < 6)
+            {
+                $need = 6 - $size;
+                $tmp = DB::table('anuncios')
+                                ->select('anuncios.*','perfil.feedbackGeral','perfil.descricao')
+                                ->join('users','users.id','=','anuncios.idUtilizador')
+                                ->join('perfil','perfil.idPerfil','=','anuncios.idPerfil')
+                                ->where('users.estado','=',1)
+                                ->where('perfil.tipoUtilizador','=',1)
+                                ->where('anuncios.estadoAnuncio','=',1)
+                                ->orderBy('anuncios.patrocinado','DESC')
+                                ->orderByRaw('RAND()')
+                                ->take($need)
+                                ->get();
+
+                $new = array();
+                foreach ($anuncios as $anuncio)
+                    array_push($new, $anuncio);
+                foreach ($tmp as $anuncio)
+                    array_push($new, $anuncio);
+
+                $anuncios = $new;
+            
+            }
         }
         else {
 

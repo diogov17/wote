@@ -21,10 +21,10 @@
         date_default_timezone_set('Europe/Lisbon');
         if(Auth::user()){
             $tiposContaAutenticado = DB::table('UtilizadoresTiposConta')
-                                ->select('UtilizadoresTiposConta.*','usersTipologia.descricaoTipoConta')
-                                ->join('usersTipologia','usersTipologia.idTipoConta','=','UtilizadoresTiposConta.idTipologia')
-                                ->where('UtilizadoresTiposConta.idUser','=',Auth::user()->id)
-                                ->get();
+                                        ->select('UtilizadoresTiposConta.*','usersTipologia.descricaoTipoConta')
+                                        ->join('usersTipologia','usersTipologia.idTipoConta','=','UtilizadoresTiposConta.idTipologia')
+                                        ->where('UtilizadoresTiposConta.idUser','=',Auth::user()->id)
+                                        ->get();
         }
     ?>
 
