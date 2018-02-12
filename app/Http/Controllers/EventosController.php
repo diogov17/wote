@@ -94,10 +94,13 @@ class EventosController extends BaseController
 
         if(count($evento) == 1)
         {
+            $perfil = Perfil::where('idUtilizador', '=', $id)
+                                    ->get();
             
             return view('frontend.displayPerfilEvento')
-                            ->with('evento', $evento[0])
-                            ->with('tipoPesquisa', 2);
+                        ->with('evento', $evento[0])
+                        ->with('tipoPesquisa', 2)
+                        ->with('pageId', $id);
         }
         else return view('frontend.errorPerfil');
     }

@@ -189,7 +189,7 @@
 
             <div class="profile-card2 mycontainer2 row mybody">
                 <div  class="col-lg-12">
-                        <p allign="left">Obs:            {{$perfil->observacoes}}</p>
+                        <p allign="left">Obs: {{$perfil->observacoes}}</p>
                         <p>Estilo Musical: {{$perfil->estiloPrincipal}}</p>
 
                         <p>Preço Hora:       {{$artista->precoHora}}</p>

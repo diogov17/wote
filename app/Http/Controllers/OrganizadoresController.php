@@ -96,25 +96,25 @@ class OrganizadoresController extends BaseController
 
     public function pagina($id)
     {
-        $user = Utilizador::isOrganizador($id);
+        $organizador = Utilizador::isOrganizador($id);
 
-        if(count($user) == 1)
+        if(count($organizador) == 1)
         {
             $perfil = Perfil::where('idUtilizador', '=', $id)
                                     ->get();
 
-            $galeria = PerfilGaleria::where('idUtilizador', '=', $id)
-                                    ->get();
+            $profilePic = PerfilGaleria::getProfilePic($id);
 
             $calendario = [];
             
-            if (count($user) > 0 && count($perfil) > 0 && count($galeria) > 0 ) 
+            if (count($organizador) > 0 && count($perfil) > 0) 
                 return view('frontend.displayPerfilOrganizador')
-                            ->with('user', $user[0])
+                            ->with('organizador', $organizador[0])
                             ->with('perfil', $perfil[0])
-                            ->with('galeria', $galeria[0])
+                            ->with('profilePic', $profilePic)
                             ->with('calendario', $calendario)
-                            ->with('tipoPesquisa', 3);
+                            ->with('tipoPesquisa', 3)
+                            ->with('pageId', $id);
             else return view('frontend.errorPerfil');
         }
         else return view('frontend.errorPerfil');

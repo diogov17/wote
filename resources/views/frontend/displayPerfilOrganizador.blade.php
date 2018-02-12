@@ -1,4 +1,4 @@
-@extends('frontend.template.template')
+@extends('frontend.template.templateSemSlider')
 
 
 
@@ -10,123 +10,288 @@
 
     @section('conteudoPagina')
 
-<div class="container margin_120_95">
-        <div class="main_title">
-            <h2><a href= '/artista/{{$user->id}}' title="">{{$user->name}}</a></h2>
-        </div>
+    <div class="container">
+        <div class="row"> 
+            <!-- FONTS --><!-- Roboto, Yellowtail, and Montserrat -->
+            <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300,400|Yellowtail" rel="stylesheet">
+            <!-- PAGE STUFF -->
+            
+            <div class="rela-block mycontainer mybody">
+                <div class="rela-block profile-card">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-6">
-                    <nav id="menu" class="main-menu">
-                        <ul>
-                            <li>
-                                <span><a href="#0">Perfil</a></span>
-                            </li>
-                            <li>
-                                <span><a href="#0">Sobre</a></span>
-                            </li>
-                            <li>
-                                <span><a href="#0">FAQs</a></span>
-                            </li>
-                            <li>
-                                <span><a href="#0">Fotografias</a></span>
-                            </li>
-                            <li>
-                                <span><a href="#0">Vídeos</a></span>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- /main-menu -->
+                    <?php if(Auth::user() && $pageId == Auth::user()->id){?>
+
+                    <div class="profile-pic" style="cursor: pointer;" id="profile-pic"></div>
+                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data" name="profile-pic-form" id="profile-pic-form">
+                        <input type="hidden" value="default" name="picture" id="picture">
+                        <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                    </form>
+                    <script>
+                      var fileSelector = $('<input type="file" name="file" id="file" accept="image/*">');
+                      
+                      $("#profile-pic").click(function() {
+                          fileSelector.click();
+                          return false;
+                      });
+
+                      fileSelector.on('change', function () {
+                          var fileReader = new FileReader();
+                          fileReader.onload = function () {
+                            //document.write("xD");
+                            var data = fileReader.result;  // file data in Base64 format
+                            $('input#picture').val(data);
+                            $('form#profile-pic-form').submit();
+                          };
+                          var file = fileSelector.val();
+                          //document.write(fileSelector[0].files[0]);
+                          fileReader.readAsDataURL(fileSelector[0].files[0]);
+                          return false;
+                      });
+                    </script>
+
+              <?php } else { ?>
+                    
+                    <div class="profile-pic" id="profile-pic"></div>
+
+              <?php } ?>
+
+                    
+
+                    <div class="rela-block profile-name-container">
+                        <div class="rela-block user-name" id="user_name">{{$organizador->name}}</div>
+                        <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
+                    </div>
+                    <div class="rela-block profile-card-stats">
+                        <div class="floated profile-stat works" id="num_works">28<br></div>
+                        <div class="floated profile-stat followers" id="num_followers">112<br></div>
+                        <div class="floated profile-stat following" id="num_following">245<br></div>
+                    </div>
                 </div>
 
-                <div class="col-lg-6 col-6">
-                    <nav id="menu" class="main-menu">
-                        <ul>
-                            <li>
-                                <span><a href="#0">Enviar mensagem</a></span>
-                            </li>
-                            <li>
-                                <span><a href="#0">Adicionar aos favoritos</a></span>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- /main-menu -->
+                <style>
+
+                .rela-block {
+                  display: block;
+                  position: relative;
+                  margin: auto;
+                  top: ;
+                  left: ;
+                  right: ;
+                  bottom: ;
+                }
+
+                .floated {
+                  display: inline-block;
+                  position: relative;
+                  margin: false;
+                  top: ;
+                  left: ;
+                  right: ;
+                  bottom: ;
+                  float: left;
+                }
+
+                mybody {
+                  font-family: "Roboto";
+                  font-size: 18px;
+                  letter-spacing: 2px;
+                  font-weight: 400;
+                  line-height: 24px;
+                }
+
+                .mycontainer {
+                  z-index: 1;
+                  width: 92%;
+                  max-width: 1126px;
+                  margin: 30px auto;
+                  padding: 10px 0;
+                }
+                .mycontainer2 {
+                  z-index: 1;
+                  width: 92%;
+                  max-width: 1126px;
+                  margin: -10px auto;
+                  padding: 0px 0;
+                }
+                .profile-card {
+                  width: calc(100% - 40px);
+                  padding-top: 100px;
+                  margin: 70px auto 30px;
+                  background-color: #fff;
+                  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+                }
+                .profile-card2 {
+                  width: 89%;
+                  padding-top: 20px;
+                  margin: 0px auto 30px;
+                  background-color: #fff;
+                  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+                }
+                .profile-pic {
+                  display: false;
+                  position: absolute;
+                  margin: false;
+                  top: -90px;
+                  left: 50%;
+                  right: false;
+                  bottom: false;
+                  -webkit-transform: translateX(-50%);
+                          transform: translateX(-50%);
+                  height: 180px;
+                  width: 180px;
+                  border: 10px solid #fff;
+                  border-radius: 100%;
+                  background: url("<?php echo $profilePic ?>") center no-repeat;
+                  background-size: cover;
+                }
+                .profile-name-container {
+                  margin: 0 auto 10px;
+                  padding: 10px;
+                  text-align: center;
+                }
+                .user-name {
+                  font-family: "Montserrat";
+                  font-size: 24px;
+                  letter-spacing: 3px;
+                  font-weight: 400;
+                  line-height: 30px;
+                  margin-bottom: 12px;
+                }
+                .user-desc {
+                  letter-spacing: 1px;
+                  color: #999;
+                }
+                .profile-card-stats {
+                  height: 75px;
+                  padding: 10px 0px;
+                  text-align: center;
+                  overflow: hidden;
+                }
+                .profile-stat {
+                  height: 100%;
+                  width: 33.3333%;
+                }
+                .profile-stat:after {
+                  color: #999;
+                }
+                .works::after {
+                  content: "works";
+                }
+                .followers::after {
+                  content: "followers";
+                }
+                .following::after {
+                  content: "following";
+                }
+                </style>
+
+            </div>
+
+            <div class="profile-card2 mycontainer2 row mybody">
+                <div  class="col-lg-12">
+                        <p allign="left">Obs: {{$perfil->observacoes}}</p>
+                        <p>Estilo Musical: {{$perfil->estiloPrincipal}}</p>
+
+                        <p>Preço Hora:       {{$organizador->precoHora}}</p>
+                        <p>Preço Dia:        {{$organizador->precoDia}}</p>
+                        <p>Preço Deslocaçao: {{$organizador->precoDeslocacao}}</p>
+                        <p>Preco Sugerido:   {{$organizador->precoMinimoAtuacao}}</p>
+                        <p>Data Registo:     {{$organizador->dataRegisto}}</p>
+
+                        <p>Morada:        {{$organizador->morada}}</p>
+                        <p>Codigo Postal: {{$organizador->codigoPostal1}}</p>
+                        <p>Codigo Postal: {{$organizador->codigoPostal2}}</p>
+                        <p>Codigo Postal: {{$organizador->codigoPostalDesignacao}}</p>
+                        <p>Cidade:        {{$organizador->descricaoConcelho}}, {{$organizador->descricaoDistrito}}</p>
                 </div>
             </div>
         </div>
 
-        <div class="row add_bottom_30">
-            <div class="col-lg-9">
-                <div class="box_feat">
-                    <span></span>
-                    <p>Descriçao:      {{$perfil->descricao}}</p>
-                    <p>Obs:            {{$perfil->observacoes}}</p>
-                    <p>Estilo Musical: {{$perfil->estiloPrincipal}}</p>
-
-                    <p>Preço Hora:       {{$user->precoHora}}</p>
-                    <p>Preço Dia:        {{$user->precoDia}}</p>
-                    <p>Preço Deslocaçao: {{$user->precoDeslocacao}}</p>
-                    <p>Preco Sugerido:   {{$user->precoMinimoAtuacao}}</p>
-                    <p>Data Registo:     {{$user->dataRegisto}}</p>
-
-                    <p>Morada:        {{$user->morada}}</p>
-                    <p>Codigo Postal: {{$user->codigoPostal1}}</p>
-                    <p>Codigo Postal: {{$user->codigoPostal2}}</p>
-                    <p>Codigo Postal: {{$user->codigoPostalDesignacao}}</p>
-                    <p>Cidade:        {{$user->descricaoConcelho}}, {{$user->descricaoDistrito}}</p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="box_feat">
-                    <span></span>
-                    <h3>Agenda</h3>
-                </div>
-            </div>
-        </div>
     </div>
 
 </head>
   <body>
-    <div class="container">
+    <div class="container margin_120_95">
       <!-- Responsive calendar - START -->
-      <div class="responsive-calendar">
-        <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
-            <h4><span data-head-year></span> <span data-head-month></span></h4>
-            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
-        </div><hr/>
-        <div class="day-headers">
-          <div class="day header">Mon</div>
-          <div class="day header">Tue</div>
-          <div class="day header">Wed</div>
-          <div class="day header">Thu</div>
-          <div class="day header">Fri</div>
-          <div class="day header">Sat</div>
-          <div class="day header">Sun</div>
-        </div>
-        <div class="days" data-group="days">
-          
-        </div>
-      </div>
-      <!-- Responsive calendar - END -->
-    </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/responsive-calendar.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".responsive-calendar").responsiveCalendar({
-          time: '2013-05',
-          events: {
-            "2013-04-30": {"number": 5, "url": "http://w3widgets.com/responsive-slider"},
-            "2013-04-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2013-05-03":{"number": 1}, 
-            "2013-06-12": {}}
-        });
-      });
+      <script>
+
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2018-02-12',
+      navLinks: true, // can click day/week names to navigate views
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'Evento 1',
+          url: '\evento\1',
+          start: '2018-02-01',
+        },
+        {
+          title: 'Evento 2 longo',
+          url: '\evento\1',
+          start: '2018-02-07',
+          end: '2018-02-10'
+        },
+        {
+          title: 'evento3',
+          start: '2018-02-11',
+          url: '\evento\1',
+          end: '2018-02-13'
+        },
+        {
+          title: 'evento4',
+          start: '2018-02-12T10:30:00',
+          url: '\evento\1',
+          end: '2018-02-12T12:30:00'
+        },
+        {
+          title: 'evento5',
+          url: '\evento\1',
+          start: '2018-02-12T12:00:00'
+        },
+        {
+          title: 'evento6',
+          url: '\evento\1',
+          start: '2018-02-12T14:30:00'
+        },
+        {
+          title: 'evento7',
+          url: '\evento\1',
+          start: '2018-02-12T17:30:00'
+        },
+        {
+          title: 'evento8',
+          url: '\evento\1',
+          start: '2018-02-12T20:00:00'
+        },
+        {
+          title: 'evento9',
+          url: '\evento\1',
+          start: '2018-02-13T07:00:00'
+        },
+        {
+          title: 'evento10',
+          url: '\evento\1',
+          start: '2018-02-28'
+        }
+      ]
+    });
+
+  });
+
     </script>
-    
+
+    <div id='calendar'></div>
+    <!-- Responsive calendar - END -->
+
+</body>
 
 @stop
 
