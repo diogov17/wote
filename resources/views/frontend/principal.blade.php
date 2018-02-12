@@ -34,7 +34,7 @@
 										<a href="#0" class="wish_bt"></a>
 										<figure>
 											<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
-												<div class="preview"><span>Read more</span></div>
+												<div class="preview"><span>Ler mais</span></div>
 											</a>
 										</figure>
 										<div class="wrapper">
@@ -46,7 +46,8 @@
 										</div>
 										<ul>
 											<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
-											<li><a href="#">Ver Página</a></li>
+											<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+											<li><a href="/artista/{{$anuncio->idUtilizador}}">Ver Página</a></li>
 										</ul>
 									</div>
 						  <?php } ?>
@@ -59,7 +60,7 @@
 										<a href="#0" class="wish_bt"></a>
 										<figure>
 											<a href="/artista/{{$anuncio->idUtilizador}}"><img src="{{ $anuncio->urlImagemAnuncio }}" class="img-fluid" alt="">
-												<div class="preview"><span>Read more</span></div>
+												<div class="preview"><span>Ler mais</span></div>
 											</a>
 										</figure>
 										<div class="wrapper">
@@ -71,7 +72,8 @@
 										</div>
 										<ul>
 											<li><i class="icon-eye-7"></i> {{ $anuncio->nrVisualizacoes }} Visualizações</li>
-											<li><a href="#">Ver Página</a></li>
+											<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+											<li><a href="/artista/{{$anuncio->idUtilizador}}">Ver Página</a></li>
 										</ul>
 									</div>
 						  <?php } ?>
@@ -79,7 +81,7 @@
 						<!-- /box_list -->
 			</div>
 		<!-- /row -->
-		<p class="text-left add_top_30"><a href="list.html" class="btn_1 medium">Todos Artistas</a></p>
+		<p class="text-left add_top_30"><a href="/artista" class="btn_1 medium">Todos Artistas</a></p>
 		<!-- /container -->
 	</div>
 

@@ -65,36 +65,103 @@
 	</div>
 	<!-- /filters -->
 	   
-	<div class="container margin_60_35">
+	<div class="container-fluid margin_60_35">
 		<div class="row">
-			<div class="col-lg-8">
+
+			<aside style="padding-left: 50px; padding-right: 100px;" class="col-lg-3" id="filtersidebar">
+				<h3>Pesquisa Avançada</h3>
+					<div class="form-group">
+						<label>País</label>
+						<select class="form-control pais select2" name="pais" id="pais">
+							<option value="0">--</option>
+							<option value="1">Sample Text</option>
+							<option value="2">Celeirós</option>
+						</select>
+						<label>Concelho</label>
+						<select class="form-control pais select2" name="concelho" id="concelho">
+							<option value="0">--</option>
+							<option value="1">Sample Text</option>
+							<option value="2">Celeirós</option>
+						</select>
+						<label>Distrito</label>
+						<select class="form-control pais select2" name="distrito" id="distrito">
+							<option value="0">--</option>
+							<option value="1">Sample Text</option>
+							<option value="2">Celeirós</option>
+						</select>
+						<label>Preço mínimo</label>
+						<input type="text" class="form-control" placeholder="0€" />
+						<label>Preço máximo</label>
+						<input type="text" class="form-control" placeholder="17.35€" />
+						<label>Número mínimo de seguidores</label>
+						<input type="text" class="form-control" placeholder="0" />
+						<label>Feedback</label>
+						<input type="text" class="form-control" placeholder="0" />
+					</div>					
+			</aside>
+			<!-- /aside -->
+
+			<div class="col-lg-6">
 				<div class="row">
+					<div style="float: left;" class="col-lg-6">
+					  <?php 
+					  		$middle = ceil(count($eventos)/2);
 
-					@foreach($eventos as $evento)
-					<div class="col-md-6">
-						<div class="box_list wow fadeIn">
-							<a href="#0" class="wish_bt"></a>
-							<figure>
-								<a href="/evento/{{$evento->idEvento}}"><img src="{{ $evento->urlImagemEvento }}" class="img-fluid" alt="">
-									<div class="preview"><span>Read more</span></div>
-								</a>
-							</figure>
-							<div class="wrapper">
-								<small>{{ trans('messages.Evento') }}</small>
-								<h3>{{ $evento->tituloEvento }}</h3>
+					  		for($i = 0; $i < $middle; $i++) 
+							{ 
+								$evento = $eventos[$i] ?>
+								
+								<div class="box_list wow fadeIn">
+									<a href="#0" class="wish_bt"></a>
+									<figure>
+										<a href="/evento/{{$evento->idEvento}}"><img src="{{ $evento->urlImagemEvento }}" class="img-fluid" alt="">
+											<div class="preview"><span>Ler mais</span></div>
+										</a>
+									</figure>
+									<div class="wrapper">
+										<small>{{ trans('messages.Evento') }}</small>
+										<h3>{{ $evento->tituloEvento }}</h3>
 
-								<p>{{ $evento->descricaoEvento }}</p>
-								<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
-								<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
-							</div>
-							<ul>
-								<li><a href="#0" onclick="onHtmlClick('Doctors', 0)"><i class="icon_pin_alt"></i>View on map</a></li>
-								<li><a href="https://www.google.com/maps/dir//Assistance+–+Hôpitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+–+Hôpitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
-								<li><a href="detail-page.html">Book now</a></li>
-							</ul>
-						</div>
+										<p>{{ $evento->descricaoEvento }}</p>
+										<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+										<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+									</div>
+									<ul>
+										<li><i class="icon-eye-7"></i> {{ $evento->nrGostos }} Gostos</li>
+										<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+										<li><a href="/evento/{{$evento->idEvento}}">Ver Página</a></li>
+									</ul>
+								</div>
+					  <?php } ?>
 					</div>
-					@endforeach
+					<div style="float: right;" class="col-lg-6">
+					  <?php for(; $i < count($eventos); $i++) 
+							{ 
+								$evento = $eventos[$i] ?>
+
+								<div class="box_list wow fadeIn">
+									<a href="#0" class="wish_bt"></a>
+									<figure>
+										<a href="/evento/{{$evento->idEvento}}"><img src="{{ $evento->urlImagemEvento }}" class="img-fluid" alt="">
+											<div class="preview"><span>Ler mais</span></div>
+										</a>
+									</figure>
+									<div class="wrapper">
+										<small>{{ trans('messages.Evento') }}</small>
+										<h3>{{ $evento->tituloEvento }}</h3>
+
+										<p>{{ $evento->descricaoEvento }}</p>
+										<span class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></span>
+										<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
+									</div>
+									<ul>
+										<li><i class="icon-eye-7"></i> {{ $evento->nrGostos }} Gostos</li>
+										<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
+										<li><a href="/evento/{{$evento->idEvento}}">Ver Página</a></li>
+									</ul>
+								</div>
+					  <?php } ?>
+					</div>
 					<!-- /box_list -->
 
 				</div>
@@ -117,7 +184,7 @@
 			</div>
 			<!-- /col -->
 			
-			<aside class="col-lg-4" id="sidebar">
+			<aside class="col-lg-3" id="sidebar">
 				<div id="map_listing" class="normal_list">
 				</div>
 			</aside>

@@ -115,7 +115,7 @@
 									<a href="#0" class="wish_bt"></a>
 									<figure>
 										<a href="/artista/{{$artista->id}}"><img src="{{ $profilePics[$artista->id] }}" class="img-fluid" alt="">
-											<div class="preview"><span>Read more</span></div>
+											<div class="preview"><span>Ler mais</span></div>
 										</a>
 									</figure>
 									<div class="wrapper">
@@ -126,9 +126,9 @@
 										<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
 									</div>
 									<ul>
-										<li><a href="#0" onclick="onHtmlClick('Doctors', 0)"><i class="icon_pin_alt"></i>View on map</a></li>
+										<li><i class="icon-eye-7"></i> {{ $artista->nrSeguidoresTotal }} Seguidores</li>
 										<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
-										<li><a href="detail-page.html">LEFT</a></li>
+										<li><a href="/artista/{{$artista->id}}">Ver Página</a></li>
 									</ul>
 								</div>
 					  <?php } ?>
@@ -141,7 +141,7 @@
 									<a href="#0" class="wish_bt"></a>
 									<figure>
 										<a href="/artista/{{$artista->id}}"><img src="{{ $profilePics[$artista->id] }}" class="img-fluid" alt="">
-											<div class="preview"><span>Read more</span></div>
+											<div class="preview"><span>Ler mais</span></div>
 										</a>
 									</figure>
 									<div class="wrapper">
@@ -152,9 +152,9 @@
 										<a href="badges.html" data-toggle="tooltip" data-placement="top" data-original-title="Badge Level" class="badge_list_1"><img src="img/badges/badge_1.svg" width="15" height="15" alt=""></a>
 									</div>
 									<ul>
-										<li><a href="#0" onclick="onHtmlClick('Doctors', 0)"><i class="icon_pin_alt"></i>View on map</a></li>
+										<li><i class="icon-eye-7"></i> {{ $artista->nrSeguidoresTotal }} Seguidores</li>
 										<li><a href="#0" target="_blank"><i class="icon_pin_alt"></i>Directions</a></li>
-										<li><a href="detail-page.html">RIGHT</a></li>
+										<li><a href="/artista/{{$artista->id}}">Ver Página</a></li>
 									</ul>
 								</div>
 					  <?php } ?>
