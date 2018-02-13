@@ -55,16 +55,15 @@
 
               <?php } ?>
 
-
                     
 
                     <div class="rela-block profile-name-container">
-                        <div class="rela-block user-name" id="user_name">{{$organizador->name}}</div>
+                        <div class="rela-block user-name" id="user_name">{{$fa->name}}</div>
                         <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
                     </div>
                     <div class="rela-block profile-card-stats">
                         <div class="floated profile-stat estilo" id="id_estilo">{{$perfil->estiloPrincipal}}<br></div>
-                        <div class="floated profile-stat nomeartistico" id="id_nomeartistico">{{$perfil->nomeEmpresaOrganiza}}<br></div>
+                        <div class="floated profile-stat nomeartistico" id="id_nomeartistico">{{$fa->dataRegisto}}<br></div>
                         <div class="floated profile-stat seguidores" id="id_seguidores">{{$perfil->nrSeguidoresTotal}}<br></div>
                     </div>
                 </div>
@@ -176,13 +175,13 @@
                   color: #999;
                 }
                 .estilo::after {
-                  content: "Estilo Musical";
+                  content: "Estilo Musical Preferido";
                 }
                 .nomeartistico::after {
-                  content: "Nome Empresa";
+                  content: "Data Registo";
                 }
                 .seguidores::after {
-                  content: "Seguidores";
+                  content: "Seguindo";
                 }
                 </style>
 
@@ -198,38 +197,22 @@
                                     <tbody>
                                         <tr>
                                             <td>Email:</td>
-                                            <td><a href="mailto:{{$organizador->email}}">{{$organizador->email}}</a></td>
+                                            <td><a href="mailto:{{$fa->email}}">{{$fa->email}}</a></td>
                                         </tr>
                                             <td>Telemóvel:</td>
-                                            <td>{{$organizador->telemovel}}</td> 
+                                            <td>{{$fa->telemovel}}</td> 
                                         </tr>
                                         </tr>
                                             <td>Morada:</td>
-                                            <td>{{$organizador->morada}}</td> 
+                                            <td>{{$fa->morada}}</td> 
                                         </tr>
                                         </tr>
                                             <td>Código Postal:</td>
-                                            <td>{{$organizador->codigoPostal1}} - {{$organizador->codigoPostal2}}, {{$organizador->codigoPostalDesignacao}}</td> 
+                                            <td>{{$fa->codigoPostal1}} - {{$fa->codigoPostal2}}, {{$fa->codigoPostalDesignacao}}</td> 
                                         </tr>
                                         </tr>
                                             <td>Cidade:</td>
-                                            <td>{{$organizador->descricaoConcelho}}, {{$organizador->descricaoDistrito}}</td> 
-                                        </tr>
-                                        <tr>
-                                            <td>Preço Hora:</td>
-                                            <td>{{$organizador->precoHora}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Preço Dia:</td>
-                                            <td>{{$organizador->precoDia}}</td>
-                                        </tr>                                           
-                                        <tr>
-                                            <td>Preço Deslocaçao:</td>
-                                            <td>{{$organizador->precoDeslocacao}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Preco Sugerido:</td>
-                                            <td>{{$organizador->precoMinimoAtuacao}}</td>
+                                            <td>{{$fa->descricaoConcelho}}, {{$fa->descricaoDistrito}}</td> 
                                         </tr>
                                     </tbody>
                                 </table>

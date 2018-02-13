@@ -93,54 +93,18 @@
 				<p>Aqui terás acesso em tempo real aos últimos espetáculos que foram fechados com artistas da plataforma. Está atento!</p>
 			</div>
 			<div id="reccomended" class="owl-carousel owl-theme">
-				<div class="item">
-					<a href="#">
-						<div class="views"><i class="fa fa-ticket"></i>33</div>
-						<div class="title">
-							<h4>Café Lusitana <em>São Vitor - Braga</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;22 de Dezembro - 21:00h</em> </h4>
-						</div><img src="espetaculos/1.jpg" alt="">
-					</a>
-				</div>
 
-				<div class="item">
-					<a href="#">
-						<div class="views"><i class="fa fa-ticket"></i>109</div>
-						<div class="title">
-							<h4>Espetáculo AAA <em>Parque Nações - Lisboa</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;31 de Dezembro - 23:00h</em> </h4>
-						</div><img src="espetaculos/2.jpg" alt="">
-					</a>
-				</div>
+				@foreach($ultimosEspetaculos as $evento)
+					<div class="item">
+						<a href="/evento/{{$evento->idEvento}}">
+							<div class="views"><i class="fa fa-ticket"></i>?</div>
+							<div class="title">
+								<h4>{{ $evento->tituloEvento}} <em>{{$evento->moradaLocal}}</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;{{$evento->dataInicioEvento}}</em> </h4>
+							</div><img src="{{$evento->urlImagemEvento}}" alt="">
+						</a>
+					</div>
+				@endforeach
 
-
-				<div class="item">
-					<a href="#">
-						<div class="views"><i class="fa fa-ticket"></i>109</div>
-						<div class="title">
-							<h4>Espetáculo AAA <em>Parque Nações - Lisboa</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;31 de Dezembro - 23:00h</em> </h4>
-						</div><img src="espetaculos/2.jpg" alt="">
-					</a>
-				</div>
-
-				<div class="item">
-					<a href="#">
-						<div class="views"><i class="fa fa-ticket"></i>109</div>
-						<div class="title">
-							<h4>Espetáculo AAA <em>Parque Nações - Lisboa</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;31 de Dezembro - 23:00h</em> </h4>
-						</div><img src="espetaculos/2.jpg" alt="">
-					</a>
-				</div>
-
-
-				<div class="item">
-					<a href="#">
-						<div class="views"><i class="fa fa-ticket"></i>109</div>
-						<div class="title">
-							<h4>Espetáculo AAA <em>Parque Nações - Lisboa</em> <em style="font-size: 11px; padding-top: 2px;"><i class="fa fa-clock-o"></i>&nbsp;31 de Dezembro - 23:00h</em> </h4>
-						</div><img src="espetaculos/2.jpg" alt="">
-					</a>
-				</div>
-
-				
 			</div>
 			<!-- /carousel -->
 		</div>

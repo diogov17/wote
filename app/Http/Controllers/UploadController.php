@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-
+use App\Http\Models\PerfilGaleria;
 
 
 
@@ -43,12 +43,15 @@ class UploadController extends BaseController
     public function upload(Request $request)
     {
         $data = $request->picture;
+        $id = $request->id;
 
         list($type, $data) = explode(';', $data);
         list(, $data) = explode(',', $data);
         $data = base64_decode($data);
 
-        file_put_contents('profilepics/newpp.png', $data);
+        file_put_contents('profilepics/profilePic_' . $id . '.png', $data);
+
+        PerfilGaleria::saveProfilePic($id, asset('profilepics/profilePic_' . $id . '.png'));
 
         return back();
     }

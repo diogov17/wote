@@ -142,4 +142,17 @@ class Utilizador extends User
         return $organizador;
     }
 
+    public static function isFa($id)
+    {
+        $organizador = DB::table('users')
+                            ->join('UtilizadoresTiposConta','users.id','=','UtilizadoresTiposConta.idUser')
+                            ->join('usersTipologia','UtilizadoresTiposConta.idTipologia','=','usersTipologia.idTipoConta')
+                            ->where('usersTipologia.idTipoConta', '=', '3')
+                            ->where('id', '=', $id)
+                            ->join('concelhos', 'users.idConcelho', '=', 'concelhos.idConcelho')
+                            ->join('distritos', 'concelhos.idDistrito', '=', 'distritos.idDistrito')
+                            ->get();
+        return $organizador;
+    }
+
 }

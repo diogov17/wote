@@ -144,8 +144,8 @@ campos: filtro -> populares/fimdesemana,
                     ->with('feedbackLow',$feedbackLow)
                     ->with('feedbackHigh',$feedbackHigh)
                     ->with('localAtuacao',$localAtuacao)
-                    ->with('pagina',$pagina);
-                    ->with('tipoPesquisa', 0)
+                    ->with('pagina',$pagina)
+                    ->with('tipoPesquisa', 0);
     }
 
   

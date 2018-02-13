@@ -3,7 +3,6 @@
 namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Notifications\Notifiable;
 
 class PerfilGaleria extends Model {
@@ -32,4 +31,10 @@ class PerfilGaleria extends Model {
                                         
         return $perfilGaleria[0]->urlGaleria;
     }
+
+    public static function saveProfilePic($id, $url)
+    {
+        PerfilGaleria::find($id)->update(['urlGaleria' => $url]);
+    }
+
 }

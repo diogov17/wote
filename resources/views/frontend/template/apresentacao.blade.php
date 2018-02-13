@@ -25,34 +25,37 @@
 								<span><a href="/home">{{ trans('messages.Home') }}</a></span>
 							</li>
 							<li style="vertical-align: bottom;">
-								<span><a href="#">{{ trans('messages.Artistas') }}</a></span>
+								<span><a href="{{ URL::action('ArtistasController@index') }}">{{ trans('messages.Artistas') }}</a></span>
 								<ul>
 									<li><a href="{{ URL::action('ArtistasController@index') }}">Procurar Artista</a></li>
+									<li><a href="{{ URL::action('ArtistasController@index',['filtro' => 'populares', 'by' => 'desc'] ) }}">Mais Populares</a></li>
+									<?php if(! Auth::user() ) { ?>
 									<li><a href="{{ URL::action('RegisterController@show', ['artista'] ) }}">Sou um Artista</a></li>
+									<?php } ?>
 								</ul>
 							</li>
 
 							
 							<li style="vertical-align: bottom;">
-								<span><a href="#0">{{ trans('messages.Eventos') }}</a></span>
+								<span><a href="{{ URL::action('EventosController@index') }}">{{ trans('messages.Eventos') }}</a></span>
 								<ul>
 									<li><a href="{{ URL::action('EventosController@index') }}">Procurar Eventos</a></li>
 									<li><a href="{{ URL::action('EventosController@index',['filtro' => 'populares', 'by' => 'desc'] ) }}">Mais Populares</a></li>
                                 	<li><a href="{{ URL::action('EventosController@index',['filtro' => 'fimdesemana', 'by' => 'desc'] ) }}">No Próximo Fim de Semana</a></li>
                                     <li><a href="{{ URL::action('EventosController@index',['precoEntradaLimite' => '0', 'by' => 'desc'] ) }}">Entrada Grátis</a></li>
-                                    <li><a href="{{ URL::action('BilheteiraController@index') }}">Bilheteira</a></li>
 								</ul>
 							</li>
 
 
 							<li style="vertical-align: bottom;">
-								<span><a href="#0">{{ trans('messages.Organizadores') }}</a></span>
+								<span><a href="{{ URL::action('OrganizadoresController@index') }}">{{ trans('messages.Organizadores') }}</a></span>
 								<ul>
-									<li><a href="{{ URL::action('OrganizadoresController@index') }}">Pesquisar Organizadores</a></li>
+									<li><a href="{{ URL::action('OrganizadoresController@index') }}">Procurar Organizadores</a></li>
+									<li><a href="{{ URL::action('OrganizadoresController@index',['filtro' => 'populares', 'by' => 'desc'] ) }}">Mais Populares</a></li>
 								</ul>
 							</li>
 
-							<?php if( Auth::user() ) {
+							<?php if( Auth::user() && strtolower($tiposContaAutenticado[0]->descricaoTipoConta) != 'fã' ) {
 								$mostraCaixaCorreio = 0; 
 								foreach ($tiposContaAutenticado as $tipoContaAuth) {
 									if($tipoContaAuth->idTipologia == 1 || $tipoContaAuth->idTipologia == 2 ){
@@ -76,7 +79,7 @@
 
                             <!--<li><span><a href="#">Gerir Minha Página</a></span></li>-->
                             
-                            <?php if( Auth::user() ) { ?>
+                            <?php if( Auth::user() && strtolower($tiposContaAutenticado[0]->descricaoTipoConta) != 'fã' ) { ?>
                             <li style="vertical-align: bottom;">
 								<span><a href="#0">{{ trans('messages.MeuEspaçoMusical') }}</a></span>
 								<ul>
@@ -121,7 +124,7 @@
 									</span>
 									<ul>
 										<li>
-											<a href="/{{ strtolower($tiposContaAutenticado[0]->descricaoTipoConta) }}/{{ Auth::user()->id }}">Meu Perfil - Artista</a>
+											<a href="/{{ strtolower($tiposContaAutenticado[0]->descricaoTipoConta) }}/{{ Auth::user()->id }}">Meu Perfil - {{$tiposContaAutenticado[0]->descricaoTipoConta}}</a>
 										</li>
 										<li>
 											<a href="{{ url('/logout') }}"

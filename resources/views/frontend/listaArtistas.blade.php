@@ -68,38 +68,58 @@
 	<div class="container-fluid margin_60_35">
 		<div class="row">
 
-			<aside style="padding-left: 50px; padding-right: 100px;" class="col-lg-3" id="filtersidebar">
-				<h3>Pesquisa Avançada</h3>
-					<div class="form-group">
-						<label>País</label>
-						<select class="form-control pais select2" name="pais" id="pais">
-							<option value="0">--</option>
-							<option value="1">Sample Text</option>
-							<option value="2">Celeirós</option>
-						</select>
-						<label>Concelho</label>
-						<select class="form-control pais select2" name="concelho" id="concelho">
-							<option value="0">--</option>
-							<option value="1">Sample Text</option>
-							<option value="2">Celeirós</option>
-						</select>
-						<label>Distrito</label>
-						<select class="form-control pais select2" name="distrito" id="distrito">
-							<option value="0">--</option>
-							<option value="1">Sample Text</option>
-							<option value="2">Celeirós</option>
-						</select>
-						<label>Preço mínimo</label>
-						<input type="text" class="form-control" placeholder="0€" />
-						<label>Preço máximo</label>
-						<input type="text" class="form-control" placeholder="17.35€" />
-						<label>Número mínimo de seguidores</label>
-						<input type="text" class="form-control" placeholder="0" />
-						<label>Feedback</label>
-						<input type="text" class="form-control" placeholder="0" />
-					</div>					
-			</aside>
-			<!-- /aside -->
+			<div class="col-lg-3">
+					<aside style="padding-left: 50px; padding-right: 100px;" class="col-lg-12" id="filtersidebar">
+						<h3>Pesquisa Avançada</h3>
+							<div class="form-group">
+								<label>País</label>
+								<select class="form-control pais select2" name="pais" id="pais">
+									<option value="0">--</option>
+									<option value="1">Sample Text</option>
+									<option value="2">Celeirós</option>
+								</select>
+								<label>Concelho</label>
+								<select class="form-control pais select2" name="concelho" id="concelho">
+									<option value="0">--</option>
+									<option value="1">Sample Text</option>
+									<option value="2">Celeirós</option>
+								</select>
+								<label>Distrito</label>
+								<select class="form-control pais select2" name="distrito" id="distrito">
+									<option value="0">--</option>
+									<option value="1">Sample Text</option>
+									<option value="2">Celeirós</option>
+								</select>
+								<label>Preço mínimo</label>
+								<input type="text" class="form-control" placeholder="0€" />
+								<label>Preço máximo</label>
+								<input type="text" class="form-control" placeholder="17.35€" />
+								<label>Número mínimo de seguidores</label>
+								<input type="text" class="form-control" placeholder="0" />
+								<label>Feedback</label>
+								<input type="text" class="form-control" placeholder="0" />
+							</div>					
+					</aside>
+					<!-- /aside -->
+
+					<br>
+					<br>
+
+					<aside class="col-lg-3" id="mystickysidebar">
+						<div class="normal_list">
+							<img width="420px" src="ads/dummyad3.jpg">
+						</div>
+					</aside>
+					<!-- /aside -->
+
+					<style>
+						#mystickysidebar {
+							position: -webkit-sticky;
+						    position: sticky;
+						    top: 95px;
+						}
+					</style>
+			</div>	
 
 			<div class="col-lg-6">
 				<div class="row">
@@ -182,7 +202,8 @@
 			<!-- /col -->
 			
 			<aside class="col-lg-3" id="sidebar">
-				<div id="map_listing" class="normal_list">
+				<div class="normal_list">
+					<img width="420px" src="ads/dummyad.jpg">
 				</div>
 			</aside>
 			<!-- /aside -->

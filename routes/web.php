@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::get('artista/{id}', 'ArtistasController@pagina')->where('id', '([0-9]+)');
 Route::get('organizador/{id}', 'OrganizadoresController@pagina')->where('id', '([0-9]+)');
 Route::get('evento/{id}', 'EventosController@pagina')->where('id', '([0-9]+)');
+Route::get('fã/{id}', 'FasController@pagina')->where('id', '([0-9]+)');
 Route::get('artistachat/{id1}%{id2}', 'ChatController@pagina')->where('id1', '([0-9]+)')
                                                               ->where('id2', '([0-9]+)');
 
@@ -35,7 +36,7 @@ Route::post('registo/fa','RegisterController@registoFa');
 
 Route::get('/ativacaoConta/{codigo}', 'RegisterController@ativacaoConta');
 
-Route::post('upload', 'UploadController@upload');
+Route::post('upload/{id}', 'UploadController@upload')->where('id', '([0-9]+)');
 
 Route::resource('/bilheteira', 'BilheteiraController');
 

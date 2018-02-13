@@ -22,7 +22,7 @@
                     <?php if(Auth::user() && $pageId == Auth::user()->id){?>
 
                     <div class="profile-pic" style="cursor: pointer;" id="profile-pic"></div>
-                    <form action="{{ URL::to('upload') }}" method="post" enctype="multipart/form-data" name="profile-pic-form" id="profile-pic-form">
+                    <form action="{{ URL::to('upload', ['id' => Auth::user()->id]) }}" method="post" enctype="multipart/form-data" name="profile-pic-form" id="profile-pic-form">
                         <input type="hidden" value="default" name="picture" id="picture">
                         <input type="hidden" value="{{ csrf_token() }}" name="_token">
                     </form>
@@ -62,9 +62,9 @@
                         <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
                     </div>
                     <div class="rela-block profile-card-stats">
-                        <div class="floated profile-stat works" id="num_works">28<br></div>
-                        <div class="floated profile-stat followers" id="num_followers">112<br></div>
-                        <div class="floated profile-stat following" id="num_following">245<br></div>
+                        <div class="floated profile-stat estilo" id="id_estilo">{{$perfil->estiloPrincipal}}<br></div>
+                        <div class="floated profile-stat nomeartistico" id="id_nomeartistico">{{$perfil->nomeArtistico}}<br></div>
+                        <div class="floated profile-stat seguidores" id="id_seguidores">{{$perfil->nrSeguidoresTotal}}<br></div>
                     </div>
                 </div>
 
@@ -174,36 +174,103 @@
                 .profile-stat:after {
                   color: #999;
                 }
-                .works::after {
-                  content: "works";
+                .estilo::after {
+                  content: "Estilo Musical";
                 }
-                .followers::after {
-                  content: "followers";
+                .nomeartistico::after {
+                  content: "Nome Artístico";
                 }
-                .following::after {
-                  content: "following";
+                .seguidores::after {
+                  content: "Seguidores";
                 }
                 </style>
 
             </div>
 
             <div class="profile-card2 mycontainer2 row mybody">
-                <div  class="col-lg-12">
-                        <p allign="left">Obs: {{$perfil->observacoes}}</p>
-                        <p>Estilo Musical: {{$perfil->estiloPrincipal}}</p>
+                <div class="col-lg-12">
+                    <div class="panel-body">
+                        <div class="row">
+                
+                            <div class=" col-md-12 col-lg-12 "> 
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td><a href="mailto:{{$artista->email}}">{{$artista->email}}</a></td>
+                                        </tr>
+                                            <td>Telemóvel:</td>
+                                            <td>{{$artista->telemovel}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Morada:</td>
+                                            <td>{{$artista->morada}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Código Postal:</td>
+                                            <td>{{$artista->codigoPostal1}} - {{$artista->codigoPostal2}}, {{$artista->codigoPostalDesignacao}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Cidade:</td>
+                                            <td>{{$artista->descricaoConcelho}}, {{$artista->descricaoDistrito}}</td> 
+                                        </tr>
+                                        <tr>
+                                            <td>Preço Hora:</td>
+                                            <td>{{$artista->precoHora}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Preço Dia:</td>
+                                            <td>{{$artista->precoDia}}</td>
+                                        </tr>                                           
+                                        <tr>
+                                            <td>Preço Deslocaçao:</td>
+                                            <td>{{$artista->precoDeslocacao}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Preco Sugerido:</td>
+                                            <td>{{$artista->precoMinimoAtuacao}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-                        <p>Preço Hora:       {{$artista->precoHora}}</p>
-                        <p>Preço Dia:        {{$artista->precoDia}}</p>
-                        <p>Preço Deslocaçao: {{$artista->precoDeslocacao}}</p>
-                        <p>Preco Sugerido:   {{$artista->precoMinimoAtuacao}}</p>
-                        <p>Data Registo:     {{$artista->dataRegisto}}</p>
+                    <style>
+                      .user-row {
+                          margin-bottom: 14px;
+                      }
 
-                        <p>Morada:        {{$artista->morada}}</p>
-                        <p>Codigo Postal: {{$artista->codigoPostal1}}</p>
-                        <p>Codigo Postal: {{$artista->codigoPostal2}}</p>
-                        <p>Codigo Postal: {{$artista->codigoPostalDesignacao}}</p>
-                        <p>Cidade:        {{$artista->descricaoConcelho}}, {{$artista->descricaoDistrito}}</p>
-                </div>
+                      .user-row:last-child {
+                          margin-bottom: 0;
+                      }
+
+                      .dropdown-user {
+                          margin: 13px 0;
+                          padding: 5px;
+                          height: 100%;
+                      }
+
+                      .dropdown-user:hover {
+                          cursor: pointer;
+                      }
+
+                      .table-user-information > tbody > tr {
+                          border-top: 1px solid rgb(221, 221, 221);
+                      }
+
+                      .table-user-information > tbody > tr:first-child {
+                          border-top: 0;
+                      }
+
+
+                      .table-user-information > tbody > tr > td {
+                          border-top: 0;
+                      }
+                      .toppad
+                      {margin-top:20px;
+                      }
+                    </style>
             </div>
         </div>
 

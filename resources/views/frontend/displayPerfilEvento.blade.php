@@ -26,9 +26,9 @@
                         <div class="rela-block user-desc" id="user_description">{{$evento->descricaoEvento}}</div>
                     </div>
                     <div class="rela-block profile-card-stats">
-                        <div class="floated profile-stat works" id="num_works">28<br></div>
-                        <div class="floated profile-stat followers" id="num_followers">112<br></div>
-                        <div class="floated profile-stat following" id="num_following">245<br></div>
+                        <div class="floated profile-stat works" id="num_works">{{$evento->dataInicioEvento}}<br></div>
+                        <div class="floated profile-stat followers" id="num_followers">{{$evento->dataFimEvento}}<br></div>
+                        <div class="floated profile-stat following" id="num_following">{{$evento->dataLimiteInscricao}}<br></div>
                     </div>
                 </div>
 
@@ -139,22 +139,86 @@
                   color: #999;
                 }
                 .works::after {
-                  content: "works";
+                  content: "Data Início";
                 }
                 .followers::after {
-                  content: "followers";
+                  content: "Data Fim";
                 }
                 .following::after {
-                  content: "following";
+                  content: "Data Limite Inscrição";
                 }
                 </style>
 
             </div>
 
             <div class="profile-card2 mycontainer2 row mybody">
-                <div  class="col-lg-12">
-                        <p>Test: xD</p>
-                </div>
+                <div class="col-lg-12">
+                    <div class="panel-body">
+                        <div class="row">
+                
+                            <div class=" col-md-12 col-lg-12 "> 
+                                <table class="table table-user-information">
+                                    <tbody>
+                                            <td>Data Criação do evento:</td>
+                                            <td>{{$evento->dataCriacaoEvento}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Local:</td>
+                                            <td>{{$evento->moradaLocal}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Máximo Participantes:</td>
+                                            <td>{{$evento->nrMaxParticipantes}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Pessoas Inscritas:</td>
+                                            <td>{{$evento->nrPessoasInscritas}}</td> 
+                                        </tr>
+                                        </tr>
+                                            <td>Gostos:</td>
+                                            <td>{{$evento->nrGostos}}</td> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                      .user-row {
+                          margin-bottom: 14px;
+                      }
+
+                      .user-row:last-child {
+                          margin-bottom: 0;
+                      }
+
+                      .dropdown-user {
+                          margin: 13px 0;
+                          padding: 5px;
+                          height: 100%;
+                      }
+
+                      .dropdown-user:hover {
+                          cursor: pointer;
+                      }
+
+                      .table-user-information > tbody > tr {
+                          border-top: 1px solid rgb(221, 221, 221);
+                      }
+
+                      .table-user-information > tbody > tr:first-child {
+                          border-top: 0;
+                      }
+
+
+                      .table-user-information > tbody > tr > td {
+                          border-top: 0;
+                      }
+                      .toppad
+                      {margin-top:20px;
+                      }
+                    </style>
             </div>
         </div>
 

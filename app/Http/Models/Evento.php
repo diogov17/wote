@@ -48,6 +48,16 @@ class Evento extends Model {
     {
         return DB::table('evento')
                             ->where('tituloEvento', 'like', '%' . $input . '%')
+                            ->join('localEventos', 'evento.idLocal', '=', 'localEventos.idLocal')
+                            ->get();
+    }
+
+    public static function getNumEventos($input, $num)
+    {
+        return DB::table('evento')
+                            ->where('tituloEvento', 'like', '%' . $input . '%')
+                            ->join('localEventos', 'evento.idLocal', '=', 'localEventos.idLocal')
+                            ->take($num)
                             ->get();
     }
 
@@ -55,6 +65,7 @@ class Evento extends Model {
     {
         return DB::table('evento')
                             ->where('evento.idEvento', '=', $id)
+                            ->join('localEventos', 'evento.idLocal', '=', 'localEventos.idLocal')
                             ->get();
     }
 }

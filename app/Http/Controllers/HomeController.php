@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Models\Utilizador;
 use App\Http\Models\Anuncios;
+use App\Http\Models\Evento;
 use App\Http\Models\EventosArtistasContratados;
 use App\Http\Models\DuvidasContatos;
 use App\Http\Models\QuestoesSeguranca;
@@ -55,7 +56,7 @@ class HomeController extends BaseController
         foreach ($tmp as $artista)
             $artistasAnuncios[$artista->id] = $artista;
         
-        $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
+        $ultimosEspetaculos = Evento::getNumEventos("", 5); //EventosArtistasContratados::getUltimasConfirmacoes();
 
         return view('frontend.principal')
                     ->with('idUser',$idUser)
@@ -84,7 +85,7 @@ class HomeController extends BaseController
 
         $artistasAnuncios = Anuncios::getArtistasDestaques();
         
-        $ultimosEspetaculos = EventosArtistasContratados::getUltimasConfirmacoes();
+        $ultimosEspetaculos = Evento::getNumEventos("", 5); //EventosArtistasContratados::getUltimasConfirmacoes();
 
         return view('frontend.principal')
                     ->with('idUser',$idUser)
