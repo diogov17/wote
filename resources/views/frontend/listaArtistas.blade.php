@@ -12,14 +12,8 @@
    <div id="results">
        <div class="container">
            <div class="row">
-               <div class="col-md-6">
-                   <h4><strong>Showing 10</strong> of {{ count($artistas) }} results (fazer contas)</h4>
-               </div>
-               <div class="col-md-6">
-                    <div class="search_bar_list">
-                    <input type="text" class="form-control" placeholder="Ex. Specialist, Name, Doctor...">
-                    <input type="submit" value="Search">
-                </div>
+               <div style="padding-top: 20px; " class="col-md-12">
+                   <h4><strong>Mostrando {{count($artistas)}} resultados</h4>
                </div>
            </div>
            <!-- /row -->
@@ -72,32 +66,38 @@
 					<aside style="padding-left: 50px; padding-right: 100px;" class="col-lg-12" id="filtersidebar">
 						<h3>Pesquisa Avançada</h3>
 							<div class="form-group">
-								<label>País</label>
-								<select class="form-control pais select2" name="pais" id="pais">
-									<option value="0">--</option>
-									<option value="1">Sample Text</option>
-									<option value="2">Celeirós</option>
-								</select>
-								<label>Concelho</label>
-								<select class="form-control pais select2" name="concelho" id="concelho">
-									<option value="0">--</option>
-									<option value="1">Sample Text</option>
-									<option value="2">Celeirós</option>
-								</select>
-								<label>Distrito</label>
-								<select class="form-control pais select2" name="distrito" id="distrito">
-									<option value="0">--</option>
-									<option value="1">Sample Text</option>
-									<option value="2">Celeirós</option>
-								</select>
-								<label>Preço mínimo</label>
-								<input type="text" class="form-control" placeholder="0€" />
-								<label>Preço máximo</label>
-								<input type="text" class="form-control" placeholder="17.35€" />
-								<label>Número mínimo de seguidores</label>
-								<input type="text" class="form-control" placeholder="0" />
-								<label>Feedback</label>
-								<input type="text" class="form-control" placeholder="0" />
+									<div hidden="true">
+									<label>País</label>
+									<select class="form-control pais select2 searchable" name="pais" id="idPais">
+										<option value="0">--</option>
+										<option value="1">Sample Text</option>
+										<option value="2">Celeirós</option>
+									</select>
+									<label>Concelho</label>
+									<select class="form-control pais select2 searchable" name="concelho" id="idConcelho">
+										<option value="0">--</option>
+										<option value="1">Sample Text</option>
+										<option value="2">Celeirós</option>
+									</select>
+									<label>Distrito</label>
+									<select class="form-control pais select2 searchable" name="distrito" id="idDistrito">
+										<option value="0">--</option>
+										<option value="1">Sample Text</option>
+										<option value="2">Celeirós</option>
+									</select>
+								</div>
+									<label>Preço mínimo</label>
+									<input type="text" class="form-control searchable" placeholder="0€" id="precoInicio" name="precoInicio"/>
+									<label>Preço máximo</label>
+									<input type="text" class="form-control searchable" placeholder="0€" id="precoFim" name="precoFim"/>
+									<label>Número mínimo de seguidores</label>
+									<input type="text" class="form-control searchable" placeholder="0" id="nrSeguidoresLow" name="nrSeguidoresLow"/>
+									<label>Número máximo de seguidores</label>
+									<input type="text" class="form-control searchable" placeholder="0" id="nrSeguidoresHigh" name="nrSeguidoresHigh"/>
+									<label>Feedback mínimo</label>
+									<input type="text" class="form-control searchable" placeholder="0" id="feedbackLow" name="feedbackLow"/>
+									<label>Feedback máximo</label>
+									<input type="text" class="form-control searchable" placeholder="0" id="feedbackHigh" name="feedbackHigh"/>
 							</div>					
 					</aside>
 					<!-- /aside -->
@@ -184,20 +184,6 @@
 				</div>
 				<!-- /row -->
 
-				<nav aria-label="" class="add_top_20">
-					<ul class="pagination pagination-sm">
-						<li class="page-item disabled">
-							<a class="page-link" href="#" tabindex="-1">Previous</a>
-						</li>
-						<li class="page-item active"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
-				</nav>
-				<!-- /pagination -->
 			</div>
 			<!-- /col -->
 			

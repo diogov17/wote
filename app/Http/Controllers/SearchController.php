@@ -45,6 +45,18 @@ class SearchController extends BaseController
         $dataAux = array();
         $dataAux['tipoPesquisa'] = $tipoPesquisa;
         $dataAux['pesquisaLivre'] = $pesquisaLivre;
+        $dataAux['dataInicioDisponibilidade'] = $request->dataInicioDisponibilidade;
+        $dataAux['dataFimDisponibilidade'] = $request->dataFimDisponibilidade;
+        $dataAux['idPais'] = $request->pais;
+        $dataAux['idConcelho'] = $request->concelho;
+        $dataAux['idDistrito'] = $request->distrito;
+        $dataAux['precoInicio'] = $request->precoInicio;
+        $dataAux['precoFim'] = $request->precoFim;
+        $dataAux['nrSeguidoresLow'] = $request->nrSeguidoresLow;
+        $dataAux['nrSeguidoresHigh'] = $request->nrSeguidoresHigh;
+        $dataAux['feedbackLow'] = $request->feedbackLow;
+        $dataAux['feedbackHigh'] = $request->feedbackHigh;
+        $dataAux['pagina'] = $request->pagina;
 
         if($tipoPesquisa == 0){
             //Redirecciona para filtros;

@@ -42,75 +42,75 @@ class ArtistasController extends BaseController
 
         //CAMPOS: pesquisaLivre, dataInicioDisponibilidade, dataFimDisponibilidade, idConcelho, idDistrito, idPais, precoInicio, precoFim, nrSeguidores, feedback, locaisAtuacao, 
 
-        if(isset($request->pesquisaLivre))
-            $pesquisaLivre = $request->pesquisaLivre;
+        if(isset($request['pesquisaLivre']))
+            $pesquisaLivre = $request['pesquisaLivre'];
         else 
             $pesquisaLivre = '';
 
         $tipoPesquisa = 1;
 
-        if(isset($request->dataInicioDisponibilidade))
-            $dataInicioDisponibilidade = $request->dataInicioDisponibilidade;
+        if(isset($request['dataInicioDisponibilidade']))
+            $dataInicioDisponibilidade = $request['dataInicioDisponibilidade'];
         else 
             $dataInicioDisponibilidade = '';
 
-        if(isset($request->dataFimDisponibilidade))
-            $dataFimDisponibilidade = $request->dataFimDisponibilidade;
+        if(isset($request['dataFimDisponibilidade']))
+            $dataFimDisponibilidade = $request['dataFimDisponibilidade'];
         else 
             $dataFimDisponibilidade = '';
 
-        if(isset($request->idConcelho))
-            $idConcelho = $request->idConcelho;
+        if(isset($request['idConcelho']))
+            $idConcelho = $request['idConcelho'];
         else 
             $idConcelho = 0;
 
-        if(isset($request->idPais))
-            $idPais = $request->idPais;
+        if(isset($request['idPais']))
+            $idPais = $request['idPais'];
         else 
             $idPais = 0;
 
-        if(isset($request->idDistrito))
-            $idDistrito = $request->idDistrito;
+        if(isset($request['idDistrito']))
+            $idDistrito = $request['idDistrito'];
         else 
             $idDistrito = 0;
 
-        if(isset($request->precoInicio))
-            $precoInicio = $request->precoInicio;
+        if(isset($request['precoInicio']))
+            $precoInicio = $request['precoInicio'];
         else 
             $precoInicio = 0;
 
-        if(isset($request->precoFim))
-            $precoFim = $request->precoFim;
+        if(isset($request['precoFim']))
+            $precoFim = $request['precoFim'];
         else 
             $precoFim = 0;
 
 
 
-        if(isset($request->nrSeguidoresLow))
-            $nrSeguidoresLow = $request->nrSeguidoresLow;
+        if(isset($request['nrSeguidoresLow']))
+            $nrSeguidoresLow = $request['nrSeguidoresLow'];
         else 
             $nrSeguidoresLow = 0;
 
-        if(isset($request->nrSeguidoresHigh))
-            $nrSeguidoresHigh = $request->nrSeguidoresHigh;
+        if(isset($request['nrSeguidoresHigh']))
+            $nrSeguidoresHigh = $request['nrSeguidoresHigh'];
         else 
             $nrSeguidoresHigh = 0;
 
 
 
-        if(isset($request->feedbackLow))
-            $feedbackLow = $request->feedbackLow;
+        if(isset($request['feedbackLow']))
+            $feedbackLow = $request['feedbackLow'];
         else 
             $feedbackLow = 0;
 
-        if(isset($request->feedbackHigh))
-            $feedbackHigh = $request->feedbackHigh;
+        if(isset($request['feedbackHigh']))
+            $feedbackHigh = $request['feedbackHigh'];
         else 
             $feedbackHigh = 0;
 
 
-        if(isset($request->pagina))
-            $pagina = $request->pagina;
+        if(isset($request['pagina']))
+            $pagina = $request['pagina'];
         else 
             $pagina = 1;
 
@@ -135,7 +135,7 @@ class ArtistasController extends BaseController
                     ->with('idUser',$idUser)
                     ->with('tipoConta',$tipoConta)
                     ->with('autenticado',$autenticado)
-                    ->with('filteredArtistas',$resultado)
+                    //->with('filteredArtistas',$resultado)
                     ->with('pesquisaLivre',$pesquisaLivre)
                     ->with('dataInicioDisponibilidade',$dataInicioDisponibilidade)
                     ->with('dataFimDisponibilidade',$dataFimDisponibilidade)
@@ -151,6 +151,7 @@ class ArtistasController extends BaseController
                     ->with('localAtuacao',$localAtuacao)
                     ->with('pagina',$pagina)
                     ->with('artistas', $artistas)
+                    //->with('artistas', $resultado)
                     ->with('tipoPesquisa', $request['tipoPesquisa'])
                     ->with('profilePics', $profilePics);
     }

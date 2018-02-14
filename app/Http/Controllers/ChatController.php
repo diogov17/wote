@@ -52,16 +52,22 @@ class ChatController extends BaseController
 
         $nemails->save();
 
-            $mensagens = Emails::where(funtion($query) {
-                                $query->where('idRemetente', '=', $id1)
-                                      ->where('idDestinatario', '=', $id2);
-                            })
-                            ->orWhere(function($query) {
-                                $query->where('idRemetente', '=', $id2)
-                                      ->where('idDestinatario', '=', $id1);
-                            })
-                            ->distinct()
-                            ->get();
+            $ids = array();
+            $ids[1] = $id1;
+            $ids[2] = $id2;
+    
+    $mensagens = DB::table('emails')
+                    ->where(function($query1) use ($ids) {
+                        $query1->orWhere('idRemetente', '=', $ids[1]);
+                        $query1->orWhere('idRemetente', '=', $ids[2]);
+                                        
+                    })
+                    
+                    ->where(function($query2) use ($ids) {
+                             $query2->orWhere('idDestinatario', '=', $ids[2]);
+                             $query2->orWhere('idDestinatario', '=', $ids[1]);
+                    })
+                ->get();
 
             $perfil1 = Perfil::where('idUtilizador', '=', $id1)
                                     ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')
@@ -115,10 +121,21 @@ class ChatController extends BaseController
 
     public function pagina($id1,$id2)
     {
-            $mensagens = Emails::where('idRemetente', '=', $id1, 'idDestinatario', '=', $id2)
-                             ->orwhere('idRemetente', '=', $id2, 'idDestinatario', '=', $id1)
-                             ->distinct()
-                             ->get();
+            $ids = array();
+            $ids[1] = $id1;
+            $ids[2] = $id2;
+            $mensagens = DB::table('emails')
+                    ->where(function($query1) use ($ids) {
+                        $query1->orWhere('idRemetente', '=', $ids[1]);
+                        $query1->orWhere('idRemetente', '=', $ids[2]);
+                                        
+                    })
+                    
+                    ->where(function($query2) use ($ids) {
+                             $query2->orWhere('idDestinatario', '=', $ids[2]);
+                             $query2->orWhere('idDestinatario', '=', $ids[1]);
+                    })
+                ->get();
 
             $perfil1 = Perfil::where('idUtilizador', '=', $id1)
                                     ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')

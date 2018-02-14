@@ -136,38 +136,40 @@ class Anuncios extends Model {
             $args4['feedbackHigh'] = $feedbackHigh;
             
             $subQuery = DB::table('perfilTempoMarcados')->select('idCliente')
-                                ->where('perfilTempoMarcados.dataCorrespondente','<',$args1['dataFimDisponibilidade'])
-                                ->where('perfilTempoMarcados.dataCorrespondente','>',$args1['dataInicioDisponibilidade'])
+                                //->where('perfilTempoMarcados.dataCorrespondente','<',$args1['dataFimDisponibilidade'])
+                                //  ->where('perfilTempoMarcados.dataCorrespondente','>',$args1['dataInicioDisponibilidade'])
                                 ->get();
 
 
-            $anuncios = DB::table('anuncios')
-                                ->select('anuncios.*', 'perfil.*')
-                                ->join('users','users.id','=','anuncios.idUtilizador')
-                                ->join('perfil','perfil.idPerfil','=','anuncios.idPerfil')
+            $anuncios = DB::table('users')//table('anuncios')
+                                ->select(/*'anuncios.*',*/ 'perfil.*', 'users.*')
+                                //->join('users','users.id','=','anuncios.idUtilizador')
+                                ->join('perfil','users.id','=','perfil.idUtilizador')
+                                //->join('perfil','perfil.idPerfil','=','anuncios.idPerfil')
                                 ->join('perfilZonasAtuacao','perfilZonasAtuacao.idPerfil','=','perfil.idPerfil')
 
                                 ->join('concelhos','concelhos.idConcelho','=','perfilZonasAtuacao.idConcelho')
                                 ->join('distritos','distritos.idDistrito','=','concelhos.idDistrito')
                                 ->join('paises','paises.idPais','=','distritos.idPais')
 
-                                ->join('perfilTempoMarcados','perfilTempoMarcados.idCliente','=','users.id')
-                                ->join('EventosArtistasContratados','EventosArtistasContratados.idArtista','=','users.id')
-                                ->join('evento','evento.idEvento','=','EventosArtistasContratados.idEvento')
+                                //->join('perfilTempoMarcados','perfilTempoMarcados.idCliente','=','users.id')
+                                //->join('EventosArtistasContratados','EventosArtistasContratados.idArtista','=','users.id')
+                                //->join('evento','evento.idEvento','=','EventosArtistasContratados.idEvento')
 
                                 ->where('perfil.tipoUtilizador','=',1)
-                                ->where('users.estado','=',1)
-                                ->where('anuncios.estadoAnuncio','=',1)
+                                //->where('users.estado','=',1)
+                                //->where('anuncios.estadoAnuncio','=',1)
 
                                 ->where(function($q1) use ($pesquisaLivre) {
                                     if(!empty($pesquisaLivre)){
                                         $q1->orWhere('perfil.descricao','like','%'.$pesquisaLivre.'%');
+                                        $q1->orWhere('users.name','like','%'.$pesquisaLivre.'%');
                                         $q1->orWhere('perfil.observacoes','like','%'.$pesquisaLivre.'%');
                                         $q1->orWhere('perfil.estiloPrincipal','like','%'.$pesquisaLivre.'%');
                                         $q1->orWhere('anuncios.textoAnuncio','like','%'.$pesquisaLivre.'%');
                                     }
-                                })
-                                ->whereNotIn('users.id', $subQuery)
+                                }) 
+                                //->whereNotIn('users.id', $subQuery)
                                 ->where(function($q3) use ($args2) {
                                     if(!empty($args2['idConcelho']) && $args2['idConcelho'] > 0){
                                         $q3->where('perfilZonasAtuacao.idConcelho','=',$args2['idConcelho']);
@@ -180,14 +182,22 @@ class Anuncios extends Model {
                                     }
                                 })
                                 ->where(function($q4) use ($args3) {
-                                    if(!empty($args3['nrSeguidoresLow']) && !empty($args3['nrSeguidoresHigh']) && $args3['nrSeguidoresHigh'] > 0){
+                                    if(!empty($args3['nrSeguidoresHigh']) && $args3['nrSeguidoresHigh'] > 0){
                                         $q4->where('perfil.nrSeguidoresTotal','<',$args3['nrSeguidoresHigh']);
+                                    }
+                                })
+                                ->where(function($q4) use ($args3) {
+                                    if(!empty($args3['nrSeguidoresLow']) && $args3['nrSeguidoresLow'] > 0){
                                         $q4->where('perfil.nrSeguidoresTotal','>',$args3['nrSeguidoresLow']);
                                     }
                                 })
                                 ->where(function($q5) use ($args4) {
-                                    if(!empty($args4['feedbackLow']) && !empty($args4['feedbackHigh']) && $args4['feedbackHigh'] > 0){
+                                    if(!empty($args4['feedbackHigh']) && $args4['feedbackHigh'] > 0){
                                         $q5->where('perfil.feedbackGeral','<',$args4['feedbackHigh']);
+                                    }
+                                })
+                                ->where(function($q5) use ($args4) {
+                                    if(!empty($args4['feedbackLow']) && $args4['feedbackLow'] > 0){
                                         $q5->where('perfil.feedbackGeral','>',$args4['feedbackLow']);
                                     }
                                 })
@@ -196,10 +206,11 @@ class Anuncios extends Model {
                                         $q6->where('evento.idLocal','<',$localAtuacao);
                                     }
                                 })
-                                ->groupBy('anuncios.idAnuncio')
-                                ->orderBy('anuncios.patrocinado','DESC')
-                                ->orderByRaw('RAND()')
+                                //->groupBy('anuncios.idAnuncio')
+                                //->orderBy('anuncios.patrocinado','DESC')
+                                //->orderByRaw('RAND()')
                                 ->paginate($quantosPorPagina);
+
             
             return $anuncios;
     }

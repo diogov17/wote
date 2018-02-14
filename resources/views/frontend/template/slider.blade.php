@@ -9,7 +9,7 @@
 			<div id="custom-search-input">
 				<div class="input-group">
 					<input type="text" class=" search-query" placeholder="Ex.: Noite Branca, José Fernando,..." name="pesquisaLivre">
-					<input type="submit" class="btn_search" value="Pesquisar">
+					<input type="submit" class="btn_search" value="Pesquisar" id="search_button">
 				</div>
 				<ul>
 					<li>
@@ -34,3 +34,18 @@
 	</div>
 </div>
 <!-- /Hero -->
+
+<script type="text/javascript">
+
+$(window.parent.document).find("#search_button").click(function () {	     
+	var x = $.map($(window.parent.document).find('.searchable'), function (param) {
+        return   $('<input>', {
+            type: 'hidden',
+            name: param.name,
+            value: param.value
+        })
+    });
+$(this).append(x);
+});
+
+</script>
