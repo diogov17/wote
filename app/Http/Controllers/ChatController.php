@@ -53,8 +53,8 @@ class ChatController extends BaseController
         $nemails->save();
 
             $ids = array();
-            $ids[1] = $id1;
-            $ids[2] = $id2;
+            $ids[1] = $request->$id1;
+            $ids[2] = $request->$id2;
     
     $mensagens = DB::table('emails')
                     ->where(function($query1) use ($ids) {

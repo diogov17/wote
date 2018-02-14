@@ -20,7 +20,7 @@ Route::get('fã/{id}', 'FasController@pagina')->where('id', '([0-9]+)');
 Route::get('chat/{id1}/{id2}', 'ChatController@pagina')->where('id1', '([0-9]+)')
                                                        ->where('id2', '([0-9]+)');
 
-Route::post('/enviar/{id}/{id2}', 'ChatController@enviarMsg')->where('id1', '([0-9]+)')
+Route::post('enviar/{id1}/{id2}', 'ChatController@enviarMsg')->where('id1', '([0-9]+)')
                                                              ->where('id2', '([0-9]+)');
 
 Route::resource('artista', 'ArtistasController');

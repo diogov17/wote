@@ -55,10 +55,14 @@
 
               <?php } ?>
 
-                    
-
                     <div class="rela-block profile-name-container">
                         <div class="rela-block user-name" id="user_name">{{$artista->name}}</div>
+                        <?php if(Auth::user() && $pageId != Auth::user()->id) { ?>
+                          <form action="/chat/{{Auth::user()->id}}/{{$artista->id}}">
+                              <input type="submit" value="Message" />
+                          </form>
+                        <?php } ?>
+                        <br>
                         <div class="rela-block user-desc" id="user_description">{{$perfil->descricao}}</div>
                     </div>
                     <div class="rela-block profile-card-stats">
