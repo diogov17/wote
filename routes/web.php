@@ -17,8 +17,11 @@ Route::get('artista/{id}', 'ArtistasController@pagina')->where('id', '([0-9]+)')
 Route::get('organizador/{id}', 'OrganizadoresController@pagina')->where('id', '([0-9]+)');
 Route::get('evento/{id}', 'EventosController@pagina')->where('id', '([0-9]+)');
 Route::get('fã/{id}', 'FasController@pagina')->where('id', '([0-9]+)');
-Route::get('artistachat/{id1}%{id2}', 'ChatController@pagina')->where('id1', '([0-9]+)')
-                                                              ->where('id2', '([0-9]+)');
+Route::get('chat/{id1}/{id2}', 'ChatController@pagina')->where('id1', '([0-9]+)')
+                                                       ->where('id2', '([0-9]+)');
+
+Route::post('/enviar/{id}/{id2}', 'ChatController@enviarMsg')->where('id1', '([0-9]+)')
+                                                             ->where('id2', '([0-9]+)');
 
 Route::resource('artista', 'ArtistasController');
 Route::resource('organizador', 'OrganizadoresController');

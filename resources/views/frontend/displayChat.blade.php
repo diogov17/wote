@@ -9,55 +9,61 @@
 
 
     @section('conteudoPagina')
+    <head>
+        <script>
+          function submitmessage() {
+                $('input#mensagem').val($('textarea#usermsg').val());
+                //document.write($('input#mensagem').val());
+                $('form#messageform').submit();
+          }
+        </script>
+    <head/>
 
+    <body>
+        <div class="container">
 
-<body>
-   <div id="container">
+            <div id="wrapper">
+                <div id="menu">
+                    <br><br>
+                    <h2 text-align="center" class="welcome">A trocar mensagens com {{$nomes[$id2]->name}}</h2>
+                    <br>
+                    <?php $tipo = strtolower($perfil2->descricaoTipoConta) ?>
+                    <p class="logout"><a id="exit" href="{{ URL::to($tipo, ['id' => $perfil2->idUtilizador]) }}">Voltar ao Perfil de {{$nomes[$id2]->name}}</a></p>
+                    <div style="clear:both"></div>
+                </div>
 
-    <div id="wrapper">
-        <div id="menu">
-            <p class="welcome">A trocar mensagens com {{$artista->name}}<b></b></p>
-            <p class="logout"><a id="exit" href="/artista/"{{$perfil1->idUtilizador}}>Voltar ao Perfil de {{$artista->name}}</a></p>
-            <div style="clear:both"></div>
+                <div id="chatbox"></div> 
+                    <textarea name="ch" type="text" id="ch" rows="15" cols="70" readonly style= "margin: 0 auto;float: none;">
+                        @foreach ($emails as $m)
+                            {{$m->dataHoraCriacao}} ({{$nomes[$m->idRemetente]->name}}): {{$m->mensagem}}
+                        @endforeach
+                    </textarea>
+                    <br/>
+                    <textarea name="usermsg" type="text" id="usermsg" placeholder="Escreva aqui a sua mensagem" rows="5" cols="70" autofocus autocomplete="off">
+                    </textarea>
+                    <br/>
+                    <button type="button" onclick="submitmessage()" name="submitmsg" id="submitmsg">Enviar Mensagem</button>
+                <form name="messageform" id="messageform" action="{{ URL::to('enviar', ['id' => $perfil1->idUtilizador, 'id2' => $perfil2->idUtilizador]) }}" method="post" enctype="multipart/form-data">
+                    <input name="mensagem" type="hidden" id="mensagem" value="Default" >
+                    <input type="hidden" value="{{ csrf_token() }}" name="_token" >
+                </form>
+                <br><br>
+
+                <script>
+                    function getMsg() {
+                        return document.getElementById("usermsg").value;
+                    }
+                </script>
+            </div>
         </div>
 
-        <div id="chatbox"></div>
-        <form name="message" action="#">
-            <textarea name="usermsg" type="text" id="usermsg" rows="15" cols="70" readonly style= "margin: 0 auto;float: none;">
-                @foreach ($emails as $m)
-    				<br>{{$m->dataHoraCriacao}} {{$m->idRemetente}}: {{$m->mensagem}}</br>
-				@endforeach
-			</textarea>
-            <br />
-            <textarea name="usermsg" type="text" id="usermsg" placeholder="Escreva aqui a sua mensagem" rows="5" cols="70" autofocus autocomplete="off"></textarea>
-            <br />
-            <input name="Enviar Mensagem" type="submit" id="submitmsg" value="Enviar Mensagem" />
-        </form>
-    </div>
-    </div>
-    <script>
-		function msg($a){
 
-		$nemails = new Emails();
-		$nemails.idEmail           = 1;
-		$nemails.idRemetente       = 1;
-		$nemails.idDestinatario    = 1;
-		$nemails.idPasta           = 1;
-		$nemails.dataHoraCriacao   = 1;
-		$nemails.visto             = 1;
-		$nemails.mensagem          = $a;
-		$nemails.idPedidoOrcamento = 0;
-		$nemails.idEmailResposta   = 0;
-		}
-    </script>
+    </body>
 
 
-</body>
+    @stop
 
-
-@stop
-
-@section('scriptsFooter')
+    @section('scriptsFooter')
 
 
 @stop

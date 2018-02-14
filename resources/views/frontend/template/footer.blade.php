@@ -38,9 +38,9 @@
 						<h5>Segue-nos!</h5>
 						<ul>
 							<li><a href="#0"><i class="social_facebook"></i></a></li>
-							<li><a href="#0"><i class="social_twitter"></i></a></li>
-							<li><a href="#0"><i class="social_linkedin"></i></a></li>
-							<li><a href="#0"><i class="social_instagram"></i></a></li>
+							<li><a href="https://twitter.com/WoteUminho"><i class="social_twitter"></i></a></li>
+							<li><a href="https://www.linkedin.com/in/wote-8a2a10159/"><i class="social_linkedin"></i></a></li>
+							<li><a href="https://www.instagram.com/wote_uminho/"><i class="social_instagram"></i></a></li>
 						</ul>
 					</div>
 				</div>

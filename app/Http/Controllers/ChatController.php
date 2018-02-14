@@ -18,6 +18,8 @@ use App\Http\Models\PerfilGaleria;
 use App\Http\Models\Emails;
 
 
+
+
 class ChatController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -34,11 +36,66 @@ class ChatController extends BaseController
        
     }
 
+
+    public function enviarMsg(Request $request)
+    {
+        $nemails = new Emails;
+        $nemails->idRemetente       = 1;
+        $nemails->idDestinatario    = 9;
+        $nemails->idPasta           = 0;
+        $nemails->dataHoraCriacao   = date('Y-m-d H:i:s');
+        $nemails->visto             = 1;
+        $nemails->mensagem          = $request->mensagem;
+        $nemails->idPedidoOrcamento = 1;
+        $nemails->idEmailResposta   = 0;
+
+
+        $nemails->save();
+
+            $mensagens = Emails::where(funtion($query) {
+                                $query->where('idRemetente', '=', $id1)
+                                      ->where('idDestinatario', '=', $id2);
+                            })
+                            ->orWhere(function($query) {
+                                $query->where('idRemetente', '=', $id2)
+                                      ->where('idDestinatario', '=', $id1);
+                            })
+                            ->distinct()
+                            ->get();
+
+            $perfil1 = Perfil::where('idUtilizador', '=', $id1)
+                                    ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')
+                                    ->get();
+            $perfil2 = Perfil::where('idUtilizador', '=', $id2)
+                                    ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')
+                                    ->get();
+
+            $nomes = array();
+            $tmpartistas = Utilizador::getAllArtistas("");
+            $tmporganizadores = Utilizador::getAllOrganizadores("");
+            
+            foreach ($tmpartistas as $artista) 
+                $nomes[$artista->id] = $artista;
+
+            foreach ($tmporganizadores as $organizador) 
+                $nomes[$organizador->id] = $organizador;
+
+            if (count($perfil1) > 0 && count($perfil2) > 0) 
+                return view('frontend.displayChat')
+                            ->with('perfil1', $perfil1[0])
+                            ->with('perfil2', $perfil2[0])
+                            ->with('emails', $mensagens)
+                            ->with('nomes', $nomes)
+                            ->with('id1', $id1)
+                            ->with('id2', $id2)
+                            ->with('tipoPesquisa', 1);
+            else return view('frontend.errorPerfil');
+
+    }
     
     public function store(Request $request)
     {
 
-      
     }
 
   
@@ -58,26 +115,37 @@ class ChatController extends BaseController
 
     public function pagina($id1,$id2)
     {
-            $mensagens = Emails::where('idRemetente', '=', $id1,'AND',
-                                       'idDestinatario', '=', $id2,'OR',
-                                       'idRemetente', '=', $id2,'AND',
-                                       'idDestinatario', '=', $id1)
-                                        ->distinct()
-                                        ->get();
-
-            $artista = Utilizador::isArtista($id1);
+            $mensagens = Emails::where('idRemetente', '=', $id1, 'idDestinatario', '=', $id2)
+                             ->orwhere('idRemetente', '=', $id2, 'idDestinatario', '=', $id1)
+                             ->distinct()
+                             ->get();
 
             $perfil1 = Perfil::where('idUtilizador', '=', $id1)
+                                    ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')
                                     ->get();
             $perfil2 = Perfil::where('idUtilizador', '=', $id2)
+                                    ->join('usersTipologia', 'perfil.tipoUtilizador', '=', 'usersTipologia.idTipoConta')
                                     ->get();
 
-            if (count($perfil1) && count($perfil2) > 0) 
+            $nomes = array();
+            $tmpartistas = Utilizador::getAllArtistas("");
+            $tmporganizadores = Utilizador::getAllOrganizadores("");
+            
+            foreach ($tmpartistas as $artista) 
+                $nomes[$artista->id] = $artista;
+
+            foreach ($tmporganizadores as $organizador) 
+                $nomes[$organizador->id] = $organizador;
+                
+
+            if (count($perfil1) > 0 && count($perfil2) > 0) 
                 return view('frontend.displayChat')
-                            ->with('artista', $artista[0])
                             ->with('perfil1', $perfil1[0])
                             ->with('perfil2', $perfil2[0])
                             ->with('emails', $mensagens)
+                            ->with('nomes', $nomes)
+                            ->with('id1', $id1)
+                            ->with('id2', $id2)
                             ->with('tipoPesquisa', 1);
             else return view('frontend.errorPerfil');
     }
